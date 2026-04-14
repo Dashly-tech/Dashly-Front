@@ -1,0 +1,32 @@
+.whatsapp-checkout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.whatsapp-checkout:hover {
+  transform: translateY(-1px);
+}
+
+.whatsapp-checkout:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.whatsapp-checkout svg {
+  font-size: 20px;
+}

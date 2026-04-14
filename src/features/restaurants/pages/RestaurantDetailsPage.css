@@ -1,0 +1,101 @@
+.restaurant-details-page {
+  padding: 40px 0 80px;
+}
+
+.restaurant-details-page__container {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+}
+
+.restaurant-details-page__hero {
+  margin-bottom: 40px;
+}
+
+.restaurant-details-page__cover {
+  width: 100%;
+  height: 300px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 24px;
+}
+
+.restaurant-details-page__info {
+  max-width: 760px;
+}
+
+.restaurant-details-page__type {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ff8750;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restaurant-details-page__title {
+  margin: 0 0 14px;
+  color: white;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.restaurant-details-page__description {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.restaurant-details-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+}
+
+.restaurant-details-page__menu-title {
+  margin: 0 0 24px;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.restaurant-details-page__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .restaurant-details-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-details-page__container {
+    width: min(100% - 24px, 1280px);
+  }
+
+  .restaurant-details-page__cover {
+    height: 220px;
+    border-radius: 22px;
+  }
+
+  .restaurant-details-page__title {
+    font-size: 32px;
+  }
+
+  .restaurant-details-page__description {
+    font-size: 15px;
+  }
+
+  .restaurant-details-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

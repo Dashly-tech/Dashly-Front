@@ -1,0 +1,41 @@
+.delivery-form {
+  margin-top: 24px;
+}
+
+.delivery-form__title {
+  margin-bottom: 16px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.delivery-form__group {
+  margin-bottom: 14px;
+}
+
+.delivery-form__label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.delivery-form__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+}
+
+.delivery-form__input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.delivery-form__input:focus {
+  border-color: rgba(255, 255, 255, 0.18);
+}

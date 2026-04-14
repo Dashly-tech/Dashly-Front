@@ -1,0 +1,37 @@
+.featured {
+  padding: 60px 0;
+}
+
+.featured__container {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+}
+
+.featured__title {
+  margin: 0 0 24px;
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured__container {
+    width: min(100% - 24px, 1280px);
+  }
+
+  .featured__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+.cart-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 22px;
+  border: none;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cart-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.cart-button:active {
+  transform: translateY(0);
+}
+
+.cart-button--active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.cart-button svg {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.cart-button span {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}

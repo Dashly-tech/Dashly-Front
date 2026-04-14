@@ -1,0 +1,41 @@
+.restaurants-page {
+  padding: 40px 0 80px;
+}
+
+.restaurants-page__container {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+}
+
+.restaurants-page__title {
+  margin: 0 0 24px;
+  color: white;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .restaurants-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurants-page__container {
+    width: min(100% - 24px, 1280px);
+  }
+
+  .restaurants-page__title {
+    font-size: 30px;
+  }
+
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+}

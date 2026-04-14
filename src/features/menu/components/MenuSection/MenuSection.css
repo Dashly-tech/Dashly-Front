@@ -1,0 +1,16 @@
+.menu-section {
+  padding: 40px 0 80px;
+}
+
+.menu-section__container {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+}
+
+.menu-section__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+  
+}
