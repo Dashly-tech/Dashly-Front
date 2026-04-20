@@ -1,4 +1,7 @@
 import "./Footer.css";
+import { FaInstagram } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
@@ -8,10 +11,10 @@ export default function Footer() {
           <div className="footer__brand">
             <div className="navbar__logo-box">
               <img
-                src="https://i.postimg.cc/KY7jPfrS/ddddd.jpg"
-                alt="Dashly logo"
-                className="navbar__logo"
-              />
+              src="/dashlyyy.svg"
+              alt="Dashly logo"
+              className="footer__logo"
+            />
             </div>
 
             <div>
@@ -21,6 +24,19 @@ export default function Footer() {
                 personal touch.
               </p>
             </div>
+          <div className="footer__socials">
+  <a href="mailto:dashly.fast@gmail.com">
+    <MdEmail />
+  </a>
+
+  <a href="https://www.instagram.com/dashly.fast/" target="_blank">
+    <FaInstagram />
+  </a>
+
+  <a href="https://www.tiktok.com/@dashly.fast?is_from_webapp=1&sender_device=pc" target="_blank">
+    <FaTiktok />
+  </a>
+</div>
           </div>
 
           <div className="footer__columns">
@@ -36,8 +52,8 @@ export default function Footer() {
             <div className="footer__column">
               <h4 className="footer__heading">Contact</h4>
               <ul className="footer__list">
-                <li><a href="tel:+994501234567">+994 50 123 45 67</a></li>
-                <li><a href="mailto:hello@dashly.az">hello@dashly.az</a></li>
+                <li><a href="tel:+994501234567">+994 ###########</a></li>
+                <li><a href="mailto:hello@dashly.az">dashly.fast@gmail.com</a></li>
                 <li>Baku, Azerbaijan</li>
               </ul>
             </div>

@@ -1,50 +1,82 @@
+import { useState } from "react";
 import "./HeroGallery.css";
 
-export default function HeroGallery() {
-  return (
-    <section className="about-highlight">
-      <div className="about-highlight__container">
-        <div className="about-highlight__intro">
-          <span className="about-highlight__badge">Why Dashly</span>
+const aboutItems = [
+  {
+    id: 1,
+    title: "Direct restaurant orders",
+    text: "Customers place orders directly with restaurants through their own dedicated WhatsApp flow.",
+  },
+  {
+    id: 2,
+    title: "Better prices",
+    text: "Fewer middle layers means more transparent pricing and better value for both customers and restaurant owners.",
+  },
+  {
+    id: 3,
+    title: "Faster communication",
+    text: "Orders, notes, and delivery details move quickly and clearly, which improves the overall ordering experience.",
+  },
+];
 
-          <h2 className="about-highlight__title">
+export default function HeroGallery() {
+  const [openId, setOpenId] = useState<number | null>(1);
+
+  const handleToggle = (id: number) => {
+    setOpenId((prev) => (prev === id ? null : id));
+  };
+
+  return (
+    <section className="about-dropdown">
+      <div className="about-dropdown__container">
+        <div className="about-dropdown__intro">
+          <span className="about-dropdown__badge">Why Dashly</span>
+
+          <h2 className="about-dropdown__title">
             A smarter way to connect customers with restaurants
           </h2>
 
-          <p className="about-highlight__description">
+          <p className="about-dropdown__description">
             Dashly helps users discover restaurants, explore menus, and send
-            orders directly without unnecessary middlemen. It is faster, more
-            personal, and better for both sides.
+            orders directly without unnecessary middlemen.
           </p>
         </div>
 
-        <div className="about-highlight__grid">
-          <article className="about-highlight__card about-highlight__card--orange">
-            <span className="about-highlight__card-number">01</span>
-            <h3 className="about-highlight__card-title">Direct restaurant orders</h3>
-            <p className="about-highlight__card-text">
-              Customers place orders directly with restaurants through their own
-              dedicated WhatsApp flow.
-            </p>
-          </article>
+        <div className="about-dropdown__box">
+          {aboutItems.map((item, index) => {
+            const isOpen = openId === item.id;
 
-          <article className="about-highlight__card about-highlight__card--purple">
-            <span className="about-highlight__card-number">02</span>
-            <h3 className="about-highlight__card-title">Better prices</h3>
-            <p className="about-highlight__card-text">
-              Fewer middle layers means more transparent pricing and better value
-              for both customers and restaurant owners.
-            </p>
-          </article>
+            return (
+              <div
+                key={item.id}
+                className={`about-dropdown__item ${isOpen ? "is-open" : ""}`}
+              >
+                <button
+                  type="button"
+                  className="about-dropdown__trigger"
+                  onClick={() => handleToggle(item.id)}
+                >
+                  <span className="about-dropdown__number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-          <article className="about-highlight__card about-highlight__card--green">
-            <span className="about-highlight__card-number">03</span>
-            <h3 className="about-highlight__card-title">Faster communication</h3>
-            <p className="about-highlight__card-text">
-              Orders, notes, and delivery details move quickly and clearly, which
-              improves the overall ordering experience.
-            </p>
-          </article>
+                  <span className="about-dropdown__item-title">
+                    {item.title}
+                  </span>
+
+                  <span className="about-dropdown__icon">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="about-dropdown__content">
+                    <p>{item.text}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -35,16 +35,21 @@
 }
 
 .navbar__logo-box {
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
 .navbar__logo {
+  width: 100%;
   height: 100%;
-  width: auto;
   object-fit: contain;
+  display: block;
+    filter: drop-shadow(0 6px 16px rgba(255, 90, 120, 0.25));
+
 }
 
 .navbar__brand-text {
@@ -144,4 +149,6 @@
     padding: 8px 12px;
     font-size: 12px;
   }
+  
 }
+

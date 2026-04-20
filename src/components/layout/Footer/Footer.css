@@ -29,15 +29,17 @@
 }
 
 .footer__logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid ;
   flex-shrink: 0;
+  border-radius: 50%;
 
-  background: linear-gradient(135deg, #ff7b54, #ff4d8d);
-  box-shadow:
-    0 10px 30px rgba(255, 100, 80, 0.25),
-    0 0 20px rgba(255, 80, 140, 0.18);
+  object-fit: contain;
+  display: block;
+
+  /* ✨ glow */
+  filter: drop-shadow(0 8px 20px rgba(255, 90, 120, 0.25));
 }
 
 .footer__brand-title {
@@ -53,6 +55,46 @@
   color: rgba(255, 255, 255, 0.64);
   font-size: 15px;
   line-height: 1.7;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.footer__socials a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 18px;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.footer__socials a:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 123, 84, 0.18), rgba(255, 77, 141, 0.22));
+  border-color: rgba(255, 132, 98, 0.4);
+  color: white;
+  box-shadow: 0 12px 24px rgba(255, 90, 120, 0.18);
+}
+
+.footer__socials a:focus-visible {
+  outline: 2px solid rgba(255, 132, 98, 0.7);
+  outline-offset: 3px;
 }
 
 .footer__columns {
@@ -139,6 +181,17 @@
 
   .footer__brand-title {
     font-size: 20px;
+  }
+
+  .footer__socials {
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .footer__socials a {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
   }
 
   .footer__columns {

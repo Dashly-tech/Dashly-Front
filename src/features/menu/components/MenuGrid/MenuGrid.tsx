@@ -8,10 +8,12 @@ type Props = {
 };
 
 export default function MenuGrid({ category }: Props) {
+  const premiumItems = mockMenu.filter((item) => item.showInPremiumMenu);
+
   const filtered =
     category === "All"
-      ? mockMenu
-      : mockMenu.filter((item) => item.category === category);
+      ? premiumItems
+      : premiumItems.filter((item) => item.category === category);
 
   return (
     <div className="menu-grid">

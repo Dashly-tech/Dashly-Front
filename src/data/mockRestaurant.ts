@@ -55,4 +55,18 @@ export const mockRestaurants: Restaurant[] = [
     cuisineType: "Japanese",
     isFeatured: true,
   },
+  {
+    id: 4,
+    name: "Dadlı Dönər",
+    slug: "dadli-donər",
+    logo: "https://images.unsplash.com/photo-1551288049-bebda4e3d606?w=300",
+    coverImage:
+      "https://i.postimg.cc/NGbJ4PdS/dadli.jpg",
+    description: "Delicious doner kebab.",
+    whatsappNumber: "994776350039",
+    address: "Baku, Heydar Aliyev street",
+    locationText: "Arif Heyderov 128, Baku",
+    cuisineType: "Azerbaijani",
+    isFeatured: true,
+  }
 ];

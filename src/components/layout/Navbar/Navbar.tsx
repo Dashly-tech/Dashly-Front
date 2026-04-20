@@ -12,11 +12,13 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar__container">
+
         <div className="navbar__top">
+          {/* LOGO */}
           <Link to="/" className="navbar__brand">
             <div className="navbar__logo-box">
               <img
-                src="https://i.postimg.cc/KY7jPfrS/ddddd.jpg"
+                src="/dashlyyy.svg"
                 alt="Dashly logo"
                 className="navbar__logo"
               />
@@ -25,10 +27,12 @@ export default function Navbar() {
             <span className="navbar__brand-text">Dashly</span>
           </Link>
 
+          {/* SEARCH (desktop) */}
           <div className="navbar__search navbar__search--desktop">
             <SearchBar />
           </div>
 
+          {/* RIGHT */}
           <div className="navbar__right">
             <Link to="/restaurants" className="navbar__browse-btn">
               Browse Restaurants
@@ -38,9 +42,11 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* SEARCH (mobile) */}
         <div className="navbar__search navbar__search--mobile">
           <SearchBar />
         </div>
+
       </div>
     </header>
   );
