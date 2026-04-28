@@ -52,28 +52,35 @@ export default function ProductCard({
         />
 
         <span className="product-card__price-badge">${item.price}</span>
+        {
+          restaurantName  === "Dadlı Dönər" &&  <span className="product-card__delivery-badge">Çatdırılma yalnız:<span>Nərimanova</span></span>
+        }
+       
       </div>
 
       <div className="product-card__body">
-        <span className="product-card__category">{item.category}</span>
+        <div>
+          <span className="product-card__category">{item.category}</span>
 
-        <h3 className="product-card__title">{item.name}</h3>
+          <h3 className="product-card__title">{item.name}</h3>
 
-        {(restaurantName || restaurantLocation) && (
-          <div className="product-card__restaurant-meta">
-            {restaurantName && (
-              <p className="product-card__restaurant-name">{restaurantName}</p>
-            )}
+          {(restaurantName || restaurantLocation) && (
+            <div className="product-card__restaurant-meta">
+              {restaurantName && (
+                <p className="product-card__restaurant-name">{restaurantName}</p>
+              )}
 
-            {restaurantLocation && (
-              <p className="product-card__restaurant-location">
-                {restaurantLocation}
-              </p>
-            )}
-          </div>
-        )}
+              {restaurantLocation && (
+                <p className="product-card__restaurant-location">
+                  {restaurantLocation}
+                </p>
+              )}
+            </div>
+          )}
 
-        <p className="product-card__description">{item.description}</p>
+          <p className="product-card__description">{item.description}</p>
+
+        </div>
 
         <button
           type="button"
