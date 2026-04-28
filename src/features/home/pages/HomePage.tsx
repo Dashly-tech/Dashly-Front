@@ -4,7 +4,9 @@ import HeroGallery from "../components/HeroGallery/HeroGallery";
 import MenuSection from "../../menu/components/MenuSection/MenuSection";
 import RestaurantShowcase from "../components/RestaurantShowcase/RestaurantShowcase";
 import FeaturedDishesSection from "../components/FeaturedDishesSection/FeaturedDishesSection";
+import { usePageTracking } from "../../../utils/usePageTracking ";
 export default function HomePage() {
+  usePageTracking();
   return (
     <MainLayout>
       <HeroSection />

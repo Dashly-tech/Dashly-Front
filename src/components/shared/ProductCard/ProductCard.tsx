@@ -1,5 +1,6 @@
 import { useCartStore } from "../../../app/store/cart.store";
 import type { MenuItem } from "../../../data/mockMenu";
+import { trackAddToCart } from "../../../utils/analytics";
 import "./ProductCard.css";
 
 type ProductCardProps = {
@@ -40,6 +41,8 @@ export default function ProductCard({
         whatsappNumber: restaurant.whatsappNumber,
       }
     );
+
+    trackAddToCart(item);
   };
 
   return (
