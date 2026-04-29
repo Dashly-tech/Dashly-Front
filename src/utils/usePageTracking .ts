@@ -7,7 +7,7 @@ declare global {
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-const GA_ID = "G-KSWLK2ZP5J";
+const GA_ID = "G-S686456DD2";
 
 export const usePageTracking = () => {
   const location = useLocation();
