@@ -6,6 +6,7 @@ import DeliveryForm from "../../../features/cart/components/DeliveryForm/Deliver
 import SpecialRequests from "../../../features/cart/components/SpecialRequests/SpecialRequests";
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
 import "./CartDrawer.css";
+import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 export default function CartDrawer() {
   const isCartOpen = useUIStore((state) => state.isCartOpen);
@@ -32,8 +33,7 @@ export default function CartDrawer() {
     if (!restaurantWhatsappNumber) return;
 
     const messageLines = [
-      `Hello, I want to place an order from ${
-        restaurantName || "this restaurant"
+      `Hello, I want to place an order from ${restaurantName || "this restaurant"
       }:`,
       "",
       ...items.map(
@@ -102,14 +102,23 @@ export default function CartDrawer() {
                   <div className="cart-item__quantity">
                     <button
                       type="button"
-                      onClick={() => decreaseQuantity(item.id)}
+                      onClick={() => {
+                        decreaseQuantity(item.id);
+
+                        trackRemoveFromCart(item, 1); 
+                      }}
                     >
                       -
                     </button>
                     <span>{item.quantity}</span>
                     <button
                       type="button"
-                      onClick={() => increaseQuantity(item.id)}
+                      onClick={() => {
+                        increaseQuantity(item.id);
+
+                        trackAddToCart(item, 1);
+                      }}
+
                     >
                       +
                     </button>
@@ -118,7 +127,11 @@ export default function CartDrawer() {
                   <button
                     type="button"
                     className="cart-item__remove"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => {
+                      removeItem(item.id);
+
+                      trackRemoveFromCart(item, item.quantity); 
+                    }}
                   >
                     Remove
                   </button>
