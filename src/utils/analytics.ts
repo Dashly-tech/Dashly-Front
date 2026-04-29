@@ -1,6 +1,6 @@
 export const trackAddToCart = (product: any, quantity: number = 1) => {
   window.gtag("event", "add_to_cart", {
-    currency: "USD", // istəsən "AZN"
+    currency: "Azn", 
     value: product.price * quantity,
     items: [
       {
@@ -15,7 +15,7 @@ export const trackAddToCart = (product: any, quantity: number = 1) => {
 
 export const trackRemoveFromCart = (product: any, quantity: number = 1) => {
   window.gtag("event", "remove_from_cart", {
-    currency: "USD",
+    currency: "Azn",
     value: product.price * quantity,
     items: [
       {
