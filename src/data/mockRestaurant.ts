@@ -10,8 +10,8 @@ export type Restaurant = {
   locationText: string;
   cuisineType: string;
   isFeatured?: boolean;
-
-   location: {
+  isActive?: boolean;
+  location: {
     lat: number;
     lng: number;
   };
@@ -32,7 +32,7 @@ export const mockRestaurants: Restaurant[] = [
     locationText: "Nizami, Baku",
     cuisineType: "Italian",
     isFeatured: true,
-
+    isActive: false,
     location: { lat: 40.3777, lng: 49.8920 },
     deliveryRadiusKm: 5,
   },
@@ -49,8 +49,8 @@ export const mockRestaurants: Restaurant[] = [
     locationText: "28 May, Baku",
     cuisineType: "Fast Food",
     isFeatured: true,
-
-      location: { lat: 40.4093, lng: 49.8671 },
+    isActive: false,
+    location: { lat: 40.4093, lng: 49.8671 },
     deliveryRadiusKm: 4,
   },
   {
@@ -66,9 +66,9 @@ export const mockRestaurants: Restaurant[] = [
     locationText: "Yasamal, Baku",
     cuisineType: "Japanese",
     isFeatured: true,
-
-     location: { lat: 40.3976, lng: 49.8574 },
-    deliveryRadiusKm: 20,
+    isActive: false,
+    location: { lat: 40.3976, lng: 49.8574 },
+    deliveryRadiusKm: 5,
   },
   {
     id: 4,
@@ -83,8 +83,8 @@ export const mockRestaurants: Restaurant[] = [
     locationText: "Arif Heyderov 128, Baku",
     cuisineType: "Azerbaijani",
     isFeatured: true,
-    
-     location: { lat: 40.4076, lng: 49.8590 },
+    isActive: true,
+    location: { lat: 40.4076, lng: 49.8590 },
     deliveryRadiusKm: 3,
   }
 ];

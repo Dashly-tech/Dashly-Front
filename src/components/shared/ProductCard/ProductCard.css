@@ -29,8 +29,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
-
+  position: relative;
   transition: transform 0.4s ease;
+}
+
+.inactive-img {
+  filter: blur(2px) brightness(0.5);
 }
 
 .product-card:hover .product-card__image {
@@ -201,4 +205,26 @@
 .delivery-badge.error {
   background: rgba(255,77,79,0.1);
   color: #ff4d4f;
+}
+
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.lock {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 5px;
 }

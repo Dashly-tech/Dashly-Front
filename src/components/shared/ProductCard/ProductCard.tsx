@@ -5,6 +5,8 @@ import { MdDeliveryDining } from "react-icons/md";
 import { HiOutlineXCircle } from "react-icons/hi2";
 import { useDelivery } from "../../../utils/useDelivery";
 import { useEffect } from "react";
+import { CiLock } from "react-icons/ci";
+
 type ProductCardProps = {
   item: MenuItem;
   restaurant?: {
@@ -17,6 +19,7 @@ type ProductCardProps = {
   };
   restaurantName?: string;
   restaurantLocation?: string;
+  isActive?: boolean;
 };
 
 export default function ProductCard({
@@ -24,6 +27,7 @@ export default function ProductCard({
   restaurant,
   restaurantName,
   restaurantLocation,
+  isActive,
 }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   const { status, check } = useDelivery();
@@ -60,10 +64,19 @@ useEffect(()=>{
         <img
           src={item.image}
           alt={item.name}
-          className="product-card__image"
+          className={!isActive ? "inactive-img" : ""+ "product-card__image"}
         />
 
         <span className="product-card__price-badge">${item.price}</span>
+
+        {isActive === false && (
+          <div className="overlay">
+            <div className="overlay-content">
+              <span className="lock"><CiLock size={24}  /></span>
+              <p>Deactive Restaurant powered by AI</p>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="product-card__body">
@@ -101,7 +114,7 @@ useEffect(()=>{
           type="button"
           className="product-card__btn"
           onClick={handleAddToCart}
-          disabled={!restaurant || status === "unavailable"}
+          disabled={!restaurant || status === "unavailable" || isActive === false}
         >
           Add to cart  
         </button>

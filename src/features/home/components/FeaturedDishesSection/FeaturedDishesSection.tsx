@@ -35,6 +35,7 @@ export default function FeaturedDishesSection() {
                 }}
                 restaurantName={restaurant.name}
                 restaurantLocation={restaurant.locationText}
+                isActive={restaurant.isActive}
               />
             );
           })}
