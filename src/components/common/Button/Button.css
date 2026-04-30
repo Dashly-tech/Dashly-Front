@@ -1,0 +1,33 @@
+.scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 14px 18px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  transition: all 0.3s ease;
+
+  background: linear-gradient(135deg, #ff7a7a, #ff4d88);
+  color: white;
+  box-shadow: 0 10px 25px rgba(255, 100, 150, 0.4);
+
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+.scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scrollTopBtn:hover {
+  transform: scale(1.1);
+}
