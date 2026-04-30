@@ -132,9 +132,6 @@ const handleClose = () => {
 
                 <div className="cart-item__actions">
                   <div className="cart-item__quantity">
-                    <button type="button" onClick={() => decreaseQuantity(item.id)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button type="button" onClick={() => increaseQuantity(item.id)}>+</button>
                     <button
                       type="button"
                       onClick={() => {
