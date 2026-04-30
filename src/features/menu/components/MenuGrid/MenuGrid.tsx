@@ -32,9 +32,13 @@ export default function MenuGrid({ category }: Props) {
               id: restaurant.id,
               name: restaurant.name,
               whatsappNumber: restaurant.whatsappNumber,
+              restaurantLat: restaurant.location.lat,
+              restaurantLng: restaurant.location.lng,
+              deliveryRadiusKm: restaurant.deliveryRadiusKm,
             }}
             restaurantName={restaurant.name}
             restaurantLocation={restaurant.locationText}
+            isActive={restaurant.isActive}
           />
         );
       })}

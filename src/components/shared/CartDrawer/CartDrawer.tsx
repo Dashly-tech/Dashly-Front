@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { useCartStore } from "../../../app/store/cart.store";
 import { useUIStore } from "../../../app/store/ui.store";
 import DeliveryForm from "../../../features/cart/components/DeliveryForm/DeliveryForm";
 import SpecialRequests from "../../../features/cart/components/SpecialRequests/SpecialRequests";
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
+import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/DeliveryChecker";
+import { mockRestaurants } from "../../../data/mockRestaurant";
 import "./CartDrawer.css";
+import { toast, ToastContainer } from "react-toastify";
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 export default function CartDrawer() {
+  const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(null); //  çatdırılma statusu
+
   const isCartOpen = useUIStore((state) => state.isCartOpen);
   const closeCart = useUIStore((state) => state.closeCart);
 
   const items = useCartStore((state) => state.items);
+  const restaurantId = useCartStore((state) => state.restaurantId);           //  store-dan restaurantId alınır
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const removeItem = useCartStore((state) => state.removeItem);
   const totalPrice = useCartStore((state) => state.getTotalPrice());
-  const restaurantWhatsappNumber = useCartStore(
-    (state) => state.restaurantWhatsappNumber
-  );
+  const restaurantWhatsappNumber = useCartStore((state) => state.restaurantWhatsappNumber);
   const restaurantName = useCartStore((state) => state.restaurantName);
 
   const [fullName, setFullName] = useState("");
@@ -27,10 +31,44 @@ export default function CartDrawer() {
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
 
+  useEffect(() => {
+  if (items.length === 0) {
+    setDeliveryAvailable(null);
+  }
+}, [items.length]);
+
+
+  //  restaurantId ilə mock datadan restoran tapılır
+  const restaurant = mockRestaurants.find((r) => r.id === restaurantId);
+
   if (!isCartOpen) return null;
 
+const handleClose = () => {
+  setDeliveryAvailable(null); 
+  closeCart();
+};
   const handleWhatsappOrder = () => {
+
+
+    if (deliveryAvailable === null) {
+    toast("Please check delivery availability first", {
+
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
+    return;
+  }
+
+  if (deliveryAvailable === false) {
+    toast.error("Delivery is not available to your location");
+    return;
+  }
     if (!restaurantWhatsappNumber) return;
+
+    
 
     const messageLines = [
       `Hello, I want to place an order from ${restaurantName || "this restaurant"
@@ -38,9 +76,7 @@ export default function CartDrawer() {
       "",
       ...items.map(
         (item) =>
-          `- ${item.name} x${item.quantity} - $${(
-            item.price * item.quantity
-          ).toFixed(2)}`
+          `- ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
       ),
       "",
       `Total: $${totalPrice.toFixed(2)}`,
@@ -53,7 +89,6 @@ export default function CartDrawer() {
 
     const message = encodeURIComponent(messageLines.join("\n"));
     const url = `https://wa.me/${restaurantWhatsappNumber}?text=${message}`;
-
     window.open(url, "_blank");
   };
 
@@ -62,21 +97,18 @@ export default function CartDrawer() {
     !fullName.trim() ||
     !phone.trim() ||
     !address.trim() ||
-    !restaurantWhatsappNumber;
+    !restaurantWhatsappNumber ||
+    deliveryAvailable === false;
 
   return (
     <div className="cart-drawer">
-      <div className="cart-drawer__backdrop" onClick={closeCart}></div>
+      <ToastContainer position="top-center" autoClose={3000} />
+      <div className="cart-drawer__backdrop" onClick={ handleClose }></div>
 
       <aside className="cart-drawer__panel">
         <div className="cart-drawer__header">
           <h2 className="cart-drawer__title">Your Cart</h2>
-
-          <button
-            type="button"
-            className="cart-drawer__close"
-            onClick={closeCart}
-          >
+          <button type="button" className="cart-drawer__close" onClick={ handleClose }>
             <HiOutlineXMark />
           </button>
         </div>
@@ -100,6 +132,9 @@ export default function CartDrawer() {
 
                 <div className="cart-item__actions">
                   <div className="cart-item__quantity">
+                    <button type="button" onClick={() => decreaseQuantity(item.id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button type="button" onClick={() => increaseQuantity(item.id)}>+</button>
                     <button
                       type="button"
                       onClick={() => {
@@ -140,6 +175,16 @@ export default function CartDrawer() {
             ))
           )}
 
+          {/* restoran tapıldısa və səbət doludursa DeliveryChecker göstərilir */}
+          {restaurant && items.length > 0 && (
+            <DeliveryChecker
+              restaurantLat={restaurant.location.lat}
+              restaurantLng={restaurant.location.lng}
+              radiusKm={restaurant.deliveryRadiusKm}
+              onResult={(available) => setDeliveryAvailable(available)}
+            />
+          )}
+
           <DeliveryForm
             fullName={fullName}
             phone={phone}
@@ -153,6 +198,14 @@ export default function CartDrawer() {
         </div>
 
         <div className="cart-drawer__footer">
+          
+          {/* çatdırılma yoxdursa xəbərdarlıq göstərilir */}
+          {deliveryAvailable === false && (
+            <p className="cart-drawer__no-delivery">
+               Delivery is not available to your location
+            </p>
+          )}
+
           <div className="cart-drawer__total">
             <span>Total</span>
             <strong>${totalPrice.toFixed(2)}</strong>
