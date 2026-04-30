@@ -9,6 +9,7 @@ import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/D
 import { mockRestaurants } from "../../../data/mockRestaurant";
 import "./CartDrawer.css";
 import { toast, ToastContainer } from "react-toastify";
+import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 export default function CartDrawer() {
   const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(null); //  çatdırılma statusu
@@ -70,7 +71,8 @@ const handleClose = () => {
     
 
     const messageLines = [
-      `Hello, I want to place an order from ${restaurantName || "this restaurant"}:`,
+      `Hello, I want to place an order from ${restaurantName || "this restaurant"
+      }:`,
       "",
       ...items.map(
         (item) =>
@@ -133,12 +135,38 @@ const handleClose = () => {
                     <button type="button" onClick={() => decreaseQuantity(item.id)}>-</button>
                     <span>{item.quantity}</span>
                     <button type="button" onClick={() => increaseQuantity(item.id)}>+</button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        decreaseQuantity(item.id);
+
+                        trackRemoveFromCart(item, 1); 
+                      }}
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        increaseQuantity(item.id);
+
+                        trackAddToCart(item, 1);
+                      }}
+
+                    >
+                      +
+                    </button>
                   </div>
 
                   <button
                     type="button"
                     className="cart-item__remove"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => {
+                      removeItem(item.id);
+
+                      trackRemoveFromCart(item, item.quantity); 
+                    }}
                   >
                     Remove
                   </button>
