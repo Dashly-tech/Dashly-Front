@@ -4,10 +4,11 @@ import { mockRestaurants } from "../../../data/mockRestaurant";
 import { mockMenu } from "../../../data/mockMenu";
 import ProductCard from "../../../components/shared/ProductCard/ProductCard";
 import "./RestaurantDetailsPage.css";
+import { usePageTracking } from "../../../utils/usePageTracking ";
 
 export default function RestaurantDetailsPage() {
   const { slug } = useParams();
-
+  usePageTracking();
   const restaurant = mockRestaurants.find((item) => item.slug === slug);
 
   if (!restaurant) {

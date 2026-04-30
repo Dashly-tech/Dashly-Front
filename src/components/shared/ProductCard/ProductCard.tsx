@@ -55,11 +55,11 @@ export default function ProductCard({
     trackAddToCart(item);
   };
   // const isNotAvailable = status
-useEffect(()=>{
-  if (restaurant) {
-    check(restaurant.restaurantLat, restaurant.restaurantLng, restaurant.deliveryRadiusKm); 
-  }
-},[])
+  useEffect(() => {
+    if (restaurant) {
+      check(restaurant.restaurantLat, restaurant.restaurantLng, restaurant.deliveryRadiusKm);
+    }
+  }, [])
 
   return (
     <article className="product-card">
@@ -67,7 +67,7 @@ useEffect(()=>{
         <img
           src={item.image}
           alt={item.name}
-          className={!isActive ? "inactive-img" : ""+ "product-card__image"}
+          className={!isActive ? "inactive-img" : "" + "product-card__image"}
         />
 
         <span className="product-card__price-badge">${item.price}</span>
@@ -75,15 +75,24 @@ useEffect(()=>{
         {isActive === false && (
           <div className="overlay">
             <div className="overlay-content">
-              <span className="lock"><CiLock size={24}  /></span>
+              <span className="lock"><CiLock size={24} /></span>
               <p>Deactive Restaurant powered by AI</p>
             </div>
           </div>
         )}
-        {
+        {/* {
           restaurantName  === "Dadlı Dönər" &&  <span className="product-card__delivery-badge">Çatdırılma yalnız:<span>Nərimanova</span></span>
-        }
-      
+        } */}
+        {status === "unavailable" ? (
+          <div className="delivery-badge error">
+            <HiOutlineXCircle /> Delivery not available
+          </div>
+        ) : (
+          <div className="delivery-badge success">
+            <MdDeliveryDining size={24} /> Delivery available
+          </div>
+        )}
+
       </div>
 
       <div className="product-card__body">
@@ -110,15 +119,6 @@ useEffect(()=>{
 
         </div>
 
-        {status === "unavailable" ? (
-          <div className="delivery-badge error">
-            <HiOutlineXCircle /> Delivery not available
-          </div>
-        ) : (
-          <div className="delivery-badge success">
-            <MdDeliveryDining size={24} /> Delivery available
-          </div>
-        )}
 
         <button
           type="button"
@@ -126,7 +126,7 @@ useEffect(()=>{
           onClick={handleAddToCart}
           disabled={!restaurant || status === "unavailable" || isActive === false}
         >
-          Add to cart  
+          Add to cart
         </button>
       </div>
     </article>

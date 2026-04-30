@@ -2,8 +2,10 @@ import MainLayout from "../../../components/layout/MainLayout/MainLayout";
 import { mockRestaurants } from "../../../data/mockRestaurant";
 import RestaurantCard from "../../../components/shared/RestaurantCard/RestaurantCard";
 import "./RestaurantsPage.css";
+import { usePageTracking } from "../../../utils/usePageTracking ";
 
 export default function RestaurantsPage() {
+    usePageTracking();
   return (
     <MainLayout>
       <div className="restaurants-page">
