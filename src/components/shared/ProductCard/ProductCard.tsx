@@ -1,13 +1,19 @@
 import { useCartStore } from "../../../app/store/cart.store";
 import type { MenuItem } from "../../../data/mockMenu";
 import "./ProductCard.css";
-
+import { MdDeliveryDining } from "react-icons/md";
+import { HiOutlineXCircle } from "react-icons/hi2";
+import { useDelivery } from "../../../utils/useDelivery";
+import { useEffect } from "react";
 type ProductCardProps = {
   item: MenuItem;
   restaurant?: {
     id: number;
     name: string;
     whatsappNumber: string;
+    restaurantLat: number;
+    restaurantLng: number;
+    deliveryRadiusKm: number;
   };
   restaurantName?: string;
   restaurantLocation?: string;
@@ -20,7 +26,7 @@ export default function ProductCard({
   restaurantLocation,
 }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
-
+  const { status, check } = useDelivery();
   const handleAddToCart = () => {
     if (!restaurant) return;
 
@@ -41,6 +47,12 @@ export default function ProductCard({
       }
     );
   };
+  // const isNotAvailable = status
+useEffect(()=>{
+  if (restaurant) {
+    check(restaurant.restaurantLat, restaurant.restaurantLng, restaurant.deliveryRadiusKm); 
+  }
+},[])
 
   return (
     <article className="product-card">
@@ -75,13 +87,23 @@ export default function ProductCard({
 
         <p className="product-card__description">{item.description}</p>
 
+        {status === "unavailable" ? (
+          <div className="delivery-badge error">
+            <HiOutlineXCircle /> Delivery not available
+          </div>
+        ) : (
+          <div className="delivery-badge success">
+            <MdDeliveryDining size={24} /> Delivery available
+          </div>
+        )}
+
         <button
           type="button"
           className="product-card__btn"
           onClick={handleAddToCart}
-          disabled={!restaurant}
+          disabled={!restaurant || status === "unavailable"}
         >
-          Add to cart
+          Add to cart  
         </button>
       </div>
     </article>

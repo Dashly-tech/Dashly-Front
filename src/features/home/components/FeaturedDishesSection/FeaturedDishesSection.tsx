@@ -29,6 +29,9 @@ export default function FeaturedDishesSection() {
                   id: restaurant.id,
                   name: restaurant.name,
                   whatsappNumber: restaurant.whatsappNumber,
+                  restaurantLat: restaurant.location.lat,
+                  restaurantLng: restaurant.location.lng,
+                  deliveryRadiusKm: restaurant.deliveryRadiusKm,
                 }}
                 restaurantName={restaurant.name}
                 restaurantLocation={restaurant.locationText}
