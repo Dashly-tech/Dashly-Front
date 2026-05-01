@@ -4,6 +4,7 @@ import { useCartStore } from "../../../app/store/cart.store";
 import { useUIStore } from "../../../app/store/ui.store";
 import SearchBar from "../../shared/SearchBar/SearchBar";
 import "./Navbar.css";
+import LocationButton from "../../common/Button/LocationButton";
 
 export default function Navbar() {
   const totalItems = useCartStore((state) => state.getTotalItems());
@@ -34,6 +35,9 @@ export default function Navbar() {
 
           {/* RIGHT */}
           <div className="navbar__right">
+            <div className="navbar-location">
+              <LocationButton />
+            </div>
             <Link to="/restaurants" className="navbar__browse-btn">
               Browse Restaurants
             </Link>
@@ -45,6 +49,9 @@ export default function Navbar() {
         {/* SEARCH (mobile) */}
         <div className="navbar__search navbar__search--mobile">
           <SearchBar />
+          <div className="navbar-location_mobile">
+            <LocationButton />
+          </div>
         </div>
 
       </div>
