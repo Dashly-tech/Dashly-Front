@@ -1,6 +1,7 @@
 import ProductCard from "../../../../components/shared/ProductCard/ProductCard";
 import { mockMenu } from "../../../../data/mockMenu";
-import { mockRestaurants } from "../../../../data/mockRestaurant";
+// import { mockRestaurants } from "../../../../data/mockRestaurant";
+import { useRestaurants } from "../../../../utils/useRestaurants"; 
 import "./MenuGrid.css";
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
 export default function MenuGrid({ category }: Props) {
   const premiumItems = mockMenu.filter((item) => item.showInPremiumMenu);
 
+    const { restaurants } = useRestaurants();
+
   const filtered =
     category === "All"
       ? premiumItems
@@ -18,7 +21,7 @@ export default function MenuGrid({ category }: Props) {
   return (
     <div className="menu-grid">
       {filtered.map((item) => {
-        const restaurant = mockRestaurants.find(
+        const restaurant = restaurants.find(
           (r) => r.id === item.restaurantId
         );
 

@@ -6,19 +6,24 @@ import DeliveryForm from "../../../features/cart/components/DeliveryForm/Deliver
 import SpecialRequests from "../../../features/cart/components/SpecialRequests/SpecialRequests";
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
 import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/DeliveryChecker";
-import { mockRestaurants } from "../../../data/mockRestaurant";
+// import { mockRestaurants } from "../../../data/mockRestaurant";
+import { useRestaurants } from "../../../utils/useRestaurants";
+
+
 import "./CartDrawer.css";
 import { toast, ToastContainer } from "react-toastify";
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 export default function CartDrawer() {
-  const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(null); //  çatdırılma statusu
+  const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(null); 
+
+  const { restaurants } = useRestaurants();
 
   const isCartOpen = useUIStore((state) => state.isCartOpen);
   const closeCart = useUIStore((state) => state.closeCart);
 
   const items = useCartStore((state) => state.items);
-  const restaurantId = useCartStore((state) => state.restaurantId);           //  store-dan restaurantId alınır
+  const restaurantId = useCartStore((state) => state.restaurantId);          
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const removeItem = useCartStore((state) => state.removeItem);
@@ -39,7 +44,7 @@ export default function CartDrawer() {
 
 
   //  restaurantId ilə mock datadan restoran tapılır
-  const restaurant = mockRestaurants.find((r) => r.id === restaurantId);
+  const restaurant =restaurants.find((r) => r.id === restaurantId);
 
   if (!isCartOpen) return null;
 
