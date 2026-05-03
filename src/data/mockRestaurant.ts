@@ -85,6 +85,6 @@ export const mockRestaurants: Restaurant[] = [
     isFeatured: true,
     isActive: true,
     location: { lat: 40.4076, lng: 49.8590 },
-    deliveryRadiusKm: 20,
+    deliveryRadiusKm: 10,
   }
 ];
