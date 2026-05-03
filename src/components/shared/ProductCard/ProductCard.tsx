@@ -70,7 +70,7 @@ export default function ProductCard({
           className={!isActive ? "inactive-img" : "" + "product-card__image"}
         />
 
-        <span className="product-card__price-badge">${item.price}</span>
+        <span className="product-card__price-badge">{item.price} ₼</span>
 
         {isActive === false && (
           <div className="overlay">
