@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { toast, ToastContainer } from "react-toastify";
+
 import { useCartStore } from "../../../app/store/cart.store";
 import { useUIStore } from "../../../app/store/ui.store";
+import { useLocationStore } from "../../../app/store/location.store";
+
 import DeliveryForm from "../../../features/cart/components/DeliveryForm/DeliveryForm";
 import SpecialRequests from "../../../features/cart/components/SpecialRequests/SpecialRequests";
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
 import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/DeliveryChecker";
-// import { mockRestaurants } from "../../../data/mockRestaurant";
+
 import { useRestaurants } from "../../../utils/useRestaurants";
-
-
-import "./CartDrawer.css";
-import { toast, ToastContainer } from "react-toastify";
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
+import "./CartDrawer.css";
+
 export default function CartDrawer() {
-  const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(null); 
+  const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(
+    null,
+  );
+  const { lat, lng } = useLocationStore();
+
 
   const { restaurants } = useRestaurants();
 
@@ -23,12 +29,14 @@ export default function CartDrawer() {
   const closeCart = useUIStore((state) => state.closeCart);
 
   const items = useCartStore((state) => state.items);
-  const restaurantId = useCartStore((state) => state.restaurantId);          
+  const restaurantId = useCartStore((state) => state.restaurantId);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const removeItem = useCartStore((state) => state.removeItem);
   const totalPrice = useCartStore((state) => state.getTotalPrice());
-  const restaurantWhatsappNumber = useCartStore((state) => state.restaurantWhatsappNumber);
+  const restaurantWhatsappNumber = useCartStore(
+    (state) => state.restaurantWhatsappNumber,
+  );
   const restaurantName = useCartStore((state) => state.restaurantName);
 
   const [fullName, setFullName] = useState("");
@@ -36,55 +44,66 @@ export default function CartDrawer() {
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
 
+  const restaurant = restaurants.find((r) => r.id === restaurantId);
+
+  const hasLocation = lat !== null && lng !== null;
+
   useEffect(() => {
-  if (items.length === 0) {
-    setDeliveryAvailable(null);
-  }
-}, [items.length]);
+    if (items.length === 0) {
+      setDeliveryAvailable(null);
+    }
+  }, [items.length]);
 
-
-  //  restaurantId ilə mock datadan restoran tapılır
-  const restaurant =restaurants.find((r) => r.id === restaurantId);
+  useEffect(() => {
+    if (!hasLocation) {
+      setDeliveryAvailable(null);
+    }
+  }, [hasLocation]);
 
   if (!isCartOpen) return null;
 
-const handleClose = () => {
-  setDeliveryAvailable(null); 
-  closeCart();
-};
-  const handleWhatsappOrder = () => {
+  const handleClose = () => {
+    setDeliveryAvailable(null);
+    closeCart();
+  };
 
+  const handleWhatsappOrder = () => {
+    if (!hasLocation) {
+      toast.warning("Please select your location first");
+      return;
+    }
 
     if (deliveryAvailable === null) {
-    toast("Please check delivery availability first", {
+      toast("Please check delivery availability first", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      return;
+    }
 
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-      },
-    });
-    return;
-  }
+    if (deliveryAvailable === false) {
+      toast.error("Delivery is not available to your location");
+      return;
+    }
 
-  if (deliveryAvailable === false) {
-    toast.error("Delivery is not available to your location");
-    return;
-  }
     if (!restaurantWhatsappNumber) return;
 
-    
-
     const messageLines = [
-      `Hello, I want to place an order from ${restaurantName || "this restaurant"
+      `Hello, I want to place an order from Azn{
+        restaurantName || "this restaurant"
       }:`,
       "",
       ...items.map(
         (item) =>
-          `- ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
+          `- ${item.name} x${item.quantity} - Azn${(
+            item.price * item.quantity
+          ).toFixed(2)}`,
       ),
       "",
-      `Total: $${totalPrice.toFixed(2)}`,
+      `Total: Azn${totalPrice.toFixed(2)}`,
       "",
       `Name: ${fullName}`,
       `Phone: ${phone}`,
@@ -103,17 +122,24 @@ const handleClose = () => {
     !phone.trim() ||
     !address.trim() ||
     !restaurantWhatsappNumber ||
+    !hasLocation ||
     deliveryAvailable === false;
 
   return (
     <div className="cart-drawer">
       <ToastContainer position="top-center" autoClose={3000} />
-      <div className="cart-drawer__backdrop" onClick={ handleClose }></div>
+
+      <div className="cart-drawer__backdrop" onClick={handleClose}></div>
 
       <aside className="cart-drawer__panel">
         <div className="cart-drawer__header">
           <h2 className="cart-drawer__title">Your Cart</h2>
-          <button type="button" className="cart-drawer__close" onClick={ handleClose }>
+
+          <button
+            type="button"
+            className="cart-drawer__close"
+            onClick={handleClose}
+          >
             <HiOutlineXMark />
           </button>
         </div>
@@ -141,21 +167,20 @@ const handleClose = () => {
                       type="button"
                       onClick={() => {
                         decreaseQuantity(item.id);
-
-                        trackRemoveFromCart(item, 1); 
+                        trackRemoveFromCart(item, 1);
                       }}
                     >
                       -
                     </button>
+
                     <span>{item.quantity}</span>
+
                     <button
                       type="button"
                       onClick={() => {
                         increaseQuantity(item.id);
-
                         trackAddToCart(item, 1);
                       }}
-
                     >
                       +
                     </button>
@@ -166,8 +191,7 @@ const handleClose = () => {
                     className="cart-item__remove"
                     onClick={() => {
                       removeItem(item.id);
-
-                      trackRemoveFromCart(item, item.quantity); 
+                      trackRemoveFromCart(item, item.quantity);
                     }}
                   >
                     Remove
@@ -177,9 +201,16 @@ const handleClose = () => {
             ))
           )}
 
-          {/* restoran tapıldısa və səbət doludursa DeliveryChecker göstərilir */}
-          {restaurant && items.length > 0 && (
+          {items.length > 0 && !hasLocation && (
+            <p className="cart-drawer__no-delivery">
+              Çatdırılma üçün əvvəlcə lokasiya seçin.
+            </p>
+          )}
+
+          {restaurant && items.length > 0 && hasLocation && (
             <DeliveryChecker
+              userLat={lat}
+              userLng={lng}
               restaurantLat={restaurant.location.lat}
               restaurantLng={restaurant.location.lng}
               radiusKm={restaurant.deliveryRadiusKm}
@@ -200,11 +231,9 @@ const handleClose = () => {
         </div>
 
         <div className="cart-drawer__footer">
-          
-          {/* çatdırılma yoxdursa xəbərdarlıq göstərilir */}
           {deliveryAvailable === false && (
             <p className="cart-drawer__no-delivery">
-               Delivery is not available to your location
+              Delivery is not available to your location
             </p>
           )}
 

@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useLocationStore } from "../../../app/store/location.store";
 import "./Button.css";
+
 export default function LocationButton() {
   const [loading, setLoading] = useState(false);
+
+  const setLocation = useLocationStore((state) => state.setLocation);
+  const setStatus = useLocationStore((state) => state.setStatus);
 
   const getLocation = () => {
     if (!navigator.geolocation) {
@@ -10,24 +15,30 @@ export default function LocationButton() {
     }
 
     setLoading(true);
+    setStatus("loading");
 
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position.coords.latitude, position.coords.longitude);
-        setLoading(false);
-      },
-      (error) => {
-        console.log(error);
-        setLoading(false);
-      }
+     (position) => {
+
+  setLocation(position.coords.latitude, position.coords.longitude);
+  setLoading(false);
+},
+     (error) => {
+
+  if (error.code === error.PERMISSION_DENIED) {
+    alert("Lokasiya icazəsi bağlanıb.");
+  }
+
+  setLoading(false);
+},
     );
   };
 
   return (
-    <button className="location-btn" onClick={getLocation}>
+    <button className="location-btn" onClick={getLocation} disabled={loading}>
       <span className="location-icon">📍</span>
       <span className="location-text">
-      {loading ? "Loading..." : "Use my location"}
+        {loading ? "Loading..." : "Use my location"}
       </span>
     </button>
   );
