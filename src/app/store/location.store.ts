@@ -13,37 +13,6 @@ interface LocationState {
   clearLocation: () => void;
 }
 
-// export const useLocationStore = create<LocationState>(
-
-
-
-//   (set) => ({
-//     lat: null,
-//     lng: null,
-//     status: "idle",
-
-//     setLocation: (lat, lng) =>
-//       set({
-//         lat,
-//         lng,
-//         status: "granted",
-//       }),
-
-//     setStatus: (status) => set({ status }),
-
-//     clearLocation: () =>
-//       set({
-//         lat: null,
-//         lng: null,
-//         status: "idle",
-//       }),
-
-//   })
-
-
-// );
-
-
 export const useLocationStore = create<LocationState>()(
   persist(
 
