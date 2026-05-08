@@ -13,7 +13,7 @@ const PaymentMethod = ({ paymentMethod, setPaymentMethod }: PaymentType) => {
                 <div className="payment-toggle">
                     <button
                         type="button"
-                        className={`payment-btn ${paymentMethod === "cash" ? "active" : ""}`}
+                        className={`payment-btn ${paymentMethod === "Nağd" ? "active" : ""}`}
                         onClick={() => setPaymentMethod("Nağd")}
                     >
                         Nağd
