@@ -26,8 +26,8 @@ function calculateDistanceKm(
   const a =
     Math.sin(dLat / 2) ** 2 +
     Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLng / 2) ** 2;
+    Math.cos((lat2 * Math.PI) / 180) *
+    Math.sin(dLng / 2) ** 2;
 
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
@@ -46,7 +46,7 @@ export default function DeliveryChecker({
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
 
   const checkDelivery = () => {
-  
+
     const distance = calculateDistanceKm(
       userLat,
       userLng,
@@ -70,6 +70,7 @@ export default function DeliveryChecker({
     setStatus("idle");
     setDistanceKm(null);
   }, [userLat, userLng, restaurantLat, restaurantLng, radiusKm]);
+  console.log(userLat,userLng,);
 
   return (
     <div className="delivery-checker">

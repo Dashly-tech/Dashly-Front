@@ -21,6 +21,8 @@ export default function LocationButton() {
      (position) => {
 
   setLocation(position.coords.latitude, position.coords.longitude);
+  console.log(position.coords.latitude);
+  
   setLoading(false);
 },
      (error) => {

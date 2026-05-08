@@ -15,6 +15,7 @@ import { useRestaurants } from "../../../utils/useRestaurants";
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 import "./CartDrawer.css";
+import PaymentMethod from "../Payment/PaymentMethod";
 
 export default function CartDrawer() {
   const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(
@@ -43,6 +44,7 @@ export default function CartDrawer() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
+  const [paymentMethod,setPaymentMethod] = useState("")
 
   const restaurant = restaurants.find((r) => r.id === restaurantId);
 
@@ -109,6 +111,7 @@ export default function CartDrawer() {
       `Phone: ${phone}`,
       `Address: ${address}`,
       `Notes: ${notes || "-"}`,
+      `Payment: ${paymentMethod}` 
     ];
 
     const message = encodeURIComponent(messageLines.join("\n"));
@@ -228,6 +231,10 @@ export default function CartDrawer() {
           />
 
           <SpecialRequests value={notes} onChange={setNotes} />
+          <PaymentMethod
+          paymentMethod={paymentMethod}
+          setPaymentMethod={setPaymentMethod}
+          />
         </div>
 
         <div className="cart-drawer__footer">
@@ -236,12 +243,11 @@ export default function CartDrawer() {
               Delivery is not available to your location
             </p>
           )}
-
+             
           <div className="cart-drawer__total">
             <span>Total</span>
             <strong>${totalPrice.toFixed(2)}</strong>
           </div>
-
           <WhatsappCheckout
             disabled={isCheckoutDisabled}
             onClick={handleWhatsappOrder}
