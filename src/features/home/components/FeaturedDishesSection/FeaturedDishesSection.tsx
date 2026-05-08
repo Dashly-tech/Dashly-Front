@@ -1,10 +1,14 @@
-import { mockMenu } from "../../../../data/mockMenu";
-import { mockRestaurants } from "../../../../data/mockRestaurant";
+// import { mockMenu } from "../../../../data/mockMenu";
+// import { mockRestaurants } from "../../../../data/mockRestaurant";
 import ProductCard from "../../../../components/shared/ProductCard/ProductCard";
 import "./FeaturedDishesSection.css";
+import { useRestaurants } from "../../../../utils/useRestaurants";
+import { useMenu } from "../../../menu/hooks/useMenu";
 
 export default function FeaturedDishesSection() {
-  const featured = mockMenu.filter(
+      const { restaurants } = useRestaurants();
+      const { menu } = useMenu();
+  const featured = menu.filter(
     (item) => item.isFeatured || item.isDishOfDay
   );
 
@@ -15,7 +19,7 @@ export default function FeaturedDishesSection() {
 
         <div className="featured__grid">
           {featured.map((item) => {
-            const restaurant = mockRestaurants.find(
+            const restaurant = restaurants .find(
               (r) => r.id === item.restaurantId
             );
 

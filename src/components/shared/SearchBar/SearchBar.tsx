@@ -3,21 +3,23 @@ import { useState } from "react";
 import { useRestaurants } from "../../../utils/useRestaurants";
 
 
-import { mockMenu } from "../../../data/mockMenu";
+// import { mockMenu } from "../../../data/mockMenu";
 import { Link } from "react-router-dom";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import "./SearchBar.css";
+import { useMenu } from "../../../features/menu/hooks/useMenu";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
 
     const { restaurants } = useRestaurants();
+    const { menu } = useMenu();
 
   const restaurantResults = restaurants.filter((r) =>
     r.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  const foodResults = mockMenu.filter((item) =>
+  const foodResults = menu.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())
   );
 
