@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type LocationStatus = "idle" | "loading" | "granted" | "denied";
 
@@ -12,24 +13,67 @@ interface LocationState {
   clearLocation: () => void;
 }
 
-export const useLocationStore = create<LocationState>((set) => ({
-  lat: null,
-  lng: null,
-  status: "idle",
+// export const useLocationStore = create<LocationState>(
 
-  setLocation: (lat, lng) =>
-    set({
-      lat,
-      lng,
-      status: "granted",
-    }),
 
-  setStatus: (status) => set({ status }),
 
-  clearLocation: () =>
-    set({
+//   (set) => ({
+//     lat: null,
+//     lng: null,
+//     status: "idle",
+
+//     setLocation: (lat, lng) =>
+//       set({
+//         lat,
+//         lng,
+//         status: "granted",
+//       }),
+
+//     setStatus: (status) => set({ status }),
+
+//     clearLocation: () =>
+//       set({
+//         lat: null,
+//         lng: null,
+//         status: "idle",
+//       }),
+
+//   })
+
+
+// );
+
+
+export const useLocationStore = create<LocationState>()(
+  persist(
+
+    (set) => ({
       lat: null,
       lng: null,
       status: "idle",
+
+      setLocation: (lat, lng) =>
+        set({
+          lat,
+          lng,
+          status: "granted",
+        }),
+
+      setStatus: (status) => set({ status }),
+
+      clearLocation: () =>
+        set({
+          lat: null,
+          lng: null,
+          status: "idle",
+        }),
+
     }),
-}));
+
+    {
+      name: "location-storage",
+
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);
