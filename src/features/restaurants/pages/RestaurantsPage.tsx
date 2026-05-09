@@ -1,14 +1,12 @@
 import MainLayout from "../../../components/layout/MainLayout/MainLayout";
-// import { mockRestaurants } from "../../../data/mockRestaurant";
-import { useRestaurants } from "../../../utils/useRestaurants"; 
+import { mockRestaurants } from "../../../data/mockRestaurant";
 import RestaurantCard from "../../../components/shared/RestaurantCard/RestaurantCard";
 import "./RestaurantsPage.css";
 import { usePageTracking } from "../../../utils/usePageTracking ";
 
 export default function RestaurantsPage() {
     usePageTracking();
-      const { restaurants, error } = useRestaurants();
-      console.log(error ,"something went wrong");
+   
       
   return (
     <MainLayout>
@@ -17,7 +15,7 @@ export default function RestaurantsPage() {
           <h1 className="restaurants-page__title">All Restaurants</h1>
 
           <div className="restaurants-grid">
-            {restaurants.map((restaurant) => (
+            {mockRestaurants.map((restaurant) => (
               <RestaurantCard key={restaurant.id} restaurant={restaurant} />
             ))}
           </div>

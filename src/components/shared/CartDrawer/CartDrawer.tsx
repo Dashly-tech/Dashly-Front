@@ -11,11 +11,11 @@ import SpecialRequests from "../../../features/cart/components/SpecialRequests/S
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
 import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/DeliveryChecker";
 
-import { useRestaurants } from "../../../utils/useRestaurants";
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 
 import "./CartDrawer.css";
 import PaymentMethod from "../Payment/PaymentMethod";
+import { mockRestaurants } from "../../../data/mockRestaurant";
 
 export default function CartDrawer() {
   const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(
@@ -24,7 +24,6 @@ export default function CartDrawer() {
   const { lat, lng } = useLocationStore();
 
 
-  const { restaurants } = useRestaurants();
 
   const isCartOpen = useUIStore((state) => state.isCartOpen);
   const closeCart = useUIStore((state) => state.closeCart);
@@ -46,7 +45,7 @@ export default function CartDrawer() {
   const [notes, setNotes] = useState("");
   const [paymentMethod,setPaymentMethod] = useState("")
 
-  const restaurant = restaurants.find((r) => r.id === restaurantId);
+  const restaurant = mockRestaurants.find((r) => r.id === restaurantId);
 
   const hasLocation = lat !== null && lng !== null;
 

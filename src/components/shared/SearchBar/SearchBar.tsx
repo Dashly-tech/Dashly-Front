@@ -1,25 +1,18 @@
 import { useState } from "react";
-// import { mockRestaurants } from "../../../data/mockRestaurant";
-import { useRestaurants } from "../../../utils/useRestaurants";
-
-
-// import { mockMenu } from "../../../data/mockMenu";
+import { mockRestaurants } from "../../../data/mockRestaurant";
+import { mockMenu } from "../../../data/mockMenu";
 import { Link } from "react-router-dom";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import "./SearchBar.css";
-import { useMenu } from "../../../features/menu/hooks/useMenu";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
 
-    const { restaurants } = useRestaurants();
-    const { menu } = useMenu();
-
-  const restaurantResults = restaurants.filter((r) =>
+  const restaurantResults = mockRestaurants.filter((r) =>
     r.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  const foodResults = menu.filter((item) =>
+  const foodResults = mockMenu.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -66,7 +59,7 @@ export default function SearchBar() {
               <p className="search__section-title">Dishes</p>
 
               {foodResults.map((item) => {
-                const restaurant =restaurants.find(
+                const restaurant =mockRestaurants.find(
                   (r) => r.id === item.restaurantId
                 );
 

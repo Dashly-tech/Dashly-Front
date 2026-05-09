@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout/MainLayout";
-// import { mockRestaurants } from "../../../data/mockRestaurant";
-import { useRestaurants } from "../../../utils/useRestaurants"; 
+import { mockRestaurants } from "../../../data/mockRestaurant";
 import { mockMenu } from "../../../data/mockMenu";
 import ProductCard from "../../../components/shared/ProductCard/ProductCard";
 import "./RestaurantDetailsPage.css";
@@ -10,19 +9,7 @@ import { usePageTracking } from "../../../utils/usePageTracking ";
 export default function RestaurantDetailsPage() {
   const { slug } = useParams();
   usePageTracking();
-    const { restaurants, loading } = useRestaurants();
-      if (loading) {
-    return (
-      <MainLayout>
-        <div className="restaurant-details-page">
-          <div className="restaurant-details-page__container">
-            <p style={{ color: "#aaa" }}>Loading...</p>
-          </div>
-        </div>
-      </MainLayout>
-    );
-  }
-  const restaurant = restaurants.find((item) => item.slug === slug);
+   const restaurant = mockRestaurants.find((item) => item.slug === slug);
 
   if (!restaurant) {
     return (

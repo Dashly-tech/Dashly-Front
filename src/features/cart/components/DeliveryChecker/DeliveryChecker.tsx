@@ -70,7 +70,7 @@ export default function DeliveryChecker({
     setStatus("idle");
     setDistanceKm(null);
   }, [userLat, userLng, restaurantLat, restaurantLng, radiusKm]);
-  console.log(userLat,userLng,);
+  // console.log(userLat,userLng,);
 
   return (
     <div className="delivery-checker">
