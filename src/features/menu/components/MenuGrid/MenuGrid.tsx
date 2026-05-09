@@ -1,7 +1,8 @@
 import ProductCard from "../../../../components/shared/ProductCard/ProductCard";
-import { mockMenu } from "../../../../data/mockMenu";
+// import { mockMenu } from "../../../../data/mockMenu";
 // import { mockRestaurants } from "../../../../data/mockRestaurant";
 import { useRestaurants } from "../../../../utils/useRestaurants"; 
+import { useMenu } from "../../hooks/useMenu";
 import "./MenuGrid.css";
 
 type Props = {
@@ -9,9 +10,11 @@ type Props = {
 };
 
 export default function MenuGrid({ category }: Props) {
-  const premiumItems = mockMenu.filter((item) => item.showInPremiumMenu);
+  const { menu } = useMenu();
+      const { restaurants } = useRestaurants();
+  const premiumItems = menu.filter((item) => item.showInPremiumMenu);
 
-    const { restaurants } = useRestaurants();
+
 
   const filtered =
     category === "All"

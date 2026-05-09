@@ -45,8 +45,8 @@ export async function fetchRestaurants(): Promise<Restaurant[]> {
 
     const rows: any[][] = json.table.rows.map((r: any) => r.c);
 
-    // Birinci sıra başlıqdır, onu atlayırıq
-    return rows.slice(1).map(parseRow).filter((r) => r.id > 0);
+
+  return rows.map(parseRow).filter((r) => r.id > 0);
   } catch (err) {
     console.error("Google Sheets yüklənmədi:", err);
     return []; 

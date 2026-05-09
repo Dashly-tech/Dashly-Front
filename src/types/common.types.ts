@@ -17,3 +17,16 @@ export type Restaurant = {
   };
   deliveryRadiusKm: number;
 };
+
+export type MenuItem = {
+  id: number;
+  restaurantId: number;
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+  image: string;
+  isFeatured?: boolean;
+  isDishOfDay?: boolean;
+  showInPremiumMenu?: boolean;
+};
