@@ -6,7 +6,7 @@ import SearchBar from "../../shared/SearchBar/SearchBar";
 import "./Navbar.css";
 import LocationButton from "../../common/Button/LocationButton";
 
-export default function Navbar() {
+export default function Navbar({setOpen}:{setOpen:()=>void}) {
   const totalItems = useCartStore((state) => state.getTotalItems());
   const openCart = useUIStore((state) => state.openCart);
 
@@ -36,12 +36,13 @@ export default function Navbar() {
           {/* RIGHT */}
           <div className="navbar__right">
             <div className="navbar-location">
-              <LocationButton />
+              <LocationButton 
+                setOpen={setOpen}
+              />
             </div>
             <Link to="/restaurants" className="navbar__browse-btn">
               Browse Restaurants
             </Link>
-
             <CartButton count={totalItems} onClick={openCart} />
           </div>
         </div>
@@ -50,11 +51,14 @@ export default function Navbar() {
         <div className="navbar__search navbar__search--mobile">
           <SearchBar />
           <div className="navbar-location_mobile">
-            <LocationButton />
+            <LocationButton
+            setOpen={setOpen}
+            />
           </div>
         </div>
 
       </div>
+        
     </header>
   );
 }
