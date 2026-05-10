@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocationStore } from "../../../app/store/location.store";
 import "./Button.css";
 
-export default function LocationButton() {
+export default function LocationButton({setOpen}:{setOpen:()=>void}) {
   const [loading, setLoading] = useState(false);
 
   const setLocation = useLocationStore((state) => state.setLocation);
@@ -21,14 +21,15 @@ export default function LocationButton() {
      (position) => {
 
   setLocation(position.coords.latitude, position.coords.longitude);
-  console.log(position.coords.latitude);
+  // console.log(position.coords.latitude);
   
   setLoading(false);
 },
      (error) => {
 
   if (error.code === error.PERMISSION_DENIED) {
-    alert("Lokasiya icazəsi bağlanıb.");
+    // alert("Lokasiya icazəsi bağlanıb.");
+    setOpen()
   }
 
   setLoading(false);
