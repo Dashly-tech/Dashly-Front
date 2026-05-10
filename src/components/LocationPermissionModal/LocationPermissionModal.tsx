@@ -1,5 +1,5 @@
-// LocationPermissionModal.tsx
 
+import { getDeviceType } from "../../utils/getDeviceType";
 import "./LocationPermissionModal.css";
 import {
     MdLocationOff,
@@ -11,15 +11,7 @@ type Props = {
     onClose: () => void;
 };
 
-const getDeviceType = () => {
-    const ua = navigator.userAgent;
 
-    if (/Android/i.test(ua)) return "android";
-
-    if (/iPhone|iPad|iPod/i.test(ua)) return "ios";
-
-    return "desktop";
-};
 
 
 
@@ -67,13 +59,15 @@ export default function LocationPermissionModal({
                                 address bar and allow location access.
                             </p>
 
-                            <p>
-                                Settings → Safari → Location
-                                → Allow
-                            </p>
+                            <p><b>Chrome / Edge (Windows & Mac):</b></p>
                             <p>
                                 Chrome → Settings → Site Settings
                                 → Location → Allow
+                            </p>
+
+                            <p><b>Safari (Mac):</b></p>
+                            <p>
+                                Safari → Settings → Websites → Location → Allow
                             </p>
                         </>
                     )}
@@ -101,16 +95,6 @@ export default function LocationPermissionModal({
                     )}
 
                 </div>
-
-                {/* <div className="modal-buttons">
-          <button className="secondary-btn">
-            Maybe Later
-          </button>
- 
-          <button className="primary-btn">
-            Open Settings
-          </button>
-        </div> */}
 
 
             </div>
