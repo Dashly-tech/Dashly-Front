@@ -18,7 +18,7 @@ export default function WhatsappCheckout({
       disabled={disabled}
     >
       <FaWhatsapp />
-      <span>Order via WhatsApp</span>
+      <span>Sifarişi təsdiq et</span>
     </button>
   );
 }
