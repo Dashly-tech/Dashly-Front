@@ -8,6 +8,7 @@ import nuggets from '../assets/manqalDonerImages/nuggets.jpeg'
 import pendirCubuq from '../assets/manqalDonerImages/pendirCubuqlari.jpeg'
 import pure from '../assets/manqalDonerImages/pure.jpeg'
 import soganHalqasi from '../assets/manqalDonerImages/soganHalqasi.jpeg'
+import imgnotadd from '../assets/notfound/imgnotadd.jpeg'
 
 export type MenuItem = {
   id: number;
@@ -22,17 +23,7 @@ export type MenuItem = {
 };
 
 export const mockMenu: MenuItem[] = [
-  {
-    id: 1,
-    restaurantId: 1,
-    name: "Margherita Special",
-    price: 19.99,
-    category: "Pizza",
-    image: "https://i.postimg.cc/R01MjV5G/margerill.jpg",
-    isFeatured: true,
-    isDishOfDay: true,
-    showInPremiumMenu: true,
-  },
+ 
   {
     id: 2,
     restaurantId: 2,
@@ -51,15 +42,7 @@ export const mockMenu: MenuItem[] = [
     isFeatured: true,
     showInPremiumMenu: true,
   },
-  // {
-  //   id: 4,
-  //   restaurantId: 1,
-  //   name: "Truffle Pasta",
-  //   price: 24.99,
-  //   category: "Pasta",
-  //  //   image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800",
-  //   isFeatured: true,
-  // },
+ 
   {
     id: 5,
     restaurantId: 2,
@@ -72,42 +55,43 @@ export const mockMenu: MenuItem[] = [
     restaurantId: 1,
     name: "Manqal Döner Toyuq Çörək(80 gr)",
     price: 3.8,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 7,
     restaurantId: 1,
     name: "Manqal Döner Toyuq Çörək(150 gr)",
     price: 6.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 8,
     restaurantId: 1,
     name: "Manqal Döner Toyuq  Türk Çörək(80 gr)",
     price: 3.8,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 9,
     restaurantId: 1,
     name: "Manqal Döner Toyuq  Türk Çörək(150 gr)",
     price: 6.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
+  
   },
   {
     id: 10,
     restaurantId: 1,
     name: "Manqal Döner Toyuq Lavaş(80 gr)",
     price: 3.8,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 11,
     restaurantId: 1,
     name: "Manqal Döner Toyuq  Lavaş(150 gr)",
     price: 6.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 12,
@@ -115,6 +99,9 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Döner Ət Çörək(80 gr)",
     price: 4.9,
     category: "Döner", image: manqalDonerEt,
+    isFeatured: true,
+    showInPremiumMenu: true,
+    
   },
   {
     id: 13,
@@ -136,158 +123,160 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Döner Ət Türk Çörək(150 gr)",
     price: 7.0,
     category: "Döner", image: manqalDonerEt,
+    isFeatured: true,
+    showInPremiumMenu: true,
   },
   {
     id: 16,
     restaurantId: 1,
     name: "Manqal Döner Ət Lavaş(80 gr)",
     price: 4.9,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 17,
     restaurantId: 1,
     name: "Manqal Döner Ət Lavaş(150 gr)",
     price: 7.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 18,
     restaurantId: 1,
     name: "Hatay Toyuq",
     price: 5.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 19,
     restaurantId: 1,
     name: "Hatay Ət",
     price: 6.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 20,
     restaurantId: 1,
     name: "Zurna Toyuq",
     price: 5.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 21,
     restaurantId: 1,
     name: "Zurna Ət",
     price: 6.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 22,
     restaurantId: 1,
     name: "Buket Döner Toyuq",
     price: 5.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 23,
     restaurantId: 1,
     name: "Buket Döner Ət",
     price: 6.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 24,
     restaurantId: 1,
     name: "Porsion Döner Toyuq",
     price: 10.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 25,
     restaurantId: 1,
     name: "Porsion Döner Ət",
     price: 10.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 26,
     restaurantId: 1,
     name: "Plovustu Döner Toyuq",
     price: 11.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 27,
     restaurantId: 1,
     name: "Plovustu Döner Ət",
     price: 11.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 28,
     restaurantId: 1,
     name: "Plovustu Döner Toyuq + Fri",
     price: 12.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 29,
     restaurantId: 1,
     name: "Plovustu Döner Ət + Fri",
     price: 12.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 30,
     restaurantId: 1,
     name: "Zəhər Tuluğu Döner Toyuq",
     price: 5.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 31,
     restaurantId: 1,
     name: "Zəhər Tuluğu Döner Ət",
     price: 5.5,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 32,
     restaurantId: 1,
     name: "Manqal Dürüm Toyuq",
     price: 9.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 33,
     restaurantId: 1,
     name: "Manqal Dürüm Ət",
     price: 10.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 34,
     restaurantId: 1,
     name: "Manqal Dönər İskəndər Ət",
     price: 15.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 35,
     restaurantId: 1,
     name: "Manqal Dönər Şaurma Toyuq(Orta)",
     price: 4.50,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 36,
     restaurantId: 1, name: "Manqal Dönər Şaurma Ət(Orta)",
     price: 5.50,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 37,
     restaurantId: 1, name: "Manqal Dönər Şaurma Toyuq(Böyük)",
     price: 6.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 38,
@@ -295,7 +284,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Dönər Şaurma Ət(Böyük)",
     price: 7.50,
     category: "Döner",
-    image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    image: imgnotadd,
   },
   {
     id: 39,
@@ -303,93 +292,95 @@ export const mockMenu: MenuItem[] = [
     name: "Livan Şaurma(Toyuq Lavaş)",
     price: 5.50,
     category: "Döner",
-    image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    image: imgnotadd,
   },
   {
     id: 40, restaurantId: 1, name: "Livan Şaurma(Ət Lavaş)",
     price: 6.50,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 41, restaurantId: 1, name: "Alman Doner(Toyuq Çörək)",
     price: 5.50,
     category: "Döner", image: "https://i.postimg.cc/RZVNwGcs/IMG-0312.avif",
+    isFeatured: true,
+    showInPremiumMenu: true,
   },
   {
     id: 42, restaurantId: 1, name: "Alman Doner(Ət Çörək)",
     price: 6.50,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 43, restaurantId: 1, name: "TONTON Doner(Toyuq Çörək)",
     price: 4.30,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 44, restaurantId: 1, name: "TONTON Doner(Ət Çörək)",
     price: 5.40,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 45, restaurantId: 1, name: "Dədəbaba Döner(Toyuq Orta)",
     price: 5.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 46, restaurantId: 1, name: "Dədəbaba Döner(Ət Orta)",
     price: 6.0,
     category: "Döner",
-    image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    image: imgnotadd,
   },
   {
     id: 47, restaurantId: 1, name: "Dədəbaba Döner(Toyuq Böyük)",
     price: 7.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 48, restaurantId: 1, name: "Dədəbaba Döner(Ət Böyük)",
     price: 8.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 49, restaurantId: 1, name: "Manqal Sendvic",
     price: 6.40,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 50, restaurantId: 1, name: "Manqal Hotdoq",
     price: 7.60,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 51, restaurantId: 1, name: "Manqal Dönər sacda Toyuq(300 gr)",
     price: 16.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 52, restaurantId: 1, name: "Manqal Dönər sacda Toyuq(500 gr)",
     price: 19.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 53, restaurantId: 1, name: "Manqal Dönər sacda Ət(300 gr)",
     price: 19.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 54, restaurantId: 1, name: "Manqal Dönər sacda Ət(500 gr)",
     price: 34.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 55, restaurantId: 1, name: "Manqal Dönər sacda  Qarışıq(300 gr)",
     price: 18.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 56, restaurantId: 1, name: "Manqal Dönər sacda Qarışıq(500 gr)",
     price: 22.0,
-    category: "Döner", image: "https://i.postimg.cc/5NzQ8V5G/miso-soup.jpg",
+    category: "Döner", image: imgnotadd,
   },
   {
     id: 57,
@@ -406,6 +397,8 @@ export const mockMenu: MenuItem[] = [
     price: 7.5,
     category: "Salat",
     image: "https://i.postimg.cc/Zqx7XbWf/IMG-0321.avif",
+    isFeatured: true,
+    showInPremiumMenu: true,
   },
   {
     id: 59,
@@ -429,7 +422,7 @@ export const mockMenu: MenuItem[] = [
     name: "Çoban salatı",
     price: 4.0,
     category: "Salat",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 62,
@@ -453,7 +446,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal salatı",
     price: 5.9,
     category: "Salat",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 65,
@@ -461,7 +454,7 @@ export const mockMenu: MenuItem[] = [
     name: "Mimoza salatı",
     price: 5.0,
     category: "Salat",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 66,
@@ -469,7 +462,7 @@ export const mockMenu: MenuItem[] = [
     name: "Paytaxt salatı",
     price: 5.0,
     category: "Salat",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 67,
@@ -501,7 +494,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq şorbası",
     price: 4.0,
     category: "Şorba",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 71,
@@ -509,7 +502,7 @@ export const mockMenu: MenuItem[] = [
     name: "Mərci şorbası",
     price: 3.5,
     category: "Şorba",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 72,
@@ -517,7 +510,7 @@ export const mockMenu: MenuItem[] = [
     name: "Dovğa şorbası",
     price: 3.5,
     category: "Şorba",
-    image: "",
+    image: imgnotadd,
   },
 
   {
@@ -534,7 +527,7 @@ export const mockMenu: MenuItem[] = [
     name: "Qaymaqlı toyuq (Böyük)",
     price: 18.0,
     category: "İsti yemək",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 75,
@@ -558,7 +551,7 @@ export const mockMenu: MenuItem[] = [
     name: "Düyü",
     price: 3.5,
     category: "İsti yemək",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 78,
@@ -623,6 +616,8 @@ export const mockMenu: MenuItem[] = [
     price: 4.9,
     category: "Qəlyanaltı",
     image: soganHalqasi,
+    isFeatured: true,
+    showInPremiumMenu: true,
   },
   {
     id: 75,
@@ -630,7 +625,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq pop corn",
     price: 6.9,
     category: "Qəlyanaltı",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 76,
@@ -638,7 +633,7 @@ export const mockMenu: MenuItem[] = [
     name: "Full Box",
     price: 18.9,
     category: "Qəlyanaltı",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 77,
@@ -646,7 +641,7 @@ export const mockMenu: MenuItem[] = [
     name: "Acar üslublu xaçapuri",
     price: 10.5,
     category: "Qəlyanaltı",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 78,
@@ -654,7 +649,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq qanad + qarnir (ayran)",
     price: 13.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 79,
@@ -662,7 +657,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq qanad + qarnir (cola)",
     price: 15.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 80,
@@ -670,7 +665,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq köftə + qarnir (ayran)",
     price: 14.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 81,
@@ -678,7 +673,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq köftə + qarnir (cola)",
     price: 16.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 82,
@@ -686,7 +681,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq file + qarnir (ayran)",
     price: 13.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 83,
@@ -694,7 +689,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq file + qarnir (cola)",
     price: 15.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 84,
@@ -702,7 +697,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu lülə + qarnir (ayran)",
     price: 13.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 85,
@@ -710,7 +705,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu lülə + qarnir (cola)",
     price: 15.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 86,
@@ -718,7 +713,7 @@ export const mockMenu: MenuItem[] = [
     name: "Köftə ət + qarnir (ayran)",
     price: 14.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 87,
@@ -726,7 +721,7 @@ export const mockMenu: MenuItem[] = [
     name: "Köftə ət + qarnir (cola)",
     price: 16.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 88,
@@ -734,7 +729,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu tikə + qarnir (ayran)",
     price: 14.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 89,
@@ -742,7 +737,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu tikə + qarnir (cola)",
     price: 16.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
 
   {
@@ -751,7 +746,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu lülə",
     price: 10.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 91,
@@ -759,7 +754,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu tikə",
     price: 10.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 92,
@@ -767,7 +762,7 @@ export const mockMenu: MenuItem[] = [
     name: "Quzu köftə",
     price: 10.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 93,
@@ -775,7 +770,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq File",
     price: 8.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 94,
@@ -783,7 +778,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq Qanad",
     price: 8.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 95,
@@ -791,7 +786,7 @@ export const mockMenu: MenuItem[] = [
     name: "Toyuq Köftə",
     price: 8.0,
     category: "Kabab",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 96,
@@ -799,7 +794,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Dürüm + Mərci + İçki (ayran)",
     price: 14.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 97,
@@ -807,7 +802,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Dürüm + Mərci + İçki (cola)",
     price: 15.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 98,
@@ -815,7 +810,7 @@ export const mockMenu: MenuItem[] = [
     name: "İskəndər Dönər + Mərci + İçki (ayran)",
     price: 18.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 99,
@@ -823,7 +818,7 @@ export const mockMenu: MenuItem[] = [
     name: "İskəndər Dönər + Mərci + İçki (cola)",
     price: 19.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 100,
@@ -831,7 +826,7 @@ export const mockMenu: MenuItem[] = [
     name: "Porsion Dönər + Mərci + İçki (ayran)",
     price: 14.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 101,
@@ -839,7 +834,7 @@ export const mockMenu: MenuItem[] = [
     name: "Porsion Dönər + Mərci + İçki (cola)",
     price: 15.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 102,
@@ -847,7 +842,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal dürüm fırında + 2 Mərci + 2 İçki (ayran)",
     price: 22.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 103,
@@ -855,7 +850,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal dürüm fırında + 2 Mərci + 2 İçki (cola)",
     price: 24.0,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
 
   {
@@ -864,7 +859,7 @@ export const mockMenu: MenuItem[] = [
     name: "Hamburger + Kartof fri + Sərin içki",
     price: 9.9,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 105,
@@ -872,7 +867,7 @@ export const mockMenu: MenuItem[] = [
     name: "CheeseBurger + Kartof fri + Sərin içki",
     price: 10.5,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 106,
@@ -880,7 +875,7 @@ export const mockMenu: MenuItem[] = [
     name: "Nuggets Burger + Kartof fri + Sərin içki",
     price: 9.5,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 107,
@@ -888,7 +883,7 @@ export const mockMenu: MenuItem[] = [
     name: "Chicken Burger + Kartof fri + Sərin içki",
     price: 9.3,
     category: "Set",
-    image: "",
+    image: imgnotadd,
   },
   {
     id: 108,
@@ -896,7 +891,7 @@ export const mockMenu: MenuItem[] = [
     name: "Köftə çörək, lavaş (Toyuq, 90qr)",
     price: 4.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 109,
@@ -904,7 +899,7 @@ export const mockMenu: MenuItem[] = [
     name: "Köftə çörək, lavaş (Ət, 90qr)",
     price: 4.5,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 110,
@@ -912,7 +907,7 @@ export const mockMenu: MenuItem[] = [
     name: "Plovüstü Köftə (Toyuq, 90qr)",
     price: 9.5,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 111,
@@ -920,7 +915,7 @@ export const mockMenu: MenuItem[] = [
     name: "Plovüstü Köftə (Ət, 90qr)",
     price: 11.5,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 112,
@@ -928,7 +923,7 @@ export const mockMenu: MenuItem[] = [
     name: "Porsion Köftə (Toyuq, 180qr)",
     price: 9.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 113,
@@ -936,7 +931,7 @@ export const mockMenu: MenuItem[] = [
     name: "Porsion Köftə (Ət, 180qr)",
     price: 10.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 114,
@@ -944,7 +939,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Burger (Toyuq)",
     price: 6.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 115,
@@ -952,7 +947,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Burger (Ət)",
     price: 8.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 116,
@@ -960,7 +955,7 @@ export const mockMenu: MenuItem[] = [
     name: "Big Burger",
     price: 10.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 117,
@@ -968,7 +963,7 @@ export const mockMenu: MenuItem[] = [
     name: "Çiy köftə dürüm",
     price: 5.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 118,
@@ -976,7 +971,7 @@ export const mockMenu: MenuItem[] = [
     name: "Çiy köftə porsion",
     price: 7.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 119,
@@ -984,7 +979,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Club Sandviç (Toyuq)",
     price: 8.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 120,
@@ -992,7 +987,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Club Sandviç (Sucuk)",
     price: 9.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 121,
@@ -1000,7 +995,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Club Sandviç (Ət)",
     price: 10.0,
     category: "Köfte",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 122,
@@ -1008,7 +1003,7 @@ export const mockMenu: MenuItem[] = [
     name: "Adana Dürüm",
     price: 8.9,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 123,
@@ -1016,7 +1011,7 @@ export const mockMenu: MenuItem[] = [
     name: "Urfa Dürüm",
     price: 8.9,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 124,
@@ -1032,7 +1027,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun (Pendirli)",
     price: 5.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 126,
@@ -1040,7 +1035,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun (Qozlu)",
     price: 4.5,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 127,
@@ -1048,7 +1043,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun (Qarışıq)",
     price: 6.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 128,
@@ -1056,7 +1051,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun Dürüm (Toyuq)",
     price: 7.5,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 129,
@@ -1064,7 +1059,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun Dürüm (Ət)",
     price: 8.5,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 130,
@@ -1072,7 +1067,7 @@ export const mockMenu: MenuItem[] = [
     name: "Lahmacun Lülə",
     price: 11.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 131,
@@ -1080,7 +1075,7 @@ export const mockMenu: MenuItem[] = [
     name: "Dürüm Fırında (Toyuq)",
     price: 14.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 132,
@@ -1096,7 +1091,9 @@ export const mockMenu: MenuItem[] = [
     name: "Pide (Pendirli)",
     price: 8.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd,
+    isFeatured: true,
+    showInPremiumMenu: true,
   },
   {
     id: 134,
@@ -1104,7 +1101,7 @@ export const mockMenu: MenuItem[] = [
     name: "Pide (Toyuqlu)",
     price: 10.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 135,
@@ -1128,7 +1125,7 @@ export const mockMenu: MenuItem[] = [
     name: "Pide (Sucuklu)",
     price: 12.0,
     category: "Fırın",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 138,
@@ -1136,7 +1133,7 @@ export const mockMenu: MenuItem[] = [
     name: "Sezar Pizza",
     price: 16.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 139,
@@ -1144,7 +1141,7 @@ export const mockMenu: MenuItem[] = [
     name: "Meksikano Pizza",
     price: 16.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 140,
@@ -1152,7 +1149,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza Bavariya",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 141,
@@ -1160,7 +1157,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza (Ət)",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 142,
@@ -1168,7 +1165,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza (Toyuq)",
     price: 14.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 143,
@@ -1176,7 +1173,7 @@ export const mockMenu: MenuItem[] = [
     name: "Hot-dog Pizza",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 144,
@@ -1184,7 +1181,7 @@ export const mockMenu: MenuItem[] = [
     name: "BBQ Pizza",
     price: 13.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 145,
@@ -1192,7 +1189,7 @@ export const mockMenu: MenuItem[] = [
     name: "Marqarita Pizza",
     price: 12.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 146,
@@ -1200,7 +1197,7 @@ export const mockMenu: MenuItem[] = [
     name: "Pizza Set (Ayran + 2 əd Mərci + 2 əd İçki)",
     price: 22.0,
     category: "Set",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 147,
@@ -1208,7 +1205,7 @@ export const mockMenu: MenuItem[] = [
     name: "Pizza Set (Cola + 2 əd Mərci + 2 əd İçki)",
     price: 24.0,
     category: "Set",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 138,
@@ -1216,7 +1213,7 @@ export const mockMenu: MenuItem[] = [
     name: "Sezar Pizza",
     price: 16.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 139,
@@ -1224,7 +1221,7 @@ export const mockMenu: MenuItem[] = [
     name: "Meksikano Pizza",
     price: 16.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 140,
@@ -1232,7 +1229,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza Bavariya",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 141,
@@ -1240,7 +1237,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza (Ət)",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 142,
@@ -1248,7 +1245,7 @@ export const mockMenu: MenuItem[] = [
     name: "Manqal Pizza (Toyuq)",
     price: 14.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 143,
@@ -1256,7 +1253,7 @@ export const mockMenu: MenuItem[] = [
     name: "Hot-dog Pizza",
     price: 15.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 144,
@@ -1264,7 +1261,7 @@ export const mockMenu: MenuItem[] = [
     name: "BBQ Pizza",
     price: 13.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 145,
@@ -1272,7 +1269,7 @@ export const mockMenu: MenuItem[] = [
     name: "Marqarita Pizza",
     price: 12.0,
     category: "Pizza",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 146,
@@ -1280,7 +1277,7 @@ export const mockMenu: MenuItem[] = [
     name: "Pizza Set (Ayran + 2 əd Mərci + 2 əd İçki)",
     price: 22.0,
     category: "Set",
-    image: ""
+    image: imgnotadd
   },
   {
     id: 147,
@@ -1288,7 +1285,17 @@ export const mockMenu: MenuItem[] = [
     name: "Pizza Set (Cola + 2 əd Mərci + 2 əd İçki)",
     price: 24.0,
     category: "Set",
-    image: ""
+    image: imgnotadd
+  },
+  {
+    id: 148,
+    restaurantId: 5,
+    name: "Chocolate Cake",
+    price: 5.0,
+    category: "Desserts",
+    image: "data:image/jpeg;base64,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",
+   isFeatured: true,
+    showInPremiumMenu: true,
   }
 
 ];

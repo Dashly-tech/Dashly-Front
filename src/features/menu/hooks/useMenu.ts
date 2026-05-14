@@ -1,11 +1,9 @@
-// src/utils/useMenu.ts
 
 import { useState } from "react";
 import { mockMenu } from "../../../data/mockMenu";
-import type { MenuItem } from "../../../types/common.types";
 
 type State = {
-  menu: MenuItem[];
+  menu: (typeof mockMenu)[number][];
   loading: boolean;
   error: string | null;
 };

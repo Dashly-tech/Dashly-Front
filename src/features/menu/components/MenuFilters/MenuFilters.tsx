@@ -1,6 +1,6 @@
 import "./MenuFilters.css";
 
-const categories = ["All", "Pizza", "Burgers", "Sushi", "Pasta", "Desserts","Kampanyalar"];
+const categories = ["All", "Burgers", "Sushi", "Fırın", "Desserts","Döner"];
 
 type Props = {
   active: string;
