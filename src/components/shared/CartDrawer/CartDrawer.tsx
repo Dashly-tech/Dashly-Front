@@ -70,12 +70,12 @@ export default function CartDrawer() {
 
   const handleWhatsappOrder = () => {
     if (!hasLocation) {
-      toast.warning("Please select your location first");
+      toast.warning("Çatdırılma üçün lokasiyanızı seçin");
       return;
     }
 
     if (deliveryAvailable === null) {
-      toast("Please check delivery availability first", {
+      toast("Çatdırılmanın mümkünlüyünü yoxlayın", {
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -86,16 +86,14 @@ export default function CartDrawer() {
     }
 
     if (deliveryAvailable === false) {
-      toast.error("Delivery is not available to your location");
+      toast.error("Çatdırılma sizin yerinizə mümkün deyil");
       return;
     }
 
     if (!restaurantWhatsappNumber) return;
 
     const messageLines = [
-      `Hello, I want to place an order from Azn{
-        restaurantName || "this restaurant"
-      }:`,
+      `Salam ${restaurantName}, Sifariş vermək istəyirəm:`,
       "",
       ...items.map(
         (item) =>
