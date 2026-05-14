@@ -32,7 +32,7 @@ export const mockRestaurants: Restaurant[] = [
     locationText: "Azadliq Square, Baku",
     cuisineType: "Restaurant",
     isFeatured: true,
-    isActive: false,
+    isActive: true,
     location: { lat: 40.3777, lng: 49.8920 },
     deliveryRadiusKm: 5,
   },
@@ -86,5 +86,22 @@ export const mockRestaurants: Restaurant[] = [
     isActive: true,
     location: { lat: 40.4076, lng: 49.8590 },
     deliveryRadiusKm: 5,
+  },
+    {
+    id: 5,
+    name: "CoffeeLab",
+    slug: "coffee-lab",
+    logo: "https://plus.unsplash.com/premium_photo-1677607237201-64668c2266ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    coverImage:
+      "https://plus.unsplash.com/premium_photo-1677607237201-64668c2266ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Smooth coffee",
+    whatsappNumber: "994771234567",
+    address: "Baku, Heydar Aliyev street",
+    locationText: "Arif Heyderov 128, Baku",
+    cuisineType: "Azerbaijani",
+    isFeatured: false,
+    isActive: false,
+    location: { lat: 40.4076, lng: 49.8590 },
+    deliveryRadiusKm: 100000,
   }
 ];
