@@ -133,7 +133,7 @@ export default function CartDrawer() {
 
       <aside className="cart-drawer__panel">
         <div className="cart-drawer__header">
-          <h2 className="cart-drawer__title">Your Cart</h2>
+          <h2 className="cart-drawer__title">Səbətiniz</h2>
 
           <button
             type="button"
@@ -147,12 +147,12 @@ export default function CartDrawer() {
         <div className="cart-drawer__content">
           {restaurantName && items.length > 0 && (
             <div className="cart-drawer__restaurant">
-              Ordering from: <strong>{restaurantName}</strong>
+              Sifariş verilir: <strong>{restaurantName}</strong>
             </div>
           )}
 
           {items.length === 0 ? (
-            <p className="cart-drawer__empty">Your cart is empty.</p>
+            <p className="cart-drawer__empty">Səbətiniz boşdur.</p>
           ) : (
             items.map((item) => (
               <div key={item.id} className="cart-item">
@@ -237,7 +237,7 @@ export default function CartDrawer() {
         <div className="cart-drawer__footer">
           {deliveryAvailable === false && (
             <p className="cart-drawer__no-delivery">
-              Delivery is not available to your location
+              Çatdırılma sizin yerinizə mümkün deyil
             </p>
           )}
              
