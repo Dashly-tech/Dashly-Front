@@ -42,7 +42,6 @@ export default function ProductCard({
         name: item.name,
         price: item.price,
         category: item.category,
-        description: item.description,
         image: item.image,
       },
       {
@@ -115,7 +114,6 @@ export default function ProductCard({
             </div>
           )}
 
-          <p className="product-card__description">{item.description}</p>
 
         </div>
 

@@ -11,6 +11,7 @@ import soganHalqasi from '../assets/manqalDonerImages/soganHalqasi.jpeg'
 import imgnotadd from '../assets/notfound/imgnotadd.jpeg'
 
 export type MenuItem = {
+  description?: string;
   id: number;
   restaurantId: number;
   name: string;
