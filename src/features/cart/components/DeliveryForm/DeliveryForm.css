@@ -36,6 +36,39 @@
   color: rgba(255, 255, 255, 0.38);
 }
 
-.delivery-form__input:focus {
-  border-color: rgba(255, 255, 255, 0.18);
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+/* select styling */
+.field select {
+  height: 44px;
+  padding: 0 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: #151c2c;
+  color: #fff;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.field select option {
+  background: #151c2c;
+  color: #fff;
 }

@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { toast, ToastContainer } from "react-toastify";
-
 import { useCartStore } from "../../../app/store/cart.store";
 import { useUIStore } from "../../../app/store/ui.store";
 import { useLocationStore } from "../../../app/store/location.store";
-
 import DeliveryForm from "../../../features/cart/components/DeliveryForm/DeliveryForm";
 import SpecialRequests from "../../../features/cart/components/SpecialRequests/SpecialRequests";
 import WhatsappCheckout from "../../../features/cart/components/WhatsappCheckout/WhatsappCheckout";
 import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/DeliveryChecker";
-
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
-
 import "./CartDrawer.css";
 import PaymentMethod from "../Payment/PaymentMethod";
 import { mockRestaurants } from "../../../data/mockRestaurant";
-
+import { deliveryAreas } from "../../../config/deliveryAreas";
+import { calculateDeliveryFee } from "../../../utils/deliveryFee";
 export default function CartDrawer() {
   const [deliveryAvailable, setDeliveryAvailable] = useState<boolean | null>(
     null,
   );
   const { lat, lng } = useLocationStore();
-
 
 
   const isCartOpen = useUIStore((state) => state.isCartOpen);
@@ -38,17 +34,21 @@ export default function CartDrawer() {
     (state) => state.restaurantWhatsappNumber,
   );
   const restaurantName = useCartStore((state) => state.restaurantName);
-
+  const [selectedArea, setSelectedArea] = useState("");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
-  const [paymentMethod,setPaymentMethod] = useState("")
+  const [paymentMethod, setPaymentMethod] = useState("")
 
   const restaurant = mockRestaurants.find((r) => r.id === restaurantId);
 
   const hasLocation = lat !== null && lng !== null;
+  const selectedRule = deliveryAreas.find((a) => a.name === selectedArea);
 
+  const deliveryFee = calculateDeliveryFee(selectedRule, totalPrice);
+
+  const finalTotal = totalPrice + deliveryFee;
   useEffect(() => {
     if (items.length === 0) {
       setDeliveryAvailable(null);
@@ -95,20 +95,31 @@ export default function CartDrawer() {
     const messageLines = [
       `Salam ${restaurantName}, Sifariş vermək istəyirəm:`,
       "",
+
       ...items.map(
         (item) =>
-          `- ${item.name} x${item.quantity} - Azn${(
+          `- ${item.name} x${item.quantity} - ₼${(
             item.price * item.quantity
           ).toFixed(2)}`,
       ),
+
       "",
-      `Total: Azn${totalPrice.toFixed(2)}`,
+
+      `İlkin məbləğ: ₼${totalPrice.toFixed(2)}`,
+      `Çatdırılma haqqı: ₼${deliveryFee.toFixed(2)}`,
+      `Yekun total: ₼${finalTotal.toFixed(2)}`,
+
       "",
-      `Name: ${fullName}`,
-      `Phone: ${phone}`,
-      `Address: ${address}`,
-      `Notes: ${notes || "-"}`,
-      `Payment: ${paymentMethod}` 
+
+      `Ad: ${fullName}`,
+      `Telefon: ${phone}`,
+      `Rayon: ${selectedArea}`,
+      `Ünvan: ${address}`,
+
+      "",
+
+      `Ödəniş üsulu: ${paymentMethod}`,
+      `Qeyd: ${notes || "-"}`,
     ];
 
     const message = encodeURIComponent(messageLines.join("\n"));
@@ -122,7 +133,7 @@ export default function CartDrawer() {
     !phone.trim() ||
     !address.trim() ||
     !restaurantWhatsappNumber ||
-    !hasLocation ||
+    !hasLocation || !paymentMethod || !selectedArea ||
     deliveryAvailable === false;
 
   return (
@@ -158,7 +169,7 @@ export default function CartDrawer() {
               <div key={item.id} className="cart-item">
                 <div className="cart-item__info">
                   <h3 className="cart-item__name">{item.name}</h3>
-                  <p className="cart-item__price">${item.price}</p>
+                  <p className="cart-item__price">₼ {item.price}</p>
                 </div>
 
                 <div className="cart-item__actions">
@@ -215,6 +226,8 @@ export default function CartDrawer() {
               restaurantLng={restaurant.location.lng}
               radiusKm={restaurant.deliveryRadiusKm}
               onResult={(available) => setDeliveryAvailable(available)}
+              address={address}
+              restaurantName={restaurantName}
             />
           )}
 
@@ -225,12 +238,16 @@ export default function CartDrawer() {
             onFullNameChange={setFullName}
             onPhoneChange={setPhone}
             onAddressChange={setAddress}
+            selectedArea={selectedArea}
+            onAreaChange={setSelectedArea}
+            restaurantName={restaurantName}
+
           />
 
           <SpecialRequests value={notes} onChange={setNotes} />
           <PaymentMethod
-          paymentMethod={paymentMethod}
-          setPaymentMethod={setPaymentMethod}
+            paymentMethod={paymentMethod}
+            setPaymentMethod={setPaymentMethod}
           />
         </div>
 
@@ -240,10 +257,18 @@ export default function CartDrawer() {
               Çatdırılma sizin yerinizə mümkün deyil
             </p>
           )}
-             
+
           <div className="cart-drawer__total">
-            <span>Total</span>
-            <strong>${totalPrice.toFixed(2)}</strong>
+            {
+              restaurantName === "Mangal döner" ? <>
+                <div>İlkin məbləğ: ₼{totalPrice.toFixed(2)}</div>
+                <div>Çatdırılma: ₼{deliveryFee.toFixed(2)}</div>
+                <div>
+                  <b>Yekun məbləğ: ₼{finalTotal.toFixed(2)}</b>
+                </div></> : <><span>Total</span><strong>₼{totalPrice.toFixed(2)}</strong></>
+            }
+
+
           </div>
           <WhatsappCheckout
             disabled={isCheckoutDisabled}

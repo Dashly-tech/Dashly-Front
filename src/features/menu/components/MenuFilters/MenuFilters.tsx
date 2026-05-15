@@ -1,13 +1,14 @@
 import "./MenuFilters.css";
 
-const categories = ["All", "Burgers", "Sushi", "Fırın", "Desserts","Döner"];
+
 
 type Props = {
   active: string;
   onChange: (value: string) => void;
+  categories:string[]
 };
 
-export default function MenuFilters({ active, onChange }: Props) {
+export default function MenuFilters({ active, onChange,categories }: Props) {
   return (
     <div className="menu-filters">
       {categories.map((cat) => (

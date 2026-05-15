@@ -5,11 +5,35 @@ import { mockMenu } from "../../../data/mockMenu";
 import ProductCard from "../../../components/shared/ProductCard/ProductCard";
 import "./RestaurantDetailsPage.css";
 import { usePageTracking } from "../../../utils/usePageTracking ";
+import MenuFilters from "../../menu/components/MenuFilters/MenuFilters";
+import { useState } from "react";
 
 export default function RestaurantDetailsPage() {
+  const [category, setCategory] = useState("All")
   const { slug } = useParams();
   usePageTracking();
-   const restaurant = mockRestaurants.find((item) => item.slug === slug);
+
+  const restaurant = mockRestaurants.find((item) => item.slug === slug);
+  const restaurantMenu = mockMenu.filter(
+    (item) => item.restaurantId === restaurant?.id
+  );
+
+  const categories = [
+    "All",
+    ...new Set(
+      restaurantMenu.map(item => item.category)
+    )
+  ];
+
+
+  const filterMenu =
+    category != "All"
+      ? restaurantMenu.filter(item =>
+        item.category.includes(category)
+      )
+      : restaurantMenu;
+
+  
 
   if (!restaurant) {
     return (
@@ -24,9 +48,7 @@ export default function RestaurantDetailsPage() {
     );
   }
 
-  const restaurantMenu = mockMenu.filter(
-    (item) => item.restaurantId === restaurant.id
-  );
+
 
   return (
     <MainLayout>
@@ -60,9 +82,16 @@ export default function RestaurantDetailsPage() {
 
           <div className="restaurant-details-page__menu">
             <h2 className="restaurant-details-page__menu-title">Menu</h2>
+            <div>
+              <MenuFilters
+                active={category}
+                categories={categories}
+                onChange={(cat) => setCategory(cat)}
 
+              />
+            </div>
             <div className="restaurant-details-page__grid">
-              {restaurantMenu.map((item) => (
+              {filterMenu.map((item) => (
                 <ProductCard
                   key={item.id}
                   item={item}

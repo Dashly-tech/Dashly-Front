@@ -563,7 +563,7 @@ export const mockMenu: MenuItem[] = [
     image: pure,
   },
   {
-    id: 68,
+    id: 113131313,
     restaurantId: 1,
     name: "Nuggets + Kartof Fri (5 ədəd)",
     price: 7.9,
@@ -571,7 +571,7 @@ export const mockMenu: MenuItem[] = [
     image: nuggets,
   },
   {
-    id: 69,
+    id: 691213232,
     restaurantId: 1,
     name: "Nuggets + Kartof Fri (8 ədəd)",
     price: 11.0,
@@ -579,7 +579,7 @@ export const mockMenu: MenuItem[] = [
     image: nuggets,
   },
   {
-    id: 70,
+    id: 700000777,
     restaurantId: 1,
     name: "Nuggets + Kartof Fri (10 ədəd)",
     price: 13.0,
@@ -587,7 +587,7 @@ export const mockMenu: MenuItem[] = [
     image: nuggets,
   },
   {
-    id: 71,
+    id: 71222355,
     restaurantId: 1,
     name: "Nuggets + Kartof Fri (12 ədəd)",
     price: 15.0,
@@ -595,7 +595,7 @@ export const mockMenu: MenuItem[] = [
     image: nuggets,
   },
   {
-    id: 72,
+    id: 728899922,
     restaurantId: 1,
     name: "Pendir çubuqları (4 ədəd)",
     price: 7.0,
@@ -603,7 +603,7 @@ export const mockMenu: MenuItem[] = [
     image: pendirCubuq,
   },
   {
-    id: 73,
+    id: 731002300,
     restaurantId: 1,
     name: "Kənd sayağı kartof",
     price: 4.5,
@@ -611,7 +611,7 @@ export const mockMenu: MenuItem[] = [
     image: kendsayagi,
   },
   {
-    id: 74,
+    id: 747780039,
     restaurantId: 1,
     name: "Soğan halqaları",
     price: 4.9,
@@ -621,7 +621,7 @@ export const mockMenu: MenuItem[] = [
     showInPremiumMenu: true,
   },
   {
-    id: 75,
+    id: 75885023,
     restaurantId: 1,
     name: "Toyuq pop corn",
     price: 6.9,
@@ -629,7 +629,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd,
   },
   {
-    id: 76,
+    id: 7688921,
     restaurantId: 1,
     name: "Full Box",
     price: 18.9,
@@ -637,7 +637,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd,
   },
   {
-    id: 77,
+    id: 77333556410,
     restaurantId: 1,
     name: "Acar üslublu xaçapuri",
     price: 10.5,
@@ -645,7 +645,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd,
   },
   {
-    id: 78,
+    id: 78112365,
     restaurantId: 1,
     name: "Toyuq qanad + qarnir (ayran)",
     price: 13.0,
@@ -1129,7 +1129,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 138,
+    id: 138990021,
     restaurantId: 1,
     name: "Sezar Pizza",
     price: 16.0,
@@ -1137,7 +1137,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 139,
+    id: 139221356,
     restaurantId: 1,
     name: "Meksikano Pizza",
     price: 16.0,
@@ -1145,7 +1145,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 140,
+    id: 1407700121,
     restaurantId: 1,
     name: "Manqal Pizza Bavariya",
     price: 15.0,
@@ -1153,7 +1153,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 141,
+    id: 14111002,
     restaurantId: 1,
     name: "Manqal Pizza (Ət)",
     price: 15.0,
@@ -1161,7 +1161,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 142,
+    id: 1420012,
     restaurantId: 1,
     name: "Manqal Pizza (Toyuq)",
     price: 14.0,
@@ -1169,7 +1169,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 143,
+    id: 1432,
     restaurantId: 1,
     name: "Hot-dog Pizza",
     price: 15.0,
@@ -1177,7 +1177,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 144,
+    id: 1441145,
     restaurantId: 1,
     name: "BBQ Pizza",
     price: 13.0,
@@ -1185,7 +1185,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 145,
+    id: 145002,
     restaurantId: 1,
     name: "Marqarita Pizza",
     price: 12.0,
@@ -1193,7 +1193,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 146,
+    id: 146005,
     restaurantId: 1,
     name: "Pizza Set (Ayran + 2 əd Mərci + 2 əd İçki)",
     price: 22.0,
@@ -1201,7 +1201,7 @@ export const mockMenu: MenuItem[] = [
     image: imgnotadd
   },
   {
-    id: 147,
+    id: 1473321,
     restaurantId: 1,
     name: "Pizza Set (Cola + 2 əd Mərci + 2 əd İçki)",
     price: 24.0,

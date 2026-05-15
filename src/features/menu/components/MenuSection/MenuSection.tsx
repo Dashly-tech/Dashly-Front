@@ -3,7 +3,7 @@ import MenuFilters from "../MenuFilters/MenuFilters";
 import MenuGrid from "../MenuGrid/MenuGrid";
 import useReveal from "../../hooks/useReveal";
 import "./MenuSection.css";
-
+const categories = ["All", "Burgers", "Sushi", "Fırın", "Desserts","Döner"];
 export default function MenuSection() {
   const [category, setCategory] = useState("All");
   const { ref, isVisible } = useReveal<HTMLElement>();
@@ -17,7 +17,7 @@ export default function MenuSection() {
       <div className="menu-section__container">
         <h2 className="menu-section__title">Premium Menu</h2>
 
-        <MenuFilters active={category} onChange={setCategory} />
+        <MenuFilters active={category} onChange={setCategory}  categories={categories}/>
         <MenuGrid category={category} />
       </div>
     </section>

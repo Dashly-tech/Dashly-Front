@@ -8,6 +8,8 @@ type Props = {
   restaurantLng: number;
   radiusKm: number;
   onResult: (available: boolean) => void;
+  restaurantName: string | null,
+  address: string
 };
 
 type Status = "idle" | "available" | "unavailable";
@@ -41,6 +43,8 @@ export default function DeliveryChecker({
   restaurantLng,
   radiusKm,
   onResult,
+  address,
+  restaurantName
 }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
@@ -63,7 +67,7 @@ export default function DeliveryChecker({
     } else {
       setStatus("unavailable");
       onResult(false);
-    }
+    } 
   };
 
   useEffect(() => {
