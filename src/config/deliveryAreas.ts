@@ -1,8 +1,7 @@
 export type AreaRule = {
   name: string;
-  minFree: number;
-  fee: number;
-  isAlwaysFree?: boolean;
+  minFree?: number;
+  fee?: number;
 };
 
 export const deliveryAreas: AreaRule[] = [
@@ -13,10 +12,21 @@ export const deliveryAreas: AreaRule[] = [
   { name: "Yasamal", minFree: 33, fee: 4 },
   { name: "Əcəmi", minFree: 33, fee: 4 },
 
-  {
-    name: "Azadlıq",
-    minFree: 0,
-    fee: 0,
-    isAlwaysFree: true,
-  },
+  // Free delivery areas
+  { name: "Azadlıq" },
+  { name: "Nərimanov" },
+  { name: "Gənclik" },
+  { name: "Neftçilər" },
+  { name: "Xalqlar Dostluğu" },
+  { name: "İnşaatçılar" },
+  { name: "Elmlər Akademiyası" },
+  { name: "Memar Əcəmi" },
+  { name: "8 Noyabr" },
+  { name: "Koroğlu" },
+  { name: "Bakmil" },
+  { name: "Dərnəgül" },
+  { name: "Sahil" },
+  { name: "İçərişəhər" },
+  { name: "Əhmədli" },
+  { name: "Həzi Aslanov" },
 ];

@@ -65,7 +65,7 @@ export default function DeliveryChecker({
     } else {
       setStatus("unavailable");
       onResult(false);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -96,15 +96,15 @@ export default function DeliveryChecker({
           <div className="delivery-checker__badge">Outside delivery zone</div>
 
           <p className="delivery-checker__dist">
-            You are {distanceKm} km away (limit: {radiusKm} km)
+            Siz restorandan {distanceKm} km uzaqdasınız (limit: {radiusKm} km)
           </p>
 
           <p className="delivery-checker__notice">
-            Unfortunately we don't deliver to your area yet.
+            Təəssüf ki, hələlik sizin əraziyə çatdırılma etmirik.
           </p>
 
           <button className="delivery-checker__retry" onClick={checkDelivery}>
-            Try again
+            Yenidən yoxlayın
           </button>
         </div>
       )}
