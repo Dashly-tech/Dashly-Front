@@ -41,7 +41,7 @@ export default function Navbar({setOpen}:{setOpen:()=>void}) {
               />
             </div>
             <Link to="/restaurants" className="navbar__browse-btn">
-              Browse Restaurants
+             Restoran axtarın
             </Link>
             <CartButton count={totalItems} onClick={openCart} />
           </div>

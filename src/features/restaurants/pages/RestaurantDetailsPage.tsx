@@ -9,15 +9,15 @@ import { usePageTracking } from "../../../utils/usePageTracking ";
 export default function RestaurantDetailsPage() {
   const { slug } = useParams();
   usePageTracking();
-   const restaurant = mockRestaurants.find((item) => item.slug === slug);
+  const restaurant = mockRestaurants.find((item) => item.slug === slug);
 
   if (!restaurant) {
     return (
       <MainLayout>
         <div className="restaurant-details-page">
           <div className="restaurant-details-page__container">
-            <h2>Restaurant not found</h2>
-            <p>The restaurant you are looking for does not exist.</p>
+            <h2>Restoran tapılmadı</h2>
+            <p>Axtardığınız restoran mövcud deyil.</p>
           </div>
         </div>
       </MainLayout>
@@ -59,7 +59,7 @@ export default function RestaurantDetailsPage() {
           </div>
 
           <div className="restaurant-details-page__menu">
-            <h2 className="restaurant-details-page__menu-title">Menu</h2>
+            <h2 className="restaurant-details-page__menu-title">Menyu</h2>
 
             <div className="restaurant-details-page__grid">
               {restaurantMenu.map((item) => (

@@ -10,10 +10,10 @@ export default function RestaurantShowcase() {
     <section className="restaurant-showcase">
       <div className="restaurant-showcase__container">
         <div className="restaurant-showcase__header">
-          <h2>Popular Restaurants</h2>
+          <h2>Populyar Restoranlar</h2>
 
           <Link to="/restaurants" className="restaurant-showcase__view-all">
-            View all
+            Hamısına bax
           </Link>
         </div>
 

@@ -70,12 +70,12 @@ export default function CartDrawer() {
 
   const handleWhatsappOrder = () => {
     if (!hasLocation) {
-      toast.warning("Please select your location first");
+      toast.warning("Zəhmət olmasa əvvəlcə məkanınızı seçin");
       return;
     }
 
     if (deliveryAvailable === null) {
-      toast("Please check delivery availability first", {
+      toast("Zəhmət olmasa əvvəlcə çatdırılma mövcudluğunu yoxlayın", {
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -86,7 +86,7 @@ export default function CartDrawer() {
     }
 
     if (deliveryAvailable === false) {
-      toast.error("Delivery is not available to your location");
+      toast.error("Çatdırılma sizin yerləşdiyiniz ünvana mümkün deyil");
       return;
     }
 
@@ -135,7 +135,7 @@ export default function CartDrawer() {
 
       <aside className="cart-drawer__panel">
         <div className="cart-drawer__header">
-          <h2 className="cart-drawer__title">Your Cart</h2>
+          <h2 className="cart-drawer__title">Səbətiniz</h2>
 
           <button
             type="button"
@@ -149,12 +149,12 @@ export default function CartDrawer() {
         <div className="cart-drawer__content">
           {restaurantName && items.length > 0 && (
             <div className="cart-drawer__restaurant">
-              Ordering from: <strong>{restaurantName}</strong>
+              Buradan sifariş: <strong>{restaurantName}</strong>
             </div>
           )}
 
           {items.length === 0 ? (
-            <p className="cart-drawer__empty">Your cart is empty.</p>
+            <p className="cart-drawer__empty">Səbətiniz boşdur.</p>
           ) : (
             items.map((item) => (
               <div key={item.id} className="cart-item">
@@ -196,7 +196,7 @@ export default function CartDrawer() {
                       trackRemoveFromCart(item, item.quantity);
                     }}
                   >
-                    Remove
+                    Sil
                   </button>
                 </div>
               </div>
@@ -239,13 +239,13 @@ export default function CartDrawer() {
         <div className="cart-drawer__footer">
           {deliveryAvailable === false && (
             <p className="cart-drawer__no-delivery">
-              Delivery is not available to your location
+              Çatdırılma sizin yerləşdiyiniz ünvana mümkün deyil
             </p>
           )}
              
           <div className="cart-drawer__total">
-            <span>Total</span>
-            <strong>${totalPrice.toFixed(2)}</strong>
+            <span>Cəm</span>
+            <strong>₼{totalPrice.toFixed(2)}</strong>
           </div>
           <WhatsappCheckout
             disabled={isCheckoutDisabled}

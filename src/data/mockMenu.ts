@@ -437,7 +437,7 @@ export const mockMenu: MenuItem[] = [
     name: "Sezar salatı",
     price: 10.0,
     category: "Salat",
-    image:sezar,
+    image: sezar,
   },
   {
     id: 63,
@@ -1288,6 +1288,198 @@ export const mockMenu: MenuItem[] = [
     name: "Pizza Set (Cola + 2 əd Mərci + 2 əd İçki)",
     price: 24.0,
     category: "Set",
+    image: ""
+  },
+  {
+    id: 148,
+    restaurantId: 1,
+    name: "Cola, Fanta, Sprite 330ml (banka)",
+    price: 2.5,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 149,
+    restaurantId: 1,
+    name: "Cola, Fanta 330ml (şüşə)",
+    price: 3.0,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 150,
+    restaurantId: 1,
+    name: "Meyvə şirəsi 200ml",
+    price: 2.0,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 151,
+    restaurantId: 1,
+    name: "Köpüklü ayran",
+    price: 1.5,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 152,
+    restaurantId: 1,
+    name: "Fuse-Tea 330ml (banka)",
+    price: 2.5,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 153,
+    restaurantId: 1,
+    name: "Kompot 1L",
+    price: 4.5,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 154,
+    restaurantId: 1,
+    name: "Qazlı / Qazsız su 500ml",
+    price: 1.0,
+    category: "İçki",
+    image: ""
+  },
+  {
+    id: 155,
+    restaurantId: 1,
+    name: "Qara çay",
+    price: 5.0,
+    category: "İsti İçki",
+    image: ""
+  },
+  {
+    id: 156,
+    restaurantId: 1,
+    name: "Qara çay 1 fincan",
+    price: 1.0,
+    category: "İsti İçki",
+    image: ""
+  },
+  {
+    id: 157,
+    restaurantId: 1,
+    name: "Yaşıl çay",
+    price: 7.0,
+    category: "İsti İçki",
+    image: ""
+  },
+  {
+    id: 158,
+    restaurantId: 1,
+    name: "Red Velvet Çizkeyk",
+    price: 7.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 159,
+    restaurantId: 1,
+    name: "Trufel Çizkeyk (şokoladlı)",
+    price: 7.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 160,
+    restaurantId: 1,
+    name: "Manqo Çizkeyk",
+    price: 7.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 161,
+    restaurantId: 1,
+    name: "San Sebastian",
+    price: 8.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 162,
+    restaurantId: 1,
+    name: "Türk paxlavası 3 ədəd",
+    price: 4.0,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 163,
+    restaurantId: 1,
+    name: "Türk südlü paxlava 3 ədəd",
+    price: 4.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 164,
+    restaurantId: 1,
+    name: "Künefə sadə",
+    price: 6.0,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 165,
+    restaurantId: 1,
+    name: "Künefə dondurmalı",
+    price: 8.0,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 166,
+    restaurantId: 1,
+    name: "Dondurma 3 top",
+    price: 4.5,
+    category: "Dessert",
+    image: ""
+  },
+  {
+    id: 167,
+    restaurantId: 1,
+    name: "Snickers mürəbbəsi",
+    price: 7.0,
+    category: "Mürəbbə",
+    image: ""
+  },
+  {
+    id: 168,
+    restaurantId: 1,
+    name: "Çiyələk mürəbbəsi",
+    price: 6.0,
+    category: "Mürəbbə",
+    image: ""
+  },
+  {
+    id: 169,
+    restaurantId: 1,
+    name: "Ağ gilas mürəbbəsi",
+    price: 6.0,
+    category: "Mürəbbə",
+    image: ""
+  },
+  {
+    id: 170,
+    restaurantId: 1,
+    name: "Bounty mürəbbəsi",
+    price: 7.0,
+    category: "Mürəbbə",
+    image: ""
+  },
+  {
+    id: 171,
+    restaurantId: 1,
+    name: "Sütlaç",
+    price: 5.0,
+    category: "Mürəbbə",
     image: ""
   }
 

@@ -19,38 +19,38 @@ export default function DeliveryForm({
 }: DeliveryFormProps) {
   return (
     <div className="delivery-form">
-      <h3 className="delivery-form__title">Delivery Info</h3>
+      <h3 className="delivery-form__title">Çatdırılma məlumatı</h3>
 
       <div className="delivery-form__group">
-        <label className="delivery-form__label">Full name</label>
+        <label className="delivery-form__label">Ad, soyad</label>
         <input
           type="text"
           className="delivery-form__input"
           value={fullName}
           onChange={(e) => onFullNameChange(e.target.value)}
-          placeholder="Enter your full name"
+          placeholder="Ad, soyad əlavə edin"
         />
       </div>
 
       <div className="delivery-form__group">
-        <label className="delivery-form__label">Phone number</label>
+        <label className="delivery-form__label">Əlaqə nömrəsi</label>
         <input
           type="text"
           className="delivery-form__input"
           value={phone}
           onChange={(e) => onPhoneChange(e.target.value)}
-          placeholder="Enter your phone number"
+          placeholder="Əlaqə nömrənizi əlavə edin"
         />
       </div>
 
       <div className="delivery-form__group">
-        <label className="delivery-form__label">Address</label>
+        <label className="delivery-form__label">Ünvan</label>
         <input
           type="text"
           className="delivery-form__input"
           value={address}
           onChange={(e) => onAddressChange(e.target.value)}
-          placeholder="Enter your delivery address"
+          placeholder="Çatdırılma ünvanınızı əlavə edin"
         />
       </div>
     </div>

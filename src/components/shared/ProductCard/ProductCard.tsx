@@ -75,7 +75,7 @@ export default function ProductCard({
           <div className="overlay">
             <div className="overlay-content">
               <span className="lock"><CiLock size={24} /></span>
-              <p>Deactive Restaurant powered by AI</p>
+              <p>Deaktiv restoran</p>
             </div>
           </div>
         )}
@@ -84,11 +84,11 @@ export default function ProductCard({
         } */}
         {status === "unavailable" ? (
           <div className="delivery-badge error">
-            <HiOutlineXCircle /> Delivery not available
+            <HiOutlineXCircle /> Çatdırılma aktiv deyil
           </div>
         ) : (
           <div className="delivery-badge success">
-            <MdDeliveryDining size={24} /> Delivery available
+            <MdDeliveryDining size={24} /> Çatdırılma aktivdir
           </div>
         )}
 
@@ -123,7 +123,7 @@ export default function ProductCard({
           onClick={handleAddToCart}
           disabled={!restaurant || status === "unavailable" || isActive === false}
         >
-          Add to cart
+          Səbətə əlavə et
         </button>
       </div>
     </article>

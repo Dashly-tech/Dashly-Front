@@ -15,7 +15,7 @@ export default function MenuSection() {
       className={`menu-section reveal-on-scroll ${isVisible ? "is-visible" : ""}`}
     >
       <div className="menu-section__container">
-        <h2 className="menu-section__title">Premium Menu</h2>
+        <h2 className="menu-section__title">Premium Menyu</h2>
 
         <MenuFilters active={category} onChange={setCategory} />
         <MenuGrid category={category} />

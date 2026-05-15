@@ -11,13 +11,13 @@ export default function SpecialRequests({
 }: SpecialRequestsProps) {
   return (
     <div className="special-requests">
-      <h3 className="special-requests__title">Special Requests</h3>
+      <h3 className="special-requests__title">Əlavə qeydlər</h3>
 
       <textarea
         className="special-requests__textarea"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Add notes for your order..."
+        placeholder="Sifarişiniz üçün qeydlər əlavə edin..."
       />
     </div>
   );

@@ -76,33 +76,35 @@ export default function DeliveryChecker({
     <div className="delivery-checker">
       {status === "idle" && (
         <button className="delivery-checker__btn" onClick={checkDelivery}>
-          Check delivery to your location
+          Zəhmət olmasa, yerləşdiyiniz ünvana çatdırılmanı yoxlayın
         </button>
       )}
 
       {status === "available" && (
         <div className="delivery-checker__result delivery-checker__result--ok">
-          <div className="delivery-checker__badge">✅ Delivery available</div>
+          <div className="delivery-checker__badge">✅ Çatdırılma aktivdir</div>
           <div className="delivery-checker__meta">
-            <span>{distanceKm} km away</span>
+            <span>{distanceKm} km uzaq</span>
           </div>
         </div>
       )}
 
       {status === "unavailable" && (
         <div className="delivery-checker__result delivery-checker__result--no">
-          <div className="delivery-checker__badge">Outside delivery zone</div>
+          <div className="delivery-checker__badge">Çatdırılma zonası xaricindədir
+          </div>
 
           <p className="delivery-checker__dist">
-            You are {distanceKm} km away (limit: {radiusKm} km)
+            Siz {distanceKm} km uzaqsınız (limit: {radiusKm} km)
           </p>
 
           <p className="delivery-checker__notice">
-            Unfortunately we don't deliver to your area yet.
+            Təəssüf ki, hələ sizin ərazinizə çatdırılma etmirik.
+
           </p>
 
           <button className="delivery-checker__retry" onClick={checkDelivery}>
-            Try again
+            Yenidən cəhd edin
           </button>
         </div>
       )}
