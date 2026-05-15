@@ -43,8 +43,6 @@ export default function DeliveryChecker({
   restaurantLng,
   radiusKm,
   onResult,
-  address,
-  restaurantName
 }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
