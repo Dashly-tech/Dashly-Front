@@ -99,3 +99,44 @@
     grid-template-columns: 1fr;
   }
 }
+.restaurant-details-page__hero {
+  position: relative;
+}
+
+.restaurant-details-page__floating-info {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  z-index: 5;
+}
+
+.restaurant-details-page__floating-card {
+  width: 280px;
+  min-height: 120px;
+  padding: 24px;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  animation: slideDown 0.6s ease;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

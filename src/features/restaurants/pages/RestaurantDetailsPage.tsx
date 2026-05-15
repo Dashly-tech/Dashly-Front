@@ -6,14 +6,48 @@ import ProductCard from "../../../components/shared/ProductCard/ProductCard";
 import "./RestaurantDetailsPage.css";
 import { usePageTracking } from "../../../utils/usePageTracking ";
 import MenuFilters from "../../menu/components/MenuFilters/MenuFilters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function RestaurantDetailsPage() {
-  const [category, setCategory] = useState("All")
+  const [category, setCategory] = useState("All");
+
+  const deliveryMessages = [
+    `📍 Çatdırılma şərtləri:
+
+• Əzizbəyov — 48 ₼↓ → +7 ₼
+• Binəqədi — 35 ₼↓ → +5 ₼`,
+
+    `📍 Çatdırılma şərtləri:
+
+• Biləcəri — 40 ₼↓ → +6 ₼
+• 20 Yanvar — 28 ₼↓ → +4 ₼`,
+
+    `📍 Çatdırılma şərtləri:
+
+• Yasamal — 33 ₼↓ → +4 ₼
+• Əcəmi — 33 ₼↓ → +4 ₼`,
+  ];
+
+  const [currentMessage, setCurrentMessage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessage(
+        (prev) => (prev + 1) % deliveryMessages.length
+      );
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const { slug } = useParams();
+
   usePageTracking();
 
-  const restaurant = mockRestaurants.find((item) => item.slug === slug);
+  const restaurant = mockRestaurants.find(
+    (item) => item.slug === slug
+  );
+
   const restaurantMenu = mockMenu.filter(
     (item) => item.restaurantId === restaurant?.id
   );
@@ -21,19 +55,16 @@ export default function RestaurantDetailsPage() {
   const categories = [
     "All",
     ...new Set(
-      restaurantMenu.map(item => item.category)
-    )
+      restaurantMenu.map((item) => item.category)
+    ),
   ];
 
-
   const filterMenu =
-    category != "All"
-      ? restaurantMenu.filter(item =>
-        item.category.includes(category)
-      )
+    category !== "All"
+      ? restaurantMenu.filter((item) =>
+          item.category.includes(category)
+        )
       : restaurantMenu;
-
-  
 
   if (!restaurant) {
     return (
@@ -41,14 +72,15 @@ export default function RestaurantDetailsPage() {
         <div className="restaurant-details-page">
           <div className="restaurant-details-page__container">
             <h2>Restaurant not found</h2>
-            <p>The restaurant you are looking for does not exist.</p>
+            <p>
+              The restaurant you are looking for does
+              not exist.
+            </p>
           </div>
         </div>
       </MainLayout>
     );
   }
-
-
 
   return (
     <MainLayout>
@@ -57,7 +89,9 @@ export default function RestaurantDetailsPage() {
           <div className="restaurant-details-page__hero">
             <div
               className="restaurant-details-page__cover"
-              style={{ backgroundImage: `url(${restaurant.coverImage})` }}
+              style={{
+                backgroundImage: `url(${restaurant.coverImage})`,
+              }}
             />
 
             <div className="restaurant-details-page__info">
@@ -78,18 +112,35 @@ export default function RestaurantDetailsPage() {
                 <span>{restaurant.address}</span>
               </div>
             </div>
+
+            <div className="restaurant-details-page__floating-info">
+              <div className="restaurant-details-page__floating-card">
+                <pre>
+                  {
+                    deliveryMessages[
+                      currentMessage
+                    ]
+                  }
+                </pre>
+              </div>
+            </div>
           </div>
 
           <div className="restaurant-details-page__menu">
-            <h2 className="restaurant-details-page__menu-title">Menu</h2>
+            <h2 className="restaurant-details-page__menu-title">
+              Menu
+            </h2>
+
             <div>
               <MenuFilters
                 active={category}
                 categories={categories}
-                onChange={(cat) => setCategory(cat)}
-
+                onChange={(cat) =>
+                  setCategory(cat)
+                }
               />
             </div>
+
             <div className="restaurant-details-page__grid">
               {filterMenu.map((item) => (
                 <ProductCard
@@ -98,13 +149,21 @@ export default function RestaurantDetailsPage() {
                   restaurant={{
                     id: restaurant.id,
                     name: restaurant.name,
-                    whatsappNumber: restaurant.whatsappNumber,
-                    restaurantLat: restaurant.location.lat,
-                    restaurantLng: restaurant.location.lng,
-                    deliveryRadiusKm: restaurant.deliveryRadiusKm,
+                    whatsappNumber:
+                      restaurant.whatsappNumber,
+                    restaurantLat:
+                      restaurant.location.lat,
+                    restaurantLng:
+                      restaurant.location.lng,
+                    deliveryRadiusKm:
+                      restaurant.deliveryRadiusKm,
                   }}
-                  restaurantName={restaurant.name}
-                  restaurantLocation={restaurant.locationText}
+                  restaurantName={
+                    restaurant.name
+                  }
+                  restaurantLocation={
+                    restaurant.locationText
+                  }
                   isActive={restaurant.isActive}
                 />
               ))}

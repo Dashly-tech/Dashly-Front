@@ -15,7 +15,6 @@ export default function Navbar({setOpen}:{setOpen:()=>void}) {
       <div className="navbar__container">
 
         <div className="navbar__top">
-          {/* LOGO */}
           <Link to="/" className="navbar__brand">
             <div className="navbar__logo-box">
               <img
@@ -28,12 +27,10 @@ export default function Navbar({setOpen}:{setOpen:()=>void}) {
             <span className="navbar__brand-text">Dashly</span>
           </Link>
 
-          {/* SEARCH (desktop) */}
           <div className="navbar__search navbar__search--desktop">
             <SearchBar />
           </div>
 
-          {/* RIGHT */}
           <div className="navbar__right">
             <div className="navbar-location">
               <LocationButton 
@@ -41,7 +38,7 @@ export default function Navbar({setOpen}:{setOpen:()=>void}) {
               />
             </div>
             <Link to="/restaurants" className="navbar__browse-btn">
-              Browse Restaurants
+              Bütün restoranlar
             </Link>
             <CartButton count={totalItems} onClick={openCart} />
           </div>

@@ -35,7 +35,7 @@ export default function SearchBar() {
           {/* RESTAURANTS */}
           {restaurantResults.length > 0 && (
             <div className="search__section">
-              <p className="search__section-title">Restaurants</p>
+              <p className="search__section-title">Restoranlar</p>
 
               {restaurantResults.map((r) => (
                 <Link
@@ -56,7 +56,7 @@ export default function SearchBar() {
           {/* FOODS */}
           {foodResults.length > 0 && (
             <div className="search__section">
-              <p className="search__section-title">Dishes</p>
+              <p className="search__section-title">Yeməklər</p>
 
               {foodResults.map((item) => {
                 const restaurant =mockRestaurants.find(
@@ -81,7 +81,7 @@ export default function SearchBar() {
           )}
 
           {restaurantResults.length === 0 && foodResults.length === 0 && (
-            <p className="search__empty">No results found</p>
+            <p className="search__empty">Məlumat tapılmadı</p>
           )}
         </div>
       )}
