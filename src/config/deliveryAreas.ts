@@ -2,6 +2,7 @@ export type AreaRule = {
   name: string;
   minFree?: number;
   fee?: number;
+   isAlwaysFree?: boolean;
 };
 
 export const deliveryAreas: AreaRule[] = [

@@ -11,5 +11,9 @@ export function calculateDeliveryFee(
     return 0;
   }
 
+  if (area.minFree === undefined) {
+    return area.fee;
+  }
+
   return total < area.minFree ? area.fee : 0;
 }
