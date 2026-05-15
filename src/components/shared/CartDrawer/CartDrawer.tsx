@@ -48,7 +48,7 @@ export default function CartDrawer() {
 
   const deliveryFee = calculateDeliveryFee(selectedRule, totalPrice);
 
-  const finalTotal = deliveryFee && totalPrice + deliveryFee;
+  const finalTotal = deliveryFee ? totalPrice + deliveryFee : totalPrice;
   useEffect(() => {
     if (items.length === 0) {
       setDeliveryAvailable(null);
@@ -262,7 +262,7 @@ export default function CartDrawer() {
             {
               restaurantName === "Mangal döner" ? <>
                 <div>İlkin məbləğ: ₼{totalPrice.toFixed(2)}</div>
-                <div>Çatdırılma: ₼{finalTotal &&deliveryFee.toFixed(2)}</div>
+                <div>Çatdırılma: ₼{deliveryFee &&deliveryFee.toFixed(2)}</div>
                 <div>
                   <b>Yekun məbləğ: ₼{ finalTotal &&finalTotal.toFixed(2)}</b>
                 </div></> : <><span>Total</span><strong>₼{totalPrice.toFixed(2)}</strong></>
