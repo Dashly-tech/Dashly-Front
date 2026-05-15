@@ -8,6 +8,8 @@ type Props = {
   restaurantLng: number;
   radiusKm: number;
   onResult: (available: boolean) => void;
+  restaurantName: string | null,
+  address: string
 };
 
 type Status = "idle" | "available" | "unavailable";
@@ -63,7 +65,7 @@ export default function DeliveryChecker({
     } else {
       setStatus("unavailable");
       onResult(false);
-    }
+    } 
   };
 
   useEffect(() => {
