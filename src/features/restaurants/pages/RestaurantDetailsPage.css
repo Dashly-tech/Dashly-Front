@@ -140,3 +140,32 @@
     transform: translateY(0);
   }
 } 
+@media (max-width: 768px) {
+  .restaurant-details-page__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    height: auto !important;
+  }
+
+  .restaurant-details-page__cover {
+    min-height: 260px;
+  }
+
+  .restaurant-details-page__info {
+    width: 100%;
+  }
+
+  .restaurant-details-page__floating-info {
+    position: static;
+
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .restaurant-details-page__floating-card {
+    width: 100%;
+  }
+}
