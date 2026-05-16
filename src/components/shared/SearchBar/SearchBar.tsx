@@ -16,6 +16,8 @@ export default function SearchBar() {
     item.name.toLowerCase().includes(query.toLowerCase())
   );
 
+
+
   return (
     <div className="search">
       <div className="search__input-wrapper">
@@ -40,7 +42,10 @@ export default function SearchBar() {
               {restaurantResults.map((r) => (
                 <Link
                   key={r.id}
-                  to={`/restaurants/${r.slug}`}
+                  to={{
+                    pathname: `/restaurants/${r.slug}`,
+                    search: "",
+                  }}
                   className="search__item"
                 >
                   <img src={r.logo} className="search__thumb" />
@@ -59,15 +64,19 @@ export default function SearchBar() {
               <p className="search__section-title">Yeməklər</p>
 
               {foodResults.map((item) => {
-                const restaurant =mockRestaurants.find(
+                const restaurant = mockRestaurants.find(
                   (r) => r.id === item.restaurantId
                 );
 
                 return (
                   <Link
                     key={item.id}
-                    to={`/restaurants/${restaurant?.slug}`}
                     className="search__item"
+                    to={{
+                      pathname: `/restaurants/${restaurant?.slug}`,
+                      search: `?FOODS=${item.name}`,
+                    }}
+
                   >
                     <img src={item.image} className="search__thumb" />
                     <div>
