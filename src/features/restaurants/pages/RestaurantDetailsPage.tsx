@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout/MainLayout";
 import { mockRestaurants } from "../../../data/mockRestaurant";
 import { mockMenu } from "../../../data/mockMenu";
@@ -10,7 +10,8 @@ import { useEffect, useState } from "react";
 
 export default function RestaurantDetailsPage() {
   const [category, setCategory] = useState("All");
-
+  const [searchParams] = useSearchParams();
+  const food = searchParams.get("FOODS");
   const deliveryMessages = [
     `📍 Çatdırılma şərtləri:
 
@@ -59,12 +60,14 @@ export default function RestaurantDetailsPage() {
     ),
   ];
 
-  const filterMenu =
-    category !== "All"
-      ? restaurantMenu.filter((item) =>
-          item.category.includes(category)
-        )
-      : restaurantMenu;
+  const filterMenu = restaurantMenu.filter((item) => {
+    const matchesCategory =
+      category === "All" || item.category.includes(category);
+    const matchesFood =
+      !food || item.name.includes(food);
+
+    return matchesCategory && matchesFood;
+  });
 
   if (!restaurant) {
     return (
@@ -118,7 +121,7 @@ export default function RestaurantDetailsPage() {
                 <pre>
                   {
                     deliveryMessages[
-                      currentMessage
+                    currentMessage
                     ]
                   }
                 </pre>
@@ -132,13 +135,16 @@ export default function RestaurantDetailsPage() {
             </h2>
 
             <div>
-              <MenuFilters
-                active={category}
-                categories={categories}
-                onChange={(cat) =>
-                  setCategory(cat)
-                }
-              />
+              {
+                !food && <MenuFilters
+                  active={category}
+                  categories={categories}
+                  onChange={(cat) =>
+                    setCategory(cat)
+                  }
+                />
+              }
+
             </div>
 
             <div className="restaurant-details-page__grid">
