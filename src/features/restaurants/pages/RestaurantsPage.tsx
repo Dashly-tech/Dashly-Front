@@ -12,7 +12,7 @@ export default function RestaurantsPage() {
     <MainLayout>
       <div className="restaurants-page">
         <div className="restaurants-page__container">
-          <h1 className="restaurants-page__title">All Restaurants</h1>
+          <h1 className="restaurants-page__title">Bütün restoranlar</h1>
 
           <div className="restaurants-grid">
             {mockRestaurants.map((restaurant) => (

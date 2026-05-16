@@ -20,8 +20,7 @@ export default function Footer() {
             <div>
               <h3 className="footer__brand-title">Dashly</h3>
               <p className="footer__brand-text">
-                Direct food ordering experience with a faster, smarter, and more
-                personal touch.
+              Daha sürətli, daha ağıllı və daha şəxsi yanaşma ilə birbaşa yemək sifarişi təcrübəsi.
               </p>
             </div>
           <div className="footer__socials">
@@ -41,16 +40,16 @@ export default function Footer() {
 
           <div className="footer__columns">
             <div className="footer__column">
-              <h4 className="footer__heading">Quick Links</h4>
+              <h4 className="footer__heading">Sürətli keçidlər</h4>
               <ul className="footer__list">
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#menu">Order Now</a></li>
-                <li><a href="#menu">Popular Items</a></li>
+                <li><a href="#menu">Menyu</a></li>
+                <li><a href="#menu">İndi sifariş et</a></li>
+                <li><a href="#menu">Populyar məhsullar</a></li>
               </ul>
             </div>
 
             <div className="footer__column">
-              <h4 className="footer__heading">Contact</h4>
+              <h4 className="footer__heading">Əlaqə</h4>
               <ul className="footer__list">
                 <li><a href="tel:+994501234567">+994 ###########</a></li>
                 <li><a href="mailto:hello@dashly.az">dashly.fast@gmail.com</a></li>
@@ -61,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© 2026 Dashly. All rights reserved.</p>
+        <p>© 2026 Dashly. Bütün hüquqlar qorunur.</p>
         </div>
       </div>
     </footer>

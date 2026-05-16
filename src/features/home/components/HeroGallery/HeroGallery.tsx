@@ -4,19 +4,21 @@ import "./HeroGallery.css";
 const aboutItems = [
   {
     id: 1,
-    title: "Direct restaurant orders",
-    text: "Customers place orders directly with restaurants through their own dedicated WhatsApp flow.",
+    title: "Birbaşa restoran sifarişləri",
+text: "Müştərilər restoranların xüsusi WhatsApp sistemi vasitəsilə sifarişlərini birbaşa göndərirlər.",
+
   },
   {
     id: 2,
-    title: "Better prices",
-    text: "Fewer middle layers means more transparent pricing and better value for both customers and restaurant owners.",
-  },
-  {
+    title: "Daha sərfəli qiymətlər",
+    text: "Daha az vasitəçi daha şəffaf qiymətlər və həm müştərilər, həm də restoran sahibləri üçün daha yaxşı üstünlüklər yaradır.",
+    },
+    {
     id: 3,
-    title: "Faster communication",
-    text: "Orders, notes, and delivery details move quickly and clearly, which improves the overall ordering experience.",
-  },
+    title: "Daha sürətli əlaqə",
+    text: "Sifarişlər, qeydlər və çatdırılma məlumatları daha sürətli və aydın şəkildə ötürülür, bu da ümumi sifariş təcrübəsini yaxşılaşdırır.",
+    },
+    
 ];
 
 export default function HeroGallery() {
@@ -30,15 +32,14 @@ export default function HeroGallery() {
     <section className="about-dropdown">
       <div className="about-dropdown__container">
         <div className="about-dropdown__intro">
-          <span className="about-dropdown__badge">Why Dashly</span>
+          <span className="about-dropdown__badge">Niyə Dashly</span>
 
           <h2 className="about-dropdown__title">
-            A smarter way to connect customers with restaurants
+          Müştəriləri restoranlarla birləşdirən daha ağıllı yol
           </h2>
 
           <p className="about-dropdown__description">
-            Dashly helps users discover restaurants, explore menus, and send
-            orders directly without unnecessary middlemen.
+          Dashly istifadəçilərə restoranları kəşf etməyə, menyulara baxmağa və sifarişləri lazımsız vasitəçilər olmadan birbaşa göndərməyə kömək edir.
           </p>
         </div>
 

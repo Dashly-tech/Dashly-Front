@@ -78,22 +78,22 @@ export default function DeliveryChecker({
     <div className="delivery-checker">
       {status === "idle" && (
         <button className="delivery-checker__btn" onClick={checkDelivery}>
-          Check delivery to your location
+          Ünvanınıza çatdırılmanı yoxlayın
         </button>
       )}
 
       {status === "available" && (
         <div className="delivery-checker__result delivery-checker__result--ok">
-          <div className="delivery-checker__badge">✅ Delivery available</div>
+          <div className="delivery-checker__badge">✅ Çatdırılma mövcuddur</div>
           <div className="delivery-checker__meta">
-            <span>{distanceKm} km away</span>
+            <span>{distanceKm} “km uzaqlıqda</span>
           </div>
         </div>
       )}
 
       {status === "unavailable" && (
         <div className="delivery-checker__result delivery-checker__result--no">
-          <div className="delivery-checker__badge">Outside delivery zone</div>
+          <div className="delivery-checker__badge">Çatdırılma zonasından kənar</div>
 
           <p className="delivery-checker__dist">
             Siz restorandan {distanceKm} km uzaqdasınız (limit: {radiusKm} km)

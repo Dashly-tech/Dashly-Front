@@ -205,7 +205,7 @@ export default function CartDrawer() {
                       trackRemoveFromCart(item, item.quantity);
                     }}
                   >
-                    Remove
+                    Sil
                   </button>
                 </div>
               </div>

@@ -21,7 +21,7 @@ export default function CartButton({
       aria-label={`Cart with ${count} items`}
     >
       <HiOutlineShoppingBag />
-      <span>Cart ({count})</span>
+      <span>Səbət ({count})</span>
     </button>
   );
 }

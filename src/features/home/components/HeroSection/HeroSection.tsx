@@ -14,18 +14,18 @@ export default function HeroSection() {
   return (
     <section className="hero">
       <div className="hero__content">
-        <span className="hero__badge reveal-up">Direct from restaurant to you</span>
+        <span className="hero__badge reveal-up">Birbaşa restorandan sizə</span>
 
         <h1 className="hero__title reveal-up">
-          Skip the <span>Middleman</span>
+        Vasitəçini <span>Aradan çıxarın</span>
         </h1>
 
         <p className="hero__subtitle reveal-up">
-          Faster. Cheaper. Smarter food ordering.
+        Daha sürətli. Daha sərfəli. Daha ağıllı yemək sifarişi.
         </p>
 
         <button className="hero__btn reveal-up" onClick={handleScroll}>
-          Start Ordering Now
+        İndi sifariş et
         </button>
       </div>
     </section>
