@@ -25,7 +25,7 @@ export default function SearchBar() {
 
         <input
           type="text"
-          placeholder="Search restaurants or dishes..."
+          placeholder="Restoran və ya yemək axtarın..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="search__input"

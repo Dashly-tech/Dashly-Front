@@ -41,7 +41,7 @@ export default function LocationButton({setOpen}:{setOpen:()=>void}) {
     <button className="location-btn" onClick={getLocation} disabled={loading}>
       <span className="location-icon">📍</span>
       <span className="location-text">
-        {loading ? "Loading..." : "Use my location"}
+        {loading ? "Yüklənir..." : "Mənim lokasiyamdan istifadə et"}
       </span>
     </button>
   );

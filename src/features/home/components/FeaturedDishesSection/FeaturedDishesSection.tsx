@@ -11,7 +11,7 @@ export default function FeaturedDishesSection() {
   return (
     <section className="featured">
       <div className="featured__container">
-        <h2 className="featured__title">🔥 Popular Dishes</h2>
+        <h2 className="featured__title">🔥 Populyar yeməklər</h2>
 
         <div className="featured__grid">
           {featured.map((item) => {

@@ -74,11 +74,11 @@ export default function RestaurantDetailsPage() {
       <MainLayout>
         <div className="restaurant-details-page">
           <div className="restaurant-details-page__container">
-            <h2>Restaurant not found</h2>
-            <p>
-              The restaurant you are looking for does
-              not exist.
-            </p>
+          <h2>Restoran tapılmadı</h2>
+
+<p>
+  Axtardığınız restoran mövcud deyil.
+</p>
           </div>
         </div>
       </MainLayout>
@@ -131,7 +131,7 @@ export default function RestaurantDetailsPage() {
 
           <div className="restaurant-details-page__menu">
             <h2 className="restaurant-details-page__menu-title">
-              Menu
+              Menyu
             </h2>
 
             <div>
