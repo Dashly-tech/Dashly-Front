@@ -9,6 +9,20 @@ import pendirCubuq from '../assets/manqalDonerImages/pendirCubuqlari.jpeg'
 import pure from '../assets/manqalDonerImages/pure.jpeg'
 import soganHalqasi from '../assets/manqalDonerImages/soganHalqasi.jpeg'
 import imgnotadd from '../assets/notfound/imgnotadd.jpeg'
+import greentea from "../assets/manqalDonerImages/yasilcay.jpeg"
+import blacktea from "../assets/manqalDonerImages/blacktea.jpg"
+import blackteaSet from "../assets/manqalDonerImages/blackteaSet.jpeg"
+import water from "../assets/manqalDonerImages/water.jpg"
+import sparklingW from "../assets/manqalDonerImages/sparklingW.jpg"
+import compote from "../assets/manqalDonerImages/compote.jpeg"
+import fuseTea from "../assets/manqalDonerImages/fuseTea.jpeg"
+import butterMilk from "../assets/manqalDonerImages/buttermilk.jpg"
+import fruitJuice from "../assets/manqalDonerImages/fruitJuice.jpeg"
+import fanta1 from "../assets/manqalDonerImages/fanta.webp"
+import coca1 from "../assets/manqalDonerImages/coca1.jpg"
+import sprite from "../assets/manqalDonerImages/sprite.jpg"
+import fanta2 from "../assets/manqalDonerImages/fanta.jpeg"
+import coca2 from "../assets/manqalDonerImages/coca2.jpeg"
 
 export type MenuItem = {
   description?: string;
@@ -1433,7 +1447,7 @@ export const mockMenu: MenuItem[] = [
   name: "Coca Cola 330ml (Banka)",
   price: 2.5,
   category: "İçki",
-  image: imgnotadd,
+  image: coca2,
 },
 
 {
@@ -1442,7 +1456,7 @@ export const mockMenu: MenuItem[] = [
   name: "Fanta 330ml (Banka)",
   price: 2.5,
   category: "İçki",
-  image: imgnotadd,
+  image: fanta2,
 },
 
 {
@@ -1451,7 +1465,7 @@ export const mockMenu: MenuItem[] = [
   name: "Sprite 330ml (Banka)",
   price: 2.5,
   category: "İçki",
-  image: imgnotadd,
+  image:sprite,
 },
 
 {
@@ -1460,7 +1474,7 @@ export const mockMenu: MenuItem[] = [
   name: "Coca Cola 330ml (Şüşə)",
   price: 3.0,
   category: "İçki",
-  image: imgnotadd,
+  image: coca1,
 },
 
 {
@@ -1469,7 +1483,7 @@ export const mockMenu: MenuItem[] = [
   name: "Fanta 330ml (Şüşə)",
   price: 3.0,
   category: "İçki",
-  image: imgnotadd,
+  image: fanta1,
 },
 
 {
@@ -1478,7 +1492,7 @@ export const mockMenu: MenuItem[] = [
   name: "Meyvə Şirəsi 200ml",
   price: 2.0,
   category: "İçki",
-  image: imgnotadd,
+  image: fruitJuice,
 },
 
 {
@@ -1487,7 +1501,7 @@ export const mockMenu: MenuItem[] = [
   name: "Köpüklü Ayran",
   price: 1.5,
   category: "İçki",
-  image: imgnotadd,
+  image: butterMilk,
 },
 
 {
@@ -1496,7 +1510,7 @@ export const mockMenu: MenuItem[] = [
   name: "Fuse Tea 330ml (Banka)",
   price: 2.5,
   category: "İçki",
-  image: imgnotadd,
+  image: fuseTea,
 },
 
 {
@@ -1505,7 +1519,7 @@ export const mockMenu: MenuItem[] = [
   name: "Kompot 1L",
   price: 4.5,
   category: "İçki",
-  image: imgnotadd,
+  image: compote,
 },
 
 {
@@ -1514,7 +1528,7 @@ export const mockMenu: MenuItem[] = [
   name: "Qazlı Su 500ml",
   price: 1.0,
   category: "İçki",
-  image: imgnotadd,
+  image: sparklingW,
 },
 
 {
@@ -1523,7 +1537,7 @@ export const mockMenu: MenuItem[] = [
   name: "Qazsız Su 500ml",
   price: 1.0,
   category: "İçki",
-  image: imgnotadd,
+  image: water,
 },
 
 {
@@ -1532,7 +1546,7 @@ export const mockMenu: MenuItem[] = [
   name: "Qara Çay",
   price: 5.0,
   category: "İsti İçki",
-  image: imgnotadd,
+  image: blackteaSet ,
 },
 
 {
@@ -1541,7 +1555,7 @@ export const mockMenu: MenuItem[] = [
   name: "Qara Çay 1 Fincan",
   price: 1.0,
   category: "İsti İçki",
-  image: imgnotadd,
+  image: blacktea,
 },
 
 {
@@ -1550,7 +1564,7 @@ export const mockMenu: MenuItem[] = [
   name: "Yaşıl Çay",
   price: 7.0,
   category: "İsti İçki",
-  image: imgnotadd,
+  image: greentea,
   isFeatured: true,
 },
 
