@@ -74,11 +74,11 @@ export default function RestaurantDetailsPage() {
       <MainLayout>
         <div className="restaurant-details-page">
           <div className="restaurant-details-page__container">
-          <h2>Restoran tapılmadı</h2>
+            <h2>Restoran tapılmadı</h2>
 
-<p>
-  Axtardığınız restoran mövcud deyil.
-</p>
+            <p>
+              Axtardığınız restoran mövcud deyil.
+            </p>
           </div>
         </div>
       </MainLayout>
@@ -115,18 +115,20 @@ export default function RestaurantDetailsPage() {
                 <span>{restaurant.address}</span>
               </div>
             </div>
-
-            <div className="restaurant-details-page__floating-info">
-              <div className="restaurant-details-page__floating-card">
-                <pre>
-                  {
-                    deliveryMessages[
-                    currentMessage
-                    ]
-                  }
-                </pre>
+            {
+              restaurant.name === "Mangal döner" && <div className="restaurant-details-page__floating-info">
+                <div className="restaurant-details-page__floating-card">
+                  <pre>
+                    {
+                      deliveryMessages[
+                      currentMessage
+                      ]
+                    }
+                  </pre>
+                </div>
               </div>
-            </div>
+            }
+
           </div>
 
           <div className="restaurant-details-page__menu">
