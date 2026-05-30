@@ -1,19 +1,6 @@
+import { useMenuStore } from "../../../app/store/menu.store";
 
-import { useState } from "react";
-import { mockMenu } from "../../../data/mockMenu";
-
-type State = {
-  menu: (typeof mockMenu)[number][];
-  loading: boolean;
-  error: string | null;
-};
-
-export function useMenu(): State {
-  const [state] = useState<State>({
-    menu: mockMenu,
-    loading: false,
-    error: null,
-  });
-
-  return state;
+export function useMenu() {
+  const { menu, loading, error } = useMenuStore();
+  return { menu, loading, error };
 }
