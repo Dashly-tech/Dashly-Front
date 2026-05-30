@@ -1,31 +1,13 @@
-export type Restaurant = {
-  id: number;
-  name: string;
-  slug: string;
-  logo: string;
-  coverImage: string;
-  description: string;
-  whatsappNumber: string;
-  address: string;
-  locationText: string;
-  cuisineType: string;
-  isFeatured?: boolean;
-  isActive?: boolean;
-  location: {
-    lat: number;
-    lng: number;
-  };
-  deliveryRadiusKm: number;
-};
+import type { VercelRequest, VercelResponse } from '@vercel/node'
+import type { Restaurant } from '../src/types/common.types'
 
-export const mockRestaurants: Restaurant[] = [
+export const restaurants: Restaurant[] = [
   {
     id: 1,
     name: "Mangal döner",
     slug: "mangal-döner",
     logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300",
-    coverImage:
-      "https://i.postimg.cc/C1XV694M/Whats-App-Image-2026-05-14-at-20-46-34.jpg",
+    coverImage: "https://i.postimg.cc/C1XV694M/Whats-App-Image-2026-05-14-at-20-46-34.jpg",
     description: "Best meals in town.",
     whatsappNumber: "994514081550",
     address: "Azadliq Square, Baku",
@@ -68,30 +50,12 @@ export const mockRestaurants: Restaurant[] = [
     location: { lat: 40.3976, lng: 49.8574 },
     deliveryRadiusKm: 5,
   },
-  // {
-  //   id: 4,
-  //   name: "Dadlı Dönər",
-  //   slug: "dadli-donər",
-  //   logo: "https://images.unsplash.com/photo-1551288049-bebda4e3d606?w=300",
-  //   coverImage:
-  //     "https://i.postimg.cc/NGbJ4PdS/dadli.jpg",
-  //   description: "Delicious doner kebab.",
-  //   whatsappNumber: "994776350039",
-  //   address: "Baku, Heydar Aliyev street",
-  //   locationText: "Arif Heyderov 128, Baku",
-  //   cuisineType: "Azerbaijani",
-  //   isFeatured: true,
-  //   isActive: true,
-  //   location: { lat: 40.4076, lng: 49.8590 },
-  //   deliveryRadiusKm: 5,
-  // },
   {
     id: 5,
     name: "CoffeeLab",
     slug: "coffee-lab",
     logo: "https://plus.unsplash.com/premium_photo-1677607237201-64668c2266ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    coverImage:
-      "https://plus.unsplash.com/premium_photo-1677607237201-64668c2266ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    coverImage: "https://plus.unsplash.com/premium_photo-1677607237201-64668c2266ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Smooth coffee",
     whatsappNumber: "994771234567",
     address: "Baku, Heydar Aliyev street",
@@ -102,4 +66,9 @@ export const mockRestaurants: Restaurant[] = [
     location: { lat: 40.4076, lng: 49.859 },
     deliveryRadiusKm: 0,
   },
-];
+]
+
+export default function handler(_req: VercelRequest, res: VercelResponse) {
+  res.setHeader('Cache-Control', 's-maxage=3600')
+  res.json(restaurants)
+}

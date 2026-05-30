@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { Restaurant } from "../../../data/mockRestaurant";
+import type { Restaurant } from "../../../types/common.types";
 import "./RestaurantCard.css";
 
 type Props = {

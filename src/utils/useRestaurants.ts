@@ -1,10 +1,16 @@
+import { useRestaurantStore } from "../app/store/restaurant.store";
+
+export function useRestaurants() {
+  const { restaurants, loading, error } = useRestaurantStore();
+  return { restaurants, loading, error };
+}
 
 // // Bu hook mövcud mockRestaurantsı əvəz edir
 // //  Google Sheetsdən gəlir
 
 // import { useEffect, useState } from "react";
 // import { fetchRestaurants } from "../features/restaurants/services/restaurantService";
-// import { mockRestaurants } from "../data/mockRestaurant"; 
+// import { mockRestaurants } from "../data/mockRestaurant";
 // import type { Restaurant } from "../types/common.types";
 
 
@@ -20,10 +26,10 @@
 //     loading: true,
 //     error: null,
 //   });
- 
+
 //   useEffect(() => {
 //     console.log("useRestaurants: məlumat çəkilir...");
- 
+
 //     fetchRestaurants()
 //       .then((data) => {
 //         if (data.length === 0) {
@@ -45,6 +51,6 @@
 //         });
 //       });
 //   }, []);
- 
+
 //   return state;
 // }

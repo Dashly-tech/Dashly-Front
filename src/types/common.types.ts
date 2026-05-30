@@ -24,7 +24,7 @@ export type MenuItem = {
   name: string;
   price: number;
   category: string;
-  description: string;
+  description?: string;
   image: string;
   isFeatured?: boolean;
   isDishOfDay?: boolean;

@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import ProductCard from "../../../../components/shared/ProductCard/ProductCard";
-import { mockMenu } from "../../../../data/mockMenu";
-import { mockRestaurants } from "../../../../data/mockRestaurant";
+import { useRestaurantStore } from "../../../../app/store/restaurant.store";
+import { useMenuStore } from "../../../../app/store/menu.store";
 import "./MenuGrid.css";
 
 type Props = {
@@ -8,11 +9,15 @@ type Props = {
 };
 
 export default function MenuGrid({ category }: Props) {
+  const { restaurants, fetchRestaurants } = useRestaurantStore();
+  const { menu, fetchMenu } = useMenuStore();
 
-  const premiumItems = mockMenu.filter((item) => item.showInPremiumMenu);
+  useEffect(() => {
+    fetchRestaurants();
+    fetchMenu();
+  }, []);
 
-
-
+  const premiumItems = menu.filter((item) => item.showInPremiumMenu);
   const filtered =
     category === "All"
       ? premiumItems
@@ -21,10 +26,7 @@ export default function MenuGrid({ category }: Props) {
   return (
     <div className="menu-grid">
       {filtered.map((item) => {
-        const restaurant = mockRestaurants.find(
-          (r) => r.id === item.restaurantId
-        );
-
+        const restaurant = restaurants.find((r) => r.id === item.restaurantId);
         if (!restaurant) return null;
 
         return (

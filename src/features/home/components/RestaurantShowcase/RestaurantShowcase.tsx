@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { mockRestaurants } from "../../../../data/mockRestaurant";
 import RestaurantCard from "../../../../components/shared/RestaurantCard/RestaurantCard";
+import { useRestaurantStore } from "../../../../app/store/restaurant.store";
 import "./RestaurantShowcase.css";
 
 export default function RestaurantShowcase() {
-  const featured = mockRestaurants.filter((r) => r.isFeatured);
+  const { restaurants, fetchRestaurants } = useRestaurantStore();
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  const featured = restaurants.filter((r) => r.isFeatured);
 
   return (
     <section className="restaurant-showcase">
@@ -13,7 +20,7 @@ export default function RestaurantShowcase() {
           <h2>Populyar Restoranlar</h2>
 
           <Link to="/restaurants" className="restaurant-showcase__view-all">
-          Hamısına bax
+            Hamısına bax
           </Link>
         </div>
 

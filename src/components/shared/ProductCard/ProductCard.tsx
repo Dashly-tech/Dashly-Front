@@ -1,5 +1,5 @@
 import { useCartStore } from "../../../app/store/cart.store";
-import type { MenuItem } from "../../../data/mockMenu";
+import type { MenuItem } from "../../../types/common.types";
 import { trackAddToCart } from "../../../utils/analytics";
 import "./ProductCard.css";
 import { MdDeliveryDining } from "react-icons/md";

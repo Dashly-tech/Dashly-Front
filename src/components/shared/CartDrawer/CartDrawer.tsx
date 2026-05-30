@@ -11,7 +11,7 @@ import DeliveryChecker from "../../../features/cart/components/DeliveryChecker/D
 import { trackAddToCart, trackRemoveFromCart } from "../../../utils/analytics";
 import "./CartDrawer.css";
 import PaymentMethod from "../Payment/PaymentMethod";
-import { mockRestaurants } from "../../../data/mockRestaurant";
+import { useRestaurantStore } from "../../../app/store/restaurant.store";
 import { deliveryAreas } from "../../../config/deliveryAreas";
 import { calculateDeliveryFee } from "../../../utils/deliveryFee";
 export default function CartDrawer() {
@@ -41,7 +41,8 @@ export default function CartDrawer() {
   const [notes, setNotes] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("")
 
-  const restaurant = mockRestaurants.find((r) => r.id === restaurantId);
+  const restaurants = useRestaurantStore((state) => state.restaurants);
+  const restaurant = restaurants.find((r) => r.id === restaurantId);
 
   const hasLocation = lat !== null && lng !== null;
   const selectedRule = deliveryAreas.find((a) => a.name === selectedArea);
