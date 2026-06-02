@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { restaurants } from './api/restaurants'
 import { menu } from './api/menu'
+import { restaurants as qrRestaurants } from './api/qr/restaurants'
+import { menu as qrMenu } from './api/qr/menu'
 
 export default defineConfig({
   plugins: [
@@ -35,6 +37,26 @@ export default defineConfig({
             const filtered = restaurantId
               ? menu.filter((item) => item.restaurantId === Number(restaurantId))
               : menu
+            return res.end(JSON.stringify(filtered))
+          }
+
+          if (path === '/api/qr/restaurants') {
+            return res.end(JSON.stringify(qrRestaurants))
+          }
+
+          if (path.startsWith('/api/qr/restaurants/')) {
+            const slug = decodeURIComponent(path.replace('/api/qr/restaurants/', ''))
+            const restaurant = qrRestaurants.find((r) => r.slug === slug)
+            if (restaurant) return res.end(JSON.stringify(restaurant))
+            res.statusCode = 404
+            return res.end(JSON.stringify({ error: 'Restoran tapılmadı' }))
+          }
+
+          if (path === '/api/qr/menu') {
+            const restaurantId = query.get('restaurantId')
+            const filtered = restaurantId
+              ? qrMenu.filter((item) => item.restaurantId === Number(restaurantId))
+              : qrMenu
             return res.end(JSON.stringify(filtered))
           }
 
