@@ -1,0 +1,66 @@
+.landing_page_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.landing_page_title {
+  font-size: 4.5rem; /* text-7xl */
+  line-height: 1; /* text-7xl üçün default line-height */
+  margin-bottom: 1.5rem; /* mb-6 */
+  background: linear-gradient(
+    to right,
+    #fb923c,
+    #f472b6
+  ); /* from-orange-400 to-pink-400 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.landing_page_description {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem; /* text-2xl üçün */
+  color: #cbd5e1; /* text-slate-300 */
+  margin-bottom: 2rem;
+}
+.view_all_button {
+  padding-left: 2rem; /* px-8 */
+  padding-right: 2rem; /* px-8 */
+  padding-top: 1rem; /* py-4 */
+  padding-bottom: 1rem; /* py-4 */
+  background: linear-gradient(
+    to right,
+    #f97316,
+    #ec4899
+  ); /* from-orange-500 to-pink-500 */
+  border-radius: 9999px; /* rounded-full */
+  transition: all 0.3s ease;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.landing_page_buttons{
+    display: flex;
+    gap: 1rem; /* space-x-4 */
+}
+.view_all_button:hover {
+  box-shadow:
+    0 10px 15px -3px rgba(249, 115, 22, 0.5),
+    0 4px 6px -4px rgba(249, 115, 22, 0.5);
+}
+.browse_dishes_button {
+  padding-left: 2rem; /* px-8 */
+  padding-right: 2rem; /* px-8 */
+  padding-top: 1rem; /* py-4 */
+  padding-bottom: 1rem; /* py-4 */
+  background-color: #1e293b; /* bg-slate-800 */
+  border-radius: 9999px; /* rounded-full */
+  transition: all 0.3s ease; /* transition-all */
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.browse_dishes_button:hover {
+  background-color: #334155; /* bg-slate-700 */
+}

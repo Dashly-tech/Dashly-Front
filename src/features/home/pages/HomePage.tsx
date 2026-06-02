@@ -12,12 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <HeroGallery />
       <RestaurantShowcase />
-
-
       <FeaturedDishesSection />
-
-
-
       <MenuSection />
     </MainLayout>
   );
