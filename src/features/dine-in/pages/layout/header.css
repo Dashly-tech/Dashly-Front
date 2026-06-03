@@ -1,0 +1,217 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  background: rgba(5, 10, 22, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.header__container {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+  min-height: 96px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  background: linear-gradient(
+    to right,
+    #ff8a3d,
+    #ff6b81,
+    #ff4f9a
+  ); /* from-#FF8A3D via-#FF6B81 to-#FF4F9A */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.search-container {
+  position: relative;
+  width: 330px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem; /* left-4 */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7e8aa8; /* placeholder rəngi ilə uyğun */
+  font-size: 1.25rem; /* icon ölçüsü */
+  pointer-events: none; /* ikonun inputa tıklanmasını maneə törətmir */
+  cursor: pointer;
+}
+
+.search-input {
+  width: 100%;
+  height: 3rem;
+  padding-left: 3rem; /* pl-12 - icon üçün yer */
+  padding-right: 1rem;
+  background-color: #08112b;
+  color: white;
+  border-radius: 0.75rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+  background-image:
+    linear-gradient(rgb(8, 17, 43), rgb(8, 17, 43)),
+    linear-gradient(90deg, rgb(255, 138, 61), rgb(255, 79, 154));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.search-input::placeholder {
+  color: #7e8aa8;
+}
+
+.search-input:focus {
+  border-color: #ff8a3d;
+  outline: none;
+}
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+.basket-button {
+  position: relative;
+}
+.basket-badget {
+  position: absolute;
+  top: -4px; /* -top-1 (4px) */
+  right: -4px; /* -right-1 (4px) */
+  width: 20px; /* w-5 (20px) */
+  height: 20px; /* h-5 (20px) */
+  background: linear-gradient(to right, #ff8a3d, #ff4f9a);
+  border-radius: 50%;
+  color: white;
+  font-size: 12px; /* text-xs */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.active {
+  background: linear-gradient(to right, #f97316, #ec4899);
+
+  transition: all 0.3s ease;
+  border: none;
+  color: white;
+}
+.hamburger_menu {
+  display: none;
+}
+.header_buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 0px;
+  height: 0vh;
+  z-index: 1000;
+  overflow: hidden;
+  background: #05081b;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    right 0.5s ease,
+    width 0.7s ease,
+    height 0.3s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+  width: 320px;
+  height: 100vh;
+}
+
+.mobile-menu-header {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-content {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-menu-content button {
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  justify-content: flex-start;
+}
+
+.basket-badge {
+  margin-left: auto;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #ff8a65, #ff4fa3);
+}
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(4px);
+
+  z-index: 999;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 950px) {
+  .hamburger_menu {
+    display: block;
+  }
+  .header_buttons {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .search-container {
+    display: none;
+  }
+}
