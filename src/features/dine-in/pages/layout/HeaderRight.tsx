@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Button from "../../components/button/Button ";
 import Search from "../../components/search/Search";
 import "./header.css";
