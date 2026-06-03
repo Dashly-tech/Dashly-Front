@@ -14,6 +14,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: Inter, system-ui, Arial, sans-serif;
+  
 }
 
 img {

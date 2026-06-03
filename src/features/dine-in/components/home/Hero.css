@@ -7,7 +7,7 @@
   text-align: center;
   position: relative;
   background-color: #05091c;
-  padding-top:50px;
+  padding-top: 50px;
 }
 
 .glow-blur {
@@ -70,12 +70,18 @@
 .dine-hero-buttons {
   display: flex;
   gap: 16px; /* gap-4 = 16px */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .dine-hero-stats {
   display: flex;
   gap: 32px; /* gap-8 = 32px */
   margin-top: 40px; /* mt-10 = 40px */
   margin-bottom: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .dine-hero-stat {
   display: flex;
@@ -113,6 +119,19 @@
   }
   .dine-hero-description {
     font-size: 24px; /* md:text-2xl */
+  }
+}
+/* Tablet üçün (md) */
+@media (max-width: 680px) {
+  .glow-blur {
+    display: none;
+  }
+  .dine-hero-title {
+    font-size: 50px;
+    max-width: 90%;
+  }
+  .dine-hero-description {
+    max-width: 90%;
   }
 }
 

@@ -105,3 +105,113 @@
   border: none;
   color: white;
 }
+.hamburger_menu {
+  display: none;
+}
+.header_buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 0px;
+  height: 0vh;
+  z-index: 1000;
+  overflow: hidden;
+  background: #05081b;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    right 0.5s ease,
+    width 0.7s ease,
+    height 0.3s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+  width: 320px;
+  height: 100vh;
+}
+
+.mobile-menu-header {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-content {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-menu-content button {
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  justify-content: flex-start;
+}
+
+.basket-badge {
+  margin-left: auto;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #ff8a65, #ff4fa3);
+}
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(4px);
+
+  z-index: 999;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 950px) {
+  .hamburger_menu {
+    display: block;
+  }
+  .header_buttons {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .search-container {
+    display: none;
+  }
+}
