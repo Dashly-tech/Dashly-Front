@@ -5,7 +5,7 @@ import { usePageTracking } from "../../../../utils/usePageTracking ";
 import { useRestaurantStore } from "../../../../app/store/restaurant.store";
 import { useMenuStore } from "../../../../app/store/menu.store";
 import MenuFilters from "../../../menu/components/MenuFilters/MenuFilters";
-import ProductCard from "../../../../components/shared/ProductCard/ProductCard";
+import DidInProductCard from "../../components/card/ReastaurantCard";
 
 const deliveryMessages = [
   `📍 Çatdırılma şərtləri:\n\n• Əzizbəyov — 48 ₼↓ → +7 ₼\n• Binəqədi — 35 ₼↓ → +5 ₼`,
@@ -129,7 +129,7 @@ export default function DineInRestaurantDetailsPage() {
 
             <div className="restaurant-details-page__grid">
               {filterMenu.map((item) => (
-                <ProductCard
+                <DidInProductCard
                   key={item.id}
                   item={item}
                   restaurant={{
