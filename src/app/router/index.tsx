@@ -4,6 +4,7 @@ import RestaurantsPage from "../../features/restaurants/pages/RestaurantsPage";
 import RestaurantDetailsPage from "../../features/restaurants/pages/RestaurantDetailsPage";
 import LandingPage from "../../features/landing/LandingPage";
 import DineinRestaurantsPage from "../../features/dine-in/pages/home/RestaurantsPage";
+import DineInRestaurantDetailsPage from "../../features/dine-in/pages/restourantDetail";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
   {
     path: "/restaurants/:slug",
     element: <RestaurantDetailsPage />,
+  },
+  {
+    path: "/dineinrestaurants/:slug",
+    element: <DineInRestaurantDetailsPage />,
   },
   {
     path: "/dishes",

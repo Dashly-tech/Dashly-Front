@@ -1,12 +1,9 @@
-import { useCartStore } from "../../../app/store/cart.store";
-import type { MenuItem } from "../../../types/common.types";
-import { trackAddToCart } from "../../../utils/analytics";
-import "./ProductCard.css";
-import { MdDeliveryDining } from "react-icons/md";
-import { HiOutlineXCircle } from "react-icons/hi2";
-import { useDelivery } from "../../../utils/useDelivery";
-import { useEffect } from "react";
+
+
 import { CiLock } from "react-icons/ci";
+import type { MenuItem } from "../../../../types/common.types";
+import { useCartStore } from "../../../../app/store/cart.store";
+import { trackAddToCart } from "../../../../utils/analytics";
 
 type ProductCardProps = {
   item: MenuItem;
@@ -23,7 +20,7 @@ type ProductCardProps = {
   isActive?: boolean;
 };
 
-export default function ProductCard({
+export default function DidInProductCard({
   item,
   restaurant,
   restaurantName,
@@ -31,7 +28,6 @@ export default function ProductCard({
   isActive,
 }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
-  const { status, check } = useDelivery();
   const handleAddToCart = () => {
     if (!restaurant) return;
 
@@ -53,12 +49,7 @@ export default function ProductCard({
 
     trackAddToCart(item);
   };
-  // const isNotAvailable = status
-  useEffect(() => {
-    if (restaurant) {
-      check(restaurant.restaurantLat, restaurant.restaurantLng, restaurant.deliveryRadiusKm);
-    }
-  }, [])
+ 
 
   return (
     <article className="product-card">
@@ -77,15 +68,6 @@ export default function ProductCard({
               <span className="lock"><CiLock size={24} /></span>
               <p>AI dəstəyi ilə deaktiv edilmiş restoranlar</p>
             </div>
-          </div>
-        )}
-        {status === "unavailable" ? (
-          <div className="delivery-badge error">
-            <HiOutlineXCircle /> Çatdırılma mövcud deyil
-          </div>
-        ) : (
-          <div className="delivery-badge success">
-            <MdDeliveryDining size={24} /> Çatdırılma mövcuddur
           </div>
         )}
 
