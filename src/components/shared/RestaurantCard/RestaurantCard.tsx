@@ -4,11 +4,12 @@ import "./RestaurantCard.css";
 
 type Props = {
   restaurant: Restaurant;
+  isQr?:boolean
 };
 
-export default function RestaurantCard({ restaurant }: Props) {
+export default function RestaurantCard({ restaurant ,isQr}: Props) {
   return (
-    <Link to={`/restaurants/${restaurant.slug}`} className="restaurant-card">
+    <Link to={isQr ? `/dineinrestaurants/${restaurant.slug}` : `/restaurants/${restaurant.slug}`} className="restaurant-card">
       <div className="restaurant-card__media">
         <img
           src={restaurant.coverImage}

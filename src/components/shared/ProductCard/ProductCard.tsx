@@ -79,9 +79,6 @@ export default function ProductCard({
             </div>
           </div>
         )}
-        {/* {
-          restaurantName  === "Dadlı Dönər" &&  <span className="product-card__delivery-badge">Çatdırılma yalnız:<span>Nərimanova</span></span>
-        } */}
         {status === "unavailable" ? (
           <div className="delivery-badge error">
             <HiOutlineXCircle /> Çatdırılma mövcud deyil

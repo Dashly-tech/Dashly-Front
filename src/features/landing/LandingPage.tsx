@@ -13,13 +13,13 @@ const LandingPage = () => {
           className="view_all_button"
           onClick={() => navigate("/delivery-home")}
         >
-          View Full App
+            Restoran xarici sifariş
         </button>
         <button
           className="browse_dishes_button"
           onClick={() => navigate("/dishes")}
         >
-          Browse Dishes
+           Restoran daxili sifariş
         </button>
       </div>
     </div>

@@ -44,7 +44,7 @@
   align-items: center;
 }
 .dine-hero-title {
-  font-size: 60px; /* text-6xl (3.75rem = 60px) */
+  font-size: 32px;
   font-weight: 700; /* font-bold */
   color: white; /* text-white */
   margin-bottom: 24px; /* mb-6 = 24px */
@@ -135,9 +135,4 @@
   }
 }
 
-/* Desktop üçün (lg) */
-@media (min-width: 1024px) {
-  .dine-hero-title {
-    font-size: 96px; /* lg:text-8xl (6rem = 96px) */
-  }
-}
+

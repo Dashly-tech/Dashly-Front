@@ -3,14 +3,16 @@ import "./header.css";
 import HeaderRight from "./HeaderRight";
 import MobileHeader from "./MobileHeader";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
     const [personCount, setPersonCount] = useState(1);
     const [open,setOpen]= useState(false)
+    const navigate = useNavigate()
   return (
     <header className="header">
       <div className="header__container">
-        <div>
+        <div onClick={()=>navigate("/dishes")}>
           <h2 className="header__logo">Dashly</h2>
         </div>
         <div>
