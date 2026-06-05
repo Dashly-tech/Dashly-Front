@@ -99,12 +99,58 @@
   align-items: center;
   justify-content: center;
 }
-.active {
-  background: linear-gradient(to right, #f97316, #ec4899);
+.header_buttons .btn.mode-toggle,
+.mobile-menu-content .btn.mode-toggle {
+  background-color: #08112b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  outline: none;
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
-  transition: all 0.3s ease;
+.header_buttons .btn.mode-toggle:hover:not(.active),
+.mobile-menu-content .btn.mode-toggle:hover:not(.active) {
+  background-color: #08112b;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.header_buttons .btn.mode-toggle.active,
+.mobile-menu-content .btn.mode-toggle.active {
+  background: linear-gradient(to right, #ff8a3d, #ff6b81, #ff4f9a);
   border: none;
-  color: white;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 79, 154, 0.35);
+}
+
+.header_buttons .btn.mode-toggle.active:hover,
+.mobile-menu-content .btn.mode-toggle.active:hover,
+.header_buttons .btn.mode-toggle.active:active,
+.mobile-menu-content .btn.mode-toggle.active:active,
+.header_buttons .btn.mode-toggle.active:focus,
+.mobile-menu-content .btn.mode-toggle.active:focus,
+.header_buttons .btn.mode-toggle.active:focus-visible,
+.mobile-menu-content .btn.mode-toggle.active:focus-visible {
+  background: linear-gradient(to right, #ff8a3d, #ff6b81, #ff4f9a);
+  border: none;
+  box-shadow: 0 0 18px rgba(255, 79, 154, 0.35);
+  outline: none;
+  transform: none;
+}
+
+.header_buttons .btn.mode-toggle:not(.active):active,
+.mobile-menu-content .btn.mode-toggle:not(.active):active,
+.header_buttons .btn.mode-toggle:not(.active):focus,
+.mobile-menu-content .btn.mode-toggle:not(.active):focus,
+.header_buttons .btn.mode-toggle:not(.active):focus-visible,
+.mobile-menu-content .btn.mode-toggle:not(.active):focus-visible {
+  background-color: #08112b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  outline: none;
+  transform: none;
 }
 .hamburger_menu {
   display: none;
