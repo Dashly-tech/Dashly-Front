@@ -62,9 +62,12 @@ export const useCartStore = create<CartStore>()(
           if (existing) {
             return {
               ...state,
+              restaurantId: restaurant.id,
+              restaurantName: restaurant.name,
+              restaurantWhatsappNumber: restaurant.whatsappNumber,
               items: state.items.map((i) =>
                 i.id === item.id
-                  ? { ...i, quantity: i.quantity + 1 }
+                  ? { ...i, ...item, quantity: i.quantity + 1 }
                   : i
               ),
             };

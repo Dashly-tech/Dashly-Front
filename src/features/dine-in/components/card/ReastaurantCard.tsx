@@ -38,6 +38,7 @@ export default function DidInProductCard({
         name: item.name,
         price: item.price,
         category: item.category,
+        description: item.description,
         image: item.image,
       },
       {
@@ -101,7 +102,7 @@ export default function DidInProductCard({
           type="button"
           className="product-card__btn"
           onClick={handleAddToCart}
-          disabled={!restaurant || status === "unavailable" || isActive === false}
+          disabled={!restaurant || isActive === false}
         >
           Sebətə əlavə et
         </button>

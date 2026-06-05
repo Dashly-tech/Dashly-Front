@@ -1,16 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button ";
+import { useCartStore } from "../../../../app/store/cart.store";
 interface IMobileHeaderProps {
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
   personCount: number;
   setPersonCount: (value: number) => void;
+  onOpenBasket: () => void;
 }
 const MobileHeader = ({
   setIsOpen,
   isOpen,
   personCount,
   setPersonCount,
+  onOpenBasket,
 }: IMobileHeaderProps) => {
+  const navigate = useNavigate();
+  const totalItems = useCartStore((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0),
+  );
+
+  const handleOpenBasket = () => {
+    setIsOpen(false);
+    onOpenBasket();
+  };
+
+  const handleBrowseRestaurants = () => {
+    setIsOpen(false);
+    navigate("/all-restaurants");
+  };
   return (
     <div>
       {isOpen && (
@@ -25,7 +43,7 @@ const MobileHeader = ({
         <div className="mobile-menu-content">
           <Button
             variant="secondary"
-            className={personCount === 1 ? "active" : ""}
+            className={`mode-toggle ${personCount === 1 ? "active" : ""}`}
             onClick={() => setPersonCount(1)}
           >
             <svg
@@ -50,7 +68,7 @@ const MobileHeader = ({
 
           <Button
             variant="secondary"
-            className={personCount === 2 ? "active" : ""}
+            className={`mode-toggle ${personCount === 2 ? "active" : ""}`}
             onClick={() => setPersonCount(2)}
           >
             <svg
@@ -75,11 +93,11 @@ const MobileHeader = ({
             <span>İki nəfər</span>
           </Button>
 
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={handleBrowseRestaurants}>
             <span>Bütün restoranlar</span>
           </Button>
 
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={handleOpenBasket}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -100,7 +118,9 @@ const MobileHeader = ({
             </svg>
             <span>Səbətim</span>
 
-            <span className="basket-badge">1</span>
+            {totalItems > 0 && (
+              <span className="basket-badge">{totalItems}</span>
+            )}
           </Button>
         </div>
       </aside>

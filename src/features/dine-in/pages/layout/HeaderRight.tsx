@@ -1,11 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button ";
 import Search from "../../components/search/Search";
+import { useCartStore } from "../../../../app/store/cart.store";
 import "./header.css";
 interface IHeaderProps {
   personCount: number;
   setPersonCount: (value:number) => void;
+  onOpenBasket: () => void;
 }
-const HeaderRight = ({personCount,setPersonCount}:IHeaderProps) => {
+const HeaderRight = ({personCount,setPersonCount, onOpenBasket}:IHeaderProps) => {
+  const navigate = useNavigate();
+  const totalItems = useCartStore((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0),
+  );
 
   return (
     <div className="header__right">
@@ -15,7 +22,7 @@ const HeaderRight = ({personCount,setPersonCount}:IHeaderProps) => {
           variant="secondary"
           size="sm"
           onClick={() => setPersonCount(1)}
-          className={personCount === 1 ? "active" : ""}
+          className={`mode-toggle ${personCount === 1 ? "active" : ""}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +46,7 @@ const HeaderRight = ({personCount,setPersonCount}:IHeaderProps) => {
           variant="secondary"
           size="sm"
           onClick={() => setPersonCount(2)}
-          className={personCount === 2 ? "active" : ""}
+          className={`mode-toggle ${personCount === 2 ? "active" : ""}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,10 +68,19 @@ const HeaderRight = ({personCount,setPersonCount}:IHeaderProps) => {
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
         </Button>
-        <Button variant="secondary" size="md">
+        <Button
+          variant="secondary"
+          size="md"
+          onClick={() => navigate("/all-restaurants")}
+        >
           Bütün restoranlar
         </Button>
-        <Button variant="secondary" size="sm" className="basket-button">
+        <Button
+          variant="secondary"
+          size="sm"
+          className="basket-button"
+          onClick={onOpenBasket}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -83,7 +99,9 @@ const HeaderRight = ({personCount,setPersonCount}:IHeaderProps) => {
             <circle cx="19" cy="21" r="1"></circle>
             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
           </svg>
-          <span className="basket-badget">1</span>
+          {totalItems > 0 && (
+            <span className="basket-badget">{totalItems}</span>
+          )}
         </Button>
       </div>
     </div>
