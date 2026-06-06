@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { reservationRestaurants } from "../../store/reservation.store";
 // @ts-ignore
 import "./ReservationPage.css";
