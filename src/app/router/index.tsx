@@ -7,35 +7,18 @@ import DineinRestaurantsPage from "../../features/dine-in/pages/home/Restaurants
 import AllRestaurantsPage from "../../features/dine-in/pages/allRestaurants/AllRestaurantsPage";
 import DineInRestaurantDetailsPage from "../../features/dine-in/pages/restourantDetail";
 
+import ReservationPage from "../../features/reservation/pages/ReservationPage/ReservationPage";
+import ReservationTablesPage from "../../features/reservation/pages/TablesPage/TablesPage";
+
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LandingPage />,
-    
-  },
-  {
-    path: "/delivery-home",
-    element: <HomePage />,
-    
-  },
-  {
-    path: "/restaurants",
-    element: <RestaurantsPage />,
-  },
-  {
-    path: "/restaurants/:slug",
-    element: <RestaurantDetailsPage />,
-  },
-  {
-    path: "/dineinrestaurants/:slug",
-    element: <DineInRestaurantDetailsPage />,
-  },
-  {
-    path: "/dishes",
-    element: <DineinRestaurantsPage />,
-  },
-  {
-    path: "/all-restaurants",
-    element: <AllRestaurantsPage />,
-  },
+  { path: "/", element: <LandingPage /> },
+  { path: "/delivery-home", element: <HomePage /> },
+  { path: "/restaurants", element: <RestaurantsPage /> },
+  { path: "/restaurants/:slug", element: <RestaurantDetailsPage /> },
+  { path: "/dineinrestaurants/:slug", element: <DineInRestaurantDetailsPage /> },
+  { path: "/dishes", element: <DineinRestaurantsPage /> },
+  { path: "/all-restaurants", element: <AllRestaurantsPage /> },
+
+  { path: "/reservation/restaurants", element: <ReservationPage /> },
+  { path: "/reservation/restaurants/:slug/tables", element: <ReservationTablesPage /> },
 ]);

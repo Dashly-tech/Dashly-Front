@@ -1,0 +1,61 @@
+/* ReservationPage.css */
+.reservation_page {
+  min-height: 100vh;
+  background: #050b1a;
+  color: #fff;
+  padding: 70px 8%;
+}
+
+.reservation_hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reservation_hero h1 {
+  font-size: 52px;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.reservation_hero p {
+  color: #cbd5e1;
+  font-size: 20px;
+  margin: 0;
+}
+
+.reservation_restaurants_grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+@media (max-width: 1100px) {
+  .reservation_restaurants_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .reservation_page {
+    padding: 40px 18px;
+  }
+
+  .reservation_hero {
+    text-align: left;
+  }
+
+  .reservation_hero h1 {
+    font-size: 36px;
+  }
+
+  .reservation_hero p {
+    font-size: 16px;
+  }
+
+  .reservation_restaurants_grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,29 @@
+.reservation_summary {
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.12), rgba(255, 66, 151, 0.12));
+  border: 1px solid rgba(255, 122, 26, 0.28);
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.reservation_summary h3 {
+  margin: 0 0 14px;
+  color: #fff;
+}
+
+.reservation_summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reservation_summary span {
+  color: #b8c0d8;
+}
+
+.reservation_summary strong {
+  color: #fff;
+  text-align: right;
+}

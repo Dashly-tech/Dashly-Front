@@ -1,0 +1,99 @@
+.reservation_tables_page {
+  min-height: 100vh;
+  padding: 48px 8%;
+  background: #050b1a;
+  color: #fff;
+}
+
+.tables_header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.tables_header h1 {
+  font-size: 48px;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.tables_header p {
+  color: #b8c0d8;
+  font-size: 18px;
+}
+
+.tables_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.reservation_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 7, 18, 0.72);
+  backdrop-filter: blur(8px);
+  z-index: 20;
+}
+
+.reservation_side_panel {
+  position: fixed;
+  top: 0;
+  right: -540px;
+  width: 520px;
+  max-width: 94vw;
+  height: 100vh;
+  background: #050b1a;
+  border-left: 1px solid #1d2942;
+  z-index: 30;
+  padding: 28px;
+  overflow-y: auto;
+  transition: 0.3s ease;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.45);
+}
+
+.reservation_side_panel.open {
+  right: 0;
+}
+
+.close_panel_button {
+  margin-left: auto;
+  display: block;
+  border: none;
+  background: transparent;
+  color: #cbd3e8;
+  font-size: 38px;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 1200px) {
+  .tables_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .reservation_tables_page {
+    padding: 32px 18px;
+  }
+
+  .tables_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tables_header h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tables_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation_side_panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 18px;
+  }
+}

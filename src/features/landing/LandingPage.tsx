@@ -21,6 +21,12 @@ const LandingPage = () => {
         >
            Restoran daxili sifariş
         </button>
+        <button
+          className="make_reservation_button"
+          onClick={() => navigate("/reservation/restaurants")}
+        >
+          Rezervasiya et
+        </button>
       </div>
     </div>
   );

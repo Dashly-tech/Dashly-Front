@@ -64,3 +64,22 @@
 .browse_dishes_button:hover {
   background-color: #334155; /* bg-slate-700 */
 }
+.make_reservation_button {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  background-color: #1e293b;
+
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.make_reservation_button:hover {
+  background-color: #334155;
+}

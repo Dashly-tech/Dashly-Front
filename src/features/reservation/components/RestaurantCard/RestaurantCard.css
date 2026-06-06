@@ -1,0 +1,40 @@
+.restaurant_card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.restaurant_card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant_card h3 {
+  margin: 1rem;
+  font-size: 1.25rem;
+}
+
+.restaurant_card p {
+  margin: 0 1rem 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.restaurant_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.restaurant_card .rating, 
+.restaurant_card .emptyTables {
+  font-weight: bold;
+  color: #ff7f50;
+  margin-left: 1rem;
+}
