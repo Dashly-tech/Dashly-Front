@@ -1,7 +1,10 @@
 import { useCartStore } from "../../../../app/store/cart.store";
 import styles from "./BasketDrawer.module.css";
+import { useGroupBasketStore } from "../../../../app/store/gorup.store";
 
 export default function IndividualBasketContent() {
+  // const [tableNumber, setTableNumber] = useState("");
+  const {setTableNumber,tableNumber} = useGroupBasketStore()
   const items = useCartStore((state) => state.items);
   const restaurantName = useCartStore((state) => state.restaurantName);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
@@ -63,7 +66,21 @@ export default function IndividualBasketContent() {
             </div>
           </li>
         ))}
+      <div className={styles.tableSection}>
+        <label className={styles.tableLabel} htmlFor="basket-table-number">
+          Masa nömrəsi
+        </label>
+        <input
+          id="basket-table-number"
+          type="text"
+          className={styles.tableInput}
+          placeholder="Masa nömrənizi yazın"
+          value={tableNumber}
+          onChange={(e) => setTableNumber(e.target.value)}
+        />
+      </div>
       </ul>
+
     </div>
   );
 }

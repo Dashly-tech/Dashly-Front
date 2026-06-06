@@ -6,6 +6,8 @@ import {
   HiOutlineUserPlus,
 } from "react-icons/hi2";
 import styles from "./BasketDrawer.module.css";
+import { useGroupBasketStore } from "../../../../app/store/gorup.store";
+import { useCartStore } from "../../../../app/store/cart.store";
 
 type MemberStatus = "pending" | "accepted" | "ignored";
 
@@ -15,19 +17,24 @@ type GroupMember = {
   status: MemberStatus;
 };
 
-const createMember = (number: number): GroupMember => ({
-  id: number,
-  name: `Person ${number}`,
-  status: "pending",
-});
+
 
 export default function GroupBasketContent() {
-  const [members, setMembers] = useState<GroupMember[]>([createMember(1)]);
-  const [tableNumber, setTableNumber] = useState("");
   const [editingMemberId, setEditingMemberId] = useState<number | null>(null);
   const [draftName, setDraftName] = useState("");
   const nameInputRef = useRef<HTMLInputElement>(null);
-
+    const items = useCartStore((state) => state.items);
+    const increaseQuantity = useCartStore((state) => state.increaseQuantity);
+    const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+  const {
+    members,
+    tableNumber,
+    addPerson,
+    acceptMember,
+    ignoreMember,
+    updateMemberName,
+    setTableNumber,
+  } = useGroupBasketStore();
   useEffect(() => {
     if (editingMemberId === null) return;
 
@@ -35,46 +42,18 @@ export default function GroupBasketContent() {
     nameInputRef.current?.select();
   }, [editingMemberId]);
 
-  const handleAddPerson = () => {
-    setMembers((prev) => [...prev, createMember(prev.length + 1)]);
-  };
 
-  const handleAccept = (id: number) => {
-    setMembers((prev) =>
-      prev.map((member) =>
-        member.id === id ? { ...member, status: "accepted" } : member,
-      ),
-    );
-  };
-
-  const handleIgnore = (id: number) => {
-    setMembers((prev) =>
-      prev.map((member) =>
-        member.id === id ? { ...member, status: "ignored" } : member,
-      ),
-    );
-  };
-
-  const startEditing = (member: GroupMember) => {
-    setEditingMemberId(member.id);
-    setDraftName(member.name);
-  };
-
-  const saveMemberName = (memberId: number, previousName: string) => {
+const startEditing = (member: GroupMember) => { setEditingMemberId(member.id); setDraftName(member.name); };
+  const saveMemberName = (
+    memberId: number,
+    previousName: string,
+  ) => {
     const trimmed = draftName.trim();
 
     if (trimmed) {
-      setMembers((prev) =>
-        prev.map((member) =>
-          member.id === memberId ? { ...member, name: trimmed } : member,
-        ),
-      );
+      updateMemberName(memberId, trimmed);
     } else {
-      setMembers((prev) =>
-        prev.map((member) =>
-          member.id === memberId ? { ...member, name: previousName } : member,
-        ),
-      );
+      updateMemberName(memberId, previousName);
     }
 
     setEditingMemberId(null);
@@ -83,6 +62,54 @@ export default function GroupBasketContent() {
 
   return (
     <div className={styles.group}>
+
+          {items.map((item) => (
+          <li key={item.id} className={styles.item}>
+            <div className={styles.itemRow}>
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className={styles.itemImage}
+                />
+              )}
+
+              <div className={styles.itemBody}>
+                <div className={styles.itemTop}>
+                  <span className={styles.itemName}>{item.name}</span>
+                  <span className={styles.itemPrice}>
+                    ₼ {item.price.toFixed(2)}
+                  </span>
+                </div>
+
+                <div className={styles.itemActions}>
+                  <div className={styles.quantity}>
+                    <button
+                      type="button"
+                      className={styles.quantityBtn}
+                      onClick={() => decreaseQuantity(item.id)}
+                      aria-label={`${item.name} miqdarını azalt`}
+                    >
+                      -
+                    </button>
+                    <span className={styles.quantityValue}>{item.quantity}</span>
+                    <button
+                      type="button"
+                      className={styles.quantityBtn}
+                      onClick={() => increaseQuantity(item.id)}
+                      aria-label={`${item.name} miqdarını artır`}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <span className={styles.itemMeta}>
+                    Cəmi: ₼{(item.price * item.quantity).toFixed(2)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
       <h3 className={styles.groupTitle}>Group Members</h3>
 
       <ul className={styles.memberList}>
@@ -92,9 +119,8 @@ export default function GroupBasketContent() {
           return (
             <li
               key={member.id}
-              className={`${styles.memberCard} ${
-                member.status === "ignored" ? styles.memberCardIgnored : ""
-              }`}
+              className={`${styles.memberCard} ${member.status === "ignored" ? styles.memberCardIgnored : ""
+                }`}
             >
               <div className={styles.memberCardTop}>
                 {isEditing ? (
@@ -133,10 +159,9 @@ export default function GroupBasketContent() {
               <div className={styles.memberActions}>
                 <button
                   type="button"
-                  className={`${styles.acceptBtn} ${
-                    member.status === "accepted" ? styles.acceptBtnActive : ""
-                  }`}
-                  onClick={() => handleAccept(member.id)}
+                  className={`${styles.acceptBtn} ${member.status === "accepted" ? styles.acceptBtnActive : ""
+                    }`}
+                  onClick={() => acceptMember(member.id)}
                   aria-pressed={member.status === "accepted"}
                 >
                   <HiOutlineCheck aria-hidden="true" />
@@ -144,10 +169,9 @@ export default function GroupBasketContent() {
                 </button>
                 <button
                   type="button"
-                  className={`${styles.ignoreBtn} ${
-                    member.status === "ignored" ? styles.ignoreBtnActive : ""
-                  }`}
-                  onClick={() => handleIgnore(member.id)}
+                  className={`${styles.ignoreBtn} ${member.status === "ignored" ? styles.ignoreBtnActive : ""
+                    }`}
+                  onClick={() => ignoreMember(member.id)}
                   aria-pressed={member.status === "ignored"}
                 >
                   <HiOutlineUserMinus aria-hidden="true" />
@@ -162,7 +186,7 @@ export default function GroupBasketContent() {
       <button
         type="button"
         className={styles.addPersonBtn}
-        onClick={handleAddPerson}
+        onClick={addPerson}
       >
         <HiOutlineUserPlus aria-hidden="true" />
         <span>Add Person</span>
