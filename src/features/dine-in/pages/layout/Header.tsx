@@ -7,11 +7,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-    const [personCount, setPersonCount] = useState(1);
+ const savedPersonCount = Number(localStorage.getItem("personCount"));
+const [personCount, setPersonCount] = useState(savedPersonCount || 1);
     const [open,setOpen]= useState(false)
     const [isBasketOpen, setIsBasketOpen] = useState(false);
     const navigate = useNavigate()
-
+    const perSencount = (number:number)=>{
+        localStorage.setItem("personCount", String(number));
+        setPersonCount(number)
+        console.log("click",personCount);
+        
+    }
   return (
     <>
       <header className="header">
@@ -22,7 +28,7 @@ export default function Header() {
           <div>
             <HeaderRight
               personCount={personCount}
-              setPersonCount={setPersonCount}
+              perSencount={perSencount}
               onOpenBasket={() => setIsBasketOpen(true)}
             />
           </div>

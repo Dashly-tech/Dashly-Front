@@ -21,7 +21,7 @@ const AllRestaurantsPage = () => {
           </div>
 
           <div className="restaurant-showcase__grid">
-            {restaurants.map((restaurant) => (
+            {restaurants.filter((item)=>item.name !== "Mangal döner").map((restaurant) => (
               <RestaurantCard
                 isQr={true}
                 key={restaurant.id}

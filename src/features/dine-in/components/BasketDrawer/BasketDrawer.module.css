@@ -379,7 +379,9 @@
   line-height: 1.4;
   color: #8b95a8;
 }
-
+li{
+  list-style: none;
+}
 .memberActions {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -521,7 +523,9 @@
   outline: none;
   border-color: rgba(255, 154, 107, 0.45);
 }
-
+.basket_whatsapp{
+  padding: 32px;
+}
 @keyframes basketDrawerIn {
   from {
     opacity: 0;

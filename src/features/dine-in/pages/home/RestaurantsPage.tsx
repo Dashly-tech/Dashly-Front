@@ -4,6 +4,7 @@ import Header from "../layout/Header";
 import { useEffect } from "react";
 import RestaurantCard from "../../../../components/shared/RestaurantCard/RestaurantCard";
 import { useRestaurantStore } from "../../../../app/store/restaurant.store";
+import { Link } from "react-router-dom";
 
 const DineinRestaurantsPage = () => {
    const { restaurants, fetchRestaurants } = useRestaurantStore();
@@ -22,10 +23,10 @@ const DineinRestaurantsPage = () => {
         <div className="restaurant-showcase__container">
           <div className="restaurant-showcase__header">
             <h2>Restoranlar</h2>
-{/* 
-            <Link to="/restaurants" className="restaurant-showcase__view-all">
+
+            <Link to="/all-restaurants" className="restaurant-showcase__view-all">
               Hamısına bax
-            </Link> */}
+            </Link>
           </div>
 
           <div className="restaurant-showcase__grid">

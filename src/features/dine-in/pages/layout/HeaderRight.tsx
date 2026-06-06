@@ -5,10 +5,10 @@ import { useCartStore } from "../../../../app/store/cart.store";
 import "./header.css";
 interface IHeaderProps {
   personCount: number;
-  setPersonCount: (value:number) => void;
+  perSencount: (value:number) => void;
   onOpenBasket: () => void;
 }
-const HeaderRight = ({personCount,setPersonCount, onOpenBasket}:IHeaderProps) => {
+const HeaderRight = ({personCount,perSencount, onOpenBasket}:IHeaderProps) => {
   const navigate = useNavigate();
   const totalItems = useCartStore((state) =>
     state.items.reduce((sum, item) => sum + item.quantity, 0),
@@ -21,7 +21,7 @@ const HeaderRight = ({personCount,setPersonCount, onOpenBasket}:IHeaderProps) =>
         <Button
           variant="secondary"
           size="sm"
-          onClick={() => setPersonCount(1)}
+          onClick={() => perSencount(1)}
           className={`mode-toggle ${personCount === 1 ? "active" : ""}`}
         >
           <svg
@@ -45,7 +45,7 @@ const HeaderRight = ({personCount,setPersonCount, onOpenBasket}:IHeaderProps) =>
         <Button
           variant="secondary"
           size="sm"
-          onClick={() => setPersonCount(2)}
+          onClick={() => perSencount(2)}
           className={`mode-toggle ${personCount === 2 ? "active" : ""}`}
         >
           <svg

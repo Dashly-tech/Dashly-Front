@@ -50,7 +50,7 @@ export default function DidInProductCard({
 
     trackAddToCart(item);
   };
- 
+
 
   return (
     <article className="product-card">
