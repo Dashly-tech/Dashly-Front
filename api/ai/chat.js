@@ -54,8 +54,6 @@ IMPORTANT INSTRUCTIONS:
     })
 
     const data = await response.json()
-    console.log('Anthropic response:', JSON.stringify(data))
-const reply = data.content?.[0]?.text ?? 'Cavab alına bilmədi.'
     const reply = data.content?.[0]?.text ?? 'Cavab alına bilmədi.'
     res.status(200).json({ reply })
   } catch (error) {
