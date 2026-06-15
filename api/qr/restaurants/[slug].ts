@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { restaurants } from '../restaurants'
+import { restaurants } from '../restaurants.ts'
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const { slug } = req.query

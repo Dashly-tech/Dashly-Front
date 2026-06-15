@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import type { Restaurant } from '../src/types/common.types'
+import type { Restaurant } from '../src/types/common.types.ts'
 
 export const restaurants: Restaurant[] = [
   {
