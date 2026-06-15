@@ -1,9 +1,16 @@
-
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/api/ai/chat",
+      "destination": "/api/ai/chat"
+    },
+    {
+      "source": "/api/ai/weather",
+      "destination": "/api/ai/weather"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
