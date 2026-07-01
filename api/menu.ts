@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import type { MenuItem } from '../src/types/common.types.ts'
 
-const I = '/images/manqalDonerImages'
 const NO_IMG = '/images/notfound/imgnotadd.jpeg'
 
 export const menu: MenuItem[] = [
