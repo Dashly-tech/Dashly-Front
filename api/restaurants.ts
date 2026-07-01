@@ -2,22 +2,22 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import type { Restaurant } from '../src/types/common.types.ts'
 
 export const restaurants: Restaurant[] = [
-  {
-    id: 1,
-    name: "Mangal döner",
-    slug: "mangal-döner",
-    logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300",
-    coverImage: "https://i.postimg.cc/C1XV694M/Whats-App-Image-2026-05-14-at-20-46-34.jpg",
-    description: "Best meals in town.",
-    whatsappNumber: "994514081550",
-    address: "Azadliq Square, Baku",
-    locationText: "Azadliq Square, Baku",
-    cuisineType: "Restaurant",
-    isFeatured: true,
-    isActive: true,
-    location: { lat: 40.396297, lng: 49.839718 },
-    deliveryRadiusKm: 7,
-  },
+  // {
+  //   id: 1,
+  //   name: "Mangal döner",
+  //   slug: "mangal-döner",
+  //   logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300",
+  //   coverImage: "https://i.postimg.cc/C1XV694M/Whats-App-Image-2026-05-14-at-20-46-34.jpg",
+  //   description: "Best meals in town.",
+  //   whatsappNumber: "994514081550",
+  //   address: "Azadliq Square, Baku",
+  //   locationText: "Azadliq Square, Baku",
+  //   cuisineType: "Restaurant",
+  //   isFeatured: true,
+  //   isActive: true,
+  //   location: { lat: 40.396297, lng: 49.839718 },
+  //   deliveryRadiusKm: 7,
+  // },
   {
     id: 2,
     name: "Burger House",
